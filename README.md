@@ -15,4 +15,4 @@ blog.html and articles: bloated-in-the-afternoon.html, tired-all-the-time.html, 
 - Legal pages: remove the "Draft, not yet live" boxes once checked, and fill the dashed placeholders (business address, video service, questionnaire tool, retention period, governing law).
 - Remove `<meta name="robots" content="noindex, nofollow">` from every page on launch day, so Google can list the site.
 - Custom domain nataliazutehealth.com: Settings > Pages > Custom domain.
-- SEO: when the domain is live, change https://nat-zut.github.io/nataliazutehealth/ to https://nataliazutehealth.com/ in canonical links, structured data, sitemap.xml and robots.txt, then submit sitemap.xml in Google Search Console.
+- SEO: when the domain is live, change https://nataliazutehealth.com/ to https://nataliazutehealth.com/ in canonical links, structured data, sitemap.xml and robots.txt, then submit sitemap.xml in Google Search Console.
