@@ -61,7 +61,7 @@ img{max-width:100%}
 <div style="display: flex; flex-wrap: wrap; gap: 32px clamp(40px, 6vw, 96px); align-items: center;">
 <div style="flex: 0 1 600px; min-width: 0;">
 <h1 style="margin: 0 0 24px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(52px, 6.4vw, 92px); line-height: .98; letter-spacing: -0.015em; color: #23392C;">Let's talk</h1>
-<p style="margin: 0; max-width: 560px; font-size: 17px; line-height: 1.6;">The easiest way to start is a free 20-minute call on video. Choose a time that suits you below. You can also book a Health Review straight away.</p>
+<p style="margin: 0; max-width: 560px; font-size: 17px; line-height: 1.6;">The easiest way to start is a free 20-minute call on video. Choose what you'd like to book and a time that suits you below.</p>
 </div>
 <div style="flex: 0 1 400px; min-width: 0; max-width: 400px;">
 <div style="position: relative; width: 100%; max-width: 400px; aspect-ratio: 1 / 1; margin: 0 auto;"><div style="position: absolute; inset: 19%; border-radius: 50%; overflow: hidden; background: #E6E0D4;"><img src="images/cc4942476c283c1b1a3a7e8394274244.jpg" alt="Natalia, smiling, in a cream suit" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%;"></div><svg viewBox="0 0 64 64" fill="none" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; transform: rotate(0deg);"><path d="M43.39 6.42A28 28 0 1 1 20.61 6.42" stroke="#23392C" stroke-width="1.1" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="M32 12.6V4.4M32 7.6C29.4 7.9 26.2 6.1 25.5 2.5C28.9 2.2 31.6 4.1 32 7.6ZM32 7.6C34.6 7.9 37.8 6.1 38.5 2.5C35.1 2.2 32.4 4.1 32 7.6Z" stroke="#B89A5E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"></path></svg></div>
@@ -70,74 +70,80 @@ img{max-width:100%}
 </section>
 
 <section id="book" style="max-width: 1440px; margin: 0 auto; box-sizing: border-box; padding: 0 clamp(20px, 4.5vw, 64px) clamp(40px, 6vw, 72px);">
-<span id="health-review" style="position: relative; top: -80px; display: block;"></span>
 <div style="background: #FBF8F2; border: 1px solid #D8CFBF; border-radius: 12px; padding: clamp(20px, 3.5vw, 40px); display: flex; flex-wrap: wrap; gap: 32px clamp(24px, 4vw, 56px); align-items: flex-start;">
 <div style="flex: 4 1 260px; min-width: 0;">
-<p style="margin: 0 0 10px; font-size: 13px; font-weight: 500; letter-spacing: 0.16em; line-height: 1.5; text-transform: uppercase; color: #4A5A4E;">Choose what to book</p>
-<div role="group" aria-label="Choose what to book" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
-<button type="button" class="bookpick" data-pick="fit" aria-pressed="true" style="display: block; box-sizing: border-box; border-radius: 10px; padding: 16px 18px; font-family: inherit; cursor: pointer; text-align: left; width: 100%;"><span style="display: block; margin: 0 0 4px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 24px; line-height: 1.1;">Free fit call</span><span style="display: block; font-size: 14px; line-height: 1.4;">20 minutes on video · Free</span></button>
-<button type="button" class="bookpick" data-pick="hr" aria-pressed="false" style="display: block; box-sizing: border-box; border-radius: 10px; padding: 16px 18px; font-family: inherit; cursor: pointer; text-align: left; width: 100%;"><span style="display: block; margin: 0 0 4px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 24px; line-height: 1.1;">Health Review</span><span style="display: block; font-size: 14px; line-height: 1.4;">90-minute consultation, written plan and 30-minute plan session · £225 or €265</span></button>
-</div>
-<div id="pick-fit-text">
-<h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 3.6vw, 48px); line-height: 1.04; letter-spacing: -0.01em; color: #23392C;">Free fit call</h2>
-<p style="margin: 0; max-width: 420px; font-size: 17px; line-height: 1.6;">A relaxed chat about what's going on and whether we're a good fit. I don't give advice on this call, because good advice needs your questionnaire and the full picture. There's no obligation to book.</p>
-</div>
-<div id="pick-hr-text" hidden>
-<h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 3.6vw, 48px); line-height: 1.04; letter-spacing: -0.01em; color: #23392C;">Health Review</h2>
-<p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;">Your first full consultation: 90 minutes on video. After booking, I'll send your health questionnaire to fill in beforehand. You'll receive a written plan, with a recommended test if useful, and we'll go through it together in a 30-minute session about 3 days later.</p>
-<p style="margin: 0; max-width: 420px; font-size: 17px; line-height: 1.6;"><strong style="font-weight: 500;">£225 or €265.</strong> Not sure yet? Start with the free call.</p>
-</div>
+<label for="bookpick" style="display: block; margin: 0 0 10px; font-size: 13px; font-weight: 500; letter-spacing: 0.16em; line-height: 1.5; text-transform: uppercase; color: #4A5A4E;">Choose what to book</label>
+<select id="bookpick" style="box-sizing: border-box; width: 100%; margin: 0 0 28px; padding: 14px 16px; background: #FBF8F2; color: #23392C; border: 1px solid #23392C; border-radius: 8px; font-family: Jost, 'Helvetica Neue', Arial, sans-serif; font-size: 16px;">
+<optgroup label="New clients">
+<option value="fit">Free fit call</option>
+<option value="health-review">Health Review</option>
+<option value="programme">3-month Nutrition + Coaching programme</option>
+<option value="follow-up">Nutrition follow-up (past clients)</option>
+<option value="coaching">Coaching session (past clients)</option>
+</optgroup>
+<optgroup label="Already in a programme or monthly support">
+<option value="included-coaching">Coaching session (programme or monthly support)</option>
+<option value="included-review">Nutrition review (programme or monthly support)</option>
+<option value="plan">Plan session</option>
+</optgroup>
+</select>
+<div class="pick-text" data-pick="fit" hidden><h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 3.6vw, 48px); line-height: 1.04; letter-spacing: -0.01em; color: #23392C;">Free fit call</h2><p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;"><strong style="font-weight: 500;">Free, 20 minutes on video</strong></p><p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;">A relaxed chat about what's going on and whether we're a good fit. I don't give advice on this call, because good advice needs your questionnaire and the full picture. There's no obligation to book.</p></div>
+<div class="pick-text" data-pick="health-review" hidden><h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 3.6vw, 48px); line-height: 1.04; letter-spacing: -0.01em; color: #23392C;">Health Review</h2><p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;"><strong style="font-weight: 500;">£225 or €265</strong></p><p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;">Your first full consultation: 90 minutes on video. After booking, I'll send your health questionnaire to fill in beforehand. You'll receive a written plan, with a recommended test if useful, and we'll go through it together in a 30-minute session about 3 days later.</p></div>
+<div class="pick-text" data-pick="programme" hidden><h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 3.6vw, 48px); line-height: 1.04; letter-spacing: -0.01em; color: #23392C;">3-month Nutrition + Coaching programme</h2><p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;"><strong style="font-weight: 500;">Case-study places £415 · founding price £625 until 31 March 2027 · £755 from 1 April 2027. Pay in full or in 3 monthly payments.</strong></p><p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;">Book your 90-minute first consultation to start the programme. After booking, I'll send your health questionnaire. Your programme includes your written plan, a 30-minute plan session, 6 coaching sessions, a week-6 nutrition review and email support.</p></div>
+<div class="pick-text" data-pick="follow-up" hidden><h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 3.6vw, 48px); line-height: 1.04; letter-spacing: -0.01em; color: #23392C;">Nutrition follow-up (past clients)</h2><p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;"><strong style="font-weight: 500;">£155 or €185</strong></p><p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;">A 60-minute nutrition session, including your test results if you've had a test, then a 30-minute session about 3 days later to agree your updated plan.</p></div>
+<div class="pick-text" data-pick="coaching" hidden><h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 3.6vw, 48px); line-height: 1.04; letter-spacing: -0.01em; color: #23392C;">Coaching session (past clients)</h2><p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;"><strong style="font-weight: 500;">£75 or €95</strong></p><p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;">One 60-minute coaching session on video.</p></div>
+<div class="pick-text" data-pick="included-coaching" hidden><h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 3.6vw, 48px); line-height: 1.04; letter-spacing: -0.01em; color: #23392C;">Coaching session (programme or monthly support)</h2><p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;"><strong style="font-weight: 500;">Included in your programme or monthly support</strong></p><p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;">Book one of your included 60-minute coaching sessions.</p></div>
+<div class="pick-text" data-pick="included-review" hidden><h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 3.6vw, 48px); line-height: 1.04; letter-spacing: -0.01em; color: #23392C;">Nutrition review (programme or monthly support)</h2><p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;"><strong style="font-weight: 500;">Included in your programme or monthly support</strong></p><p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;">Your 60-minute nutrition review, including your test results if you've had a test, then a 30-minute plan session about 3 days later.</p></div>
+<div class="pick-text" data-pick="plan" hidden><h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 3.6vw, 48px); line-height: 1.04; letter-spacing: -0.01em; color: #23392C;">Plan session</h2><p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;"><strong style="font-weight: 500;">Included with your consultation, follow-up or review</strong></p><p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;">A 30-minute session to go through your written plan together. Please choose a time about 3 days after your session, so your plan is ready.</p></div>
 </div>
 <div style="flex: 8 1 480px; min-width: 0;">
-<div id="cal-free-fit-call" style="width: 100%; min-height: 560px; overflow: auto;"></div>
-<div id="cal-health-review" style="width: 100%; min-height: 560px; overflow: auto;" hidden></div>
+<div class="pick-cal" id="cal-fit" data-pick="fit" style="width: 100%; min-height: 560px; overflow: auto;" hidden></div>
+<div class="pick-cal" id="cal-health-review" data-pick="health-review" style="width: 100%; min-height: 560px; overflow: auto;" hidden></div>
+<div class="pick-cal" id="cal-programme" data-pick="programme" style="width: 100%; min-height: 560px; overflow: auto;" hidden></div>
+<div class="pick-cal" id="cal-follow-up" data-pick="follow-up" style="width: 100%; min-height: 560px; overflow: auto;" hidden></div>
+<div class="pick-cal" id="cal-coaching" data-pick="coaching" style="width: 100%; min-height: 560px; overflow: auto;" hidden></div>
+<div class="pick-cal" id="cal-included-coaching" data-pick="included-coaching" style="width: 100%; min-height: 560px; overflow: auto;" hidden></div>
+<div class="pick-cal" id="cal-included-review" data-pick="included-review" style="width: 100%; min-height: 560px; overflow: auto;" hidden></div>
+<div class="pick-cal" id="cal-plan" data-pick="plan" style="width: 100%; min-height: 560px; overflow: auto;" hidden></div>
 <div id="plan-step" hidden>
-<p style="margin: 0 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 28px; line-height: 1.1; color: #23392C;">Thank you, your Health Review is booked.</p>
-<p style="margin: 0 0 16px; font-size: 17px; line-height: 1.6;">One more step: choose a time for your 30-minute plan session, <strong style="font-weight: 500;">about 3 days after your consultation</strong>, so your written plan is ready.</p>
-<div id="cal-plan-session" style="width: 100%; min-height: 560px; overflow: auto;"></div>
+<p style="margin: 0 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 28px; line-height: 1.1; color: #23392C;">Thank you, you're booked.</p>
+<p style="margin: 0 0 16px; font-size: 17px; line-height: 1.6;">One more step: choose a time for your 30-minute plan session, <strong style="font-weight: 500;">about 3 days after your session</strong>, so your written plan is ready.</p>
+<div id="cal-plan-step" style="width: 100%; min-height: 560px; overflow: auto;"></div>
 </div>
 <p style="margin: 14px 0 0; font-size: 15px; line-height: 1.5; color: #4A5A4E;">I'll use your details only to arrange your session. <a href="privacy.html" style="text-decoration: underline; text-underline-offset: 3px;">Privacy policy</a></p>
 <script>
 (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
 (function () {
+  var services = {"fit": {"link": "nataliazutehealth/free-fit-call", "plan": false}, "health-review": {"link": "nataliazutehealth/health-review", "plan": true}, "programme": {"link": "nataliazutehealth/programme-consultation", "plan": true}, "follow-up": {"link": "nataliazutehealth/follow-up", "plan": true}, "coaching": {"link": "nataliazutehealth/coaching-session", "plan": false}, "included-coaching": {"link": "nataliazutehealth/coaching", "plan": false}, "included-review": {"link": "nataliazutehealth/nutrition-review", "plan": true}, "plan": {"link": "nataliazutehealth/plan-session", "plan": false}};
   var ui = { theme: "light", cssVarsPerTheme: { light: { "cal-brand": "#23392C" } }, hideEventTypeDetails: true, layout: "month_view" };
   var made = {};
-  function embed(ns, el, link) {
+  function embed(ns, el, link, onBooked) {
     if (made[ns]) return; made[ns] = true;
     Cal("init", ns, { origin: "https://app.cal.com" });
     Cal.ns[ns]("inline", { elementOrSelector: el, config: { layout: "month_view", theme: "light" }, calLink: link });
     Cal.ns[ns]("ui", ui);
+    if (onBooked) Cal.ns[ns]("on", { action: "bookingSuccessful", callback: onBooked });
   }
-  var on = "background: #23392C; color: #F4EEE3; border: 1px solid #23392C;";
-  var off = "background: #FBF8F2; color: #23392C; border: 1px solid #D8CFBF;";
+  function showPlanStep(which) {
+    setTimeout(function () {
+      document.getElementById("cal-" + which).hidden = true;
+      document.getElementById("plan-step").hidden = false;
+      embed("plan-step", "#cal-plan-step", "nataliazutehealth/plan-session");
+      document.getElementById("plan-step").scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 2500);
+  }
   function pick(which) {
-    var hr = which === "hr";
-    document.getElementById("pick-fit-text").hidden = hr;
-    document.getElementById("pick-hr-text").hidden = !hr;
-    document.getElementById("cal-free-fit-call").hidden = hr;
-    document.getElementById("cal-health-review").hidden = !hr;
-    document.querySelectorAll(".bookpick").forEach(function (b) {
-      var active = b.getAttribute("data-pick") === which;
-      b.setAttribute("aria-pressed", active ? "true" : "false");
-      b.style.cssText = "display: block; box-sizing: border-box; border-radius: 10px; padding: 16px 18px; font-family: inherit; cursor: pointer; text-align: left; width: 100%; " + (active ? on : off);
-    });
-    if (hr && !made["health-review"]) {
-      embed("health-review", "#cal-health-review", "nataliazutehealth/health-review");
-      Cal.ns["health-review"]("on", { action: "bookingSuccessful", callback: function () {
-        setTimeout(function () {
-          document.getElementById("cal-health-review").hidden = true;
-          document.getElementById("plan-step").hidden = false;
-          embed("plan-session", "#cal-plan-session", "nataliazutehealth/plan-session");
-          document.getElementById("plan-step").scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 2500);
-      } });
-    }
-    else embed("free-fit-call", "#cal-free-fit-call", "nataliazutehealth/free-fit-call");
+    if (!services[which]) which = "fit";
+    document.getElementById("bookpick").value = which;
+    document.getElementById("plan-step").hidden = true;
+    document.querySelectorAll(".pick-text, .pick-cal").forEach(function (el) { el.hidden = el.getAttribute("data-pick") !== which; });
+    var s = services[which];
+    embed("ns-" + which, "#cal-" + which, s.link, s.plan ? function () { showPlanStep(which); } : null);
   }
-  document.querySelectorAll(".bookpick").forEach(function (b) {
-    b.addEventListener("click", function () { pick(b.getAttribute("data-pick")); });
-  });
-  pick(location.hash === "#health-review" ? "hr" : "fit");
+  document.getElementById("bookpick").addEventListener("change", function () { pick(this.value); });
+  var h = location.hash.replace("#", "");
+  pick(services[h] ? h : "fit");
+  if (services[h] && h !== "fit") document.getElementById("book").scrollIntoView();
 })();
 </script>
 </div>
@@ -149,7 +155,7 @@ img{max-width:100%}
 <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 28px clamp(20px, 3vw, 40px);">
 <li style="min-width: 0; border-top: 1px solid #B89A5E; padding-top: 18px;"><p style="margin: 0 0 10px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 52px; font-weight: 500; line-height: 1; color: #7D5A28;">1</p><p style="margin: 0; font-size: 17px; line-height: 1.6;">Pick a time for your free call and add your name and email. If you like, add one sentence about what you'd like help with, but please no detailed health information; we'll talk about it on the call.</p></li>
 <li style="min-width: 0; border-top: 1px solid #B89A5E; padding-top: 18px;"><p style="margin: 0 0 10px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 52px; font-weight: 500; line-height: 1; color: #7D5A28;">2</p><p style="margin: 0; font-size: 17px; line-height: 1.6;">You'll get an email confirming the time, with a video link.</p></li>
-<li style="min-width: 0; border-top: 1px solid #B89A5E; padding-top: 18px;"><p style="margin: 0 0 10px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 52px; font-weight: 500; line-height: 1; color: #7D5A28;">3</p><p style="margin: 0; font-size: 17px; line-height: 1.6;">After the call, if we're a good fit, I'll send you a link to book your Health Review or programme. There's no obligation to book.</p></li>
+<li style="min-width: 0; border-top: 1px solid #B89A5E; padding-top: 18px;"><p style="margin: 0 0 10px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 52px; font-weight: 500; line-height: 1; color: #7D5A28;">3</p><p style="margin: 0; font-size: 17px; line-height: 1.6;">After the call, if we're a good fit, you can book your Health Review or programme here, in the same calendar. There's no obligation to book.</p></li>
 </ol><div class="sl" aria-hidden="true" style="margin-top: clamp(32px, 4vw, 44px); border-top: 1px solid #B89A5E;"></div>
 </section>
 
