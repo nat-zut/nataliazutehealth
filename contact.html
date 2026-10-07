@@ -91,6 +91,11 @@ img{max-width:100%}
 <div style="flex: 8 1 480px; min-width: 0;">
 <div id="cal-free-fit-call" style="width: 100%; min-height: 560px; overflow: auto;"></div>
 <div id="cal-health-review" style="width: 100%; min-height: 560px; overflow: auto;" hidden></div>
+<div id="plan-step" hidden>
+<p style="margin: 0 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 28px; line-height: 1.1; color: #23392C;">Thank you, your Health Review is booked.</p>
+<p style="margin: 0 0 16px; font-size: 17px; line-height: 1.6;">One more step: choose a time for your 30-minute plan session, <strong style="font-weight: 500;">about 3 days after your consultation</strong>, so your written plan is ready.</p>
+<div id="cal-plan-session" style="width: 100%; min-height: 560px; overflow: auto;"></div>
+</div>
 <p style="margin: 14px 0 0; font-size: 15px; line-height: 1.5; color: #4A5A4E;">I'll use your details only to arrange your session. <a href="privacy.html" style="text-decoration: underline; text-underline-offset: 3px;">Privacy policy</a></p>
 <script>
 (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
@@ -116,7 +121,17 @@ img{max-width:100%}
       b.setAttribute("aria-pressed", active ? "true" : "false");
       b.style.cssText = "display: block; box-sizing: border-box; border-radius: 10px; padding: 16px 18px; font-family: inherit; cursor: pointer; text-align: left; width: 100%; " + (active ? on : off);
     });
-    if (hr) embed("health-review", "#cal-health-review", "nataliazutehealth/health-review");
+    if (hr && !made["health-review"]) {
+      embed("health-review", "#cal-health-review", "nataliazutehealth/health-review");
+      Cal.ns["health-review"]("on", { action: "bookingSuccessful", callback: function () {
+        setTimeout(function () {
+          document.getElementById("cal-health-review").hidden = true;
+          document.getElementById("plan-step").hidden = false;
+          embed("plan-session", "#cal-plan-session", "nataliazutehealth/plan-session");
+          document.getElementById("plan-step").scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 2500);
+      } });
+    }
     else embed("free-fit-call", "#cal-free-fit-call", "nataliazutehealth/free-fit-call");
   }
   document.querySelectorAll(".bookpick").forEach(function (b) {
