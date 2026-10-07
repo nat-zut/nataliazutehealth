@@ -61,7 +61,7 @@ img{max-width:100%}
 <div style="display: flex; flex-wrap: wrap; gap: 32px clamp(40px, 6vw, 96px); align-items: center;">
 <div style="flex: 0 1 600px; min-width: 0;">
 <h1 style="margin: 0 0 24px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(52px, 6.4vw, 92px); line-height: .98; letter-spacing: -0.015em; color: #23392C;">Let's talk</h1>
-<p style="margin: 0; max-width: 560px; font-size: 17px; line-height: 1.6;">The easiest way to start is a free 20-minute call on video. Choose a time that suits you below.</p>
+<p style="margin: 0; max-width: 560px; font-size: 17px; line-height: 1.6;">The easiest way to start is a free 20-minute call on video. Choose a time that suits you below. You can also book a Health Review straight away.</p>
 </div>
 <div style="flex: 0 1 400px; min-width: 0; max-width: 400px;">
 <div style="position: relative; width: 100%; max-width: 400px; aspect-ratio: 1 / 1; margin: 0 auto;"><div style="position: absolute; inset: 19%; border-radius: 50%; overflow: hidden; background: #E6E0D4;"><img src="images/cc4942476c283c1b1a3a7e8394274244.jpg" alt="Natalia, smiling, in a cream suit" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%;"></div><svg viewBox="0 0 64 64" fill="none" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; transform: rotate(0deg);"><path d="M43.39 6.42A28 28 0 1 1 20.61 6.42" stroke="#23392C" stroke-width="1.1" stroke-linecap="round" vector-effect="non-scaling-stroke"></path><path d="M32 12.6V4.4M32 7.6C29.4 7.9 26.2 6.1 25.5 2.5C28.9 2.2 31.6 4.1 32 7.6ZM32 7.6C34.6 7.9 37.8 6.1 38.5 2.5C35.1 2.2 32.4 4.1 32 7.6Z" stroke="#B89A5E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"></path></svg></div>
@@ -70,19 +70,60 @@ img{max-width:100%}
 </section>
 
 <section id="book" style="max-width: 1440px; margin: 0 auto; box-sizing: border-box; padding: 0 clamp(20px, 4.5vw, 64px) clamp(40px, 6vw, 72px);">
+<span id="health-review" style="position: relative; top: -80px; display: block;"></span>
 <div style="background: #FBF8F2; border: 1px solid #D8CFBF; border-radius: 12px; padding: clamp(20px, 3.5vw, 40px); display: flex; flex-wrap: wrap; gap: 32px clamp(24px, 4vw, 56px); align-items: flex-start;">
 <div style="flex: 4 1 260px; min-width: 0;">
+<p style="margin: 0 0 10px; font-size: 13px; font-weight: 500; letter-spacing: 0.16em; line-height: 1.5; text-transform: uppercase; color: #4A5A4E;">Choose what to book</p>
+<div role="group" aria-label="Choose what to book" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+<button type="button" class="bookpick" data-pick="fit" aria-pressed="true" style="display: block; box-sizing: border-box; border-radius: 10px; padding: 16px 18px; font-family: inherit; cursor: pointer; text-align: left; width: 100%;"><span style="display: block; margin: 0 0 4px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 24px; line-height: 1.1;">Free fit call</span><span style="display: block; font-size: 14px; line-height: 1.4;">20 minutes on video · Free</span></button>
+<button type="button" class="bookpick" data-pick="hr" aria-pressed="false" style="display: block; box-sizing: border-box; border-radius: 10px; padding: 16px 18px; font-family: inherit; cursor: pointer; text-align: left; width: 100%;"><span style="display: block; margin: 0 0 4px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 24px; line-height: 1.1;">Health Review</span><span style="display: block; font-size: 14px; line-height: 1.4;">90-minute consultation, written plan and 30-minute plan session · £225 or €265</span></button>
+</div>
+<div id="pick-fit-text">
 <h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 3.6vw, 48px); line-height: 1.04; letter-spacing: -0.01em; color: #23392C;">Free fit call</h2>
-<p style="margin: 0 0 0px; max-width: 420px; font-size: 17px; line-height: 1.6;">A relaxed chat about what's going on and whether we're a good fit. I don't give advice on this call, because good advice needs your questionnaire and the full picture. There's no obligation to book.</p>
+<p style="margin: 0; max-width: 420px; font-size: 17px; line-height: 1.6;">A relaxed chat about what's going on and whether we're a good fit. I don't give advice on this call, because good advice needs your questionnaire and the full picture. There's no obligation to book.</p>
+</div>
+<div id="pick-hr-text" hidden>
+<h2 style="margin: 0 0 16px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 3.6vw, 48px); line-height: 1.04; letter-spacing: -0.01em; color: #23392C;">Health Review</h2>
+<p style="margin: 0 0 12px; max-width: 420px; font-size: 17px; line-height: 1.6;">Your first full consultation: 90 minutes on video. After booking, I'll send your health questionnaire to fill in beforehand. You'll receive a written plan, with a recommended test if useful, and we'll go through it together in a 30-minute session about 3 days later.</p>
+<p style="margin: 0; max-width: 420px; font-size: 17px; line-height: 1.6;"><strong style="font-weight: 500;">£225 or €265.</strong> Not sure yet? Start with the free call.</p>
+</div>
 </div>
 <div style="flex: 8 1 480px; min-width: 0;">
 <div id="cal-free-fit-call" style="width: 100%; min-height: 560px; overflow: auto;"></div>
-<p style="margin: 14px 0 0; font-size: 15px; line-height: 1.5; color: #4A5A4E;">I'll use your details only to arrange our call. <a href="privacy.html" style="text-decoration: underline; text-underline-offset: 3px;">Privacy policy</a></p>
+<div id="cal-health-review" style="width: 100%; min-height: 560px; overflow: auto;" hidden></div>
+<p style="margin: 14px 0 0; font-size: 15px; line-height: 1.5; color: #4A5A4E;">I'll use your details only to arrange your session. <a href="privacy.html" style="text-decoration: underline; text-underline-offset: 3px;">Privacy policy</a></p>
 <script>
 (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-Cal("init", "free-fit-call", { origin: "https://app.cal.com" });
-Cal.ns["free-fit-call"]("inline", { elementOrSelector: "#cal-free-fit-call", config: { layout: "month_view", theme: "light" }, calLink: "nataliazutehealth/free-fit-call" });
-Cal.ns["free-fit-call"]("ui", { theme: "light", cssVarsPerTheme: { light: { "cal-brand": "#23392C" } }, hideEventTypeDetails: true, layout: "month_view" });
+(function () {
+  var ui = { theme: "light", cssVarsPerTheme: { light: { "cal-brand": "#23392C" } }, hideEventTypeDetails: true, layout: "month_view" };
+  var made = {};
+  function embed(ns, el, link) {
+    if (made[ns]) return; made[ns] = true;
+    Cal("init", ns, { origin: "https://app.cal.com" });
+    Cal.ns[ns]("inline", { elementOrSelector: el, config: { layout: "month_view", theme: "light" }, calLink: link });
+    Cal.ns[ns]("ui", ui);
+  }
+  var on = "background: #23392C; color: #F4EEE3; border: 1px solid #23392C;";
+  var off = "background: #FBF8F2; color: #23392C; border: 1px solid #D8CFBF;";
+  function pick(which) {
+    var hr = which === "hr";
+    document.getElementById("pick-fit-text").hidden = hr;
+    document.getElementById("pick-hr-text").hidden = !hr;
+    document.getElementById("cal-free-fit-call").hidden = hr;
+    document.getElementById("cal-health-review").hidden = !hr;
+    document.querySelectorAll(".bookpick").forEach(function (b) {
+      var active = b.getAttribute("data-pick") === which;
+      b.setAttribute("aria-pressed", active ? "true" : "false");
+      b.style.cssText = "display: block; box-sizing: border-box; border-radius: 10px; padding: 16px 18px; font-family: inherit; cursor: pointer; text-align: left; width: 100%; " + (active ? on : off);
+    });
+    if (hr) embed("health-review", "#cal-health-review", "nataliazutehealth/health-review");
+    else embed("free-fit-call", "#cal-free-fit-call", "nataliazutehealth/free-fit-call");
+  }
+  document.querySelectorAll(".bookpick").forEach(function (b) {
+    b.addEventListener("click", function () { pick(b.getAttribute("data-pick")); });
+  });
+  pick(location.hash === "#health-review" ? "hr" : "fit");
+})();
 </script>
 </div>
 </div>
