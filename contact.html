@@ -137,17 +137,13 @@ Cal.ns["free-fit-call"]("ui", { theme: "light", cssVarsPerTheme: { light: { "cal
 <p style="margin: 0;">Email: <a href="mailto:hello@nataliazutehealth.com" style="text-decoration: underline; text-underline-offset: 3px;">hello@nataliazutehealth.com</a></p>
 </div>
 </div>
-<form style="flex: 6 1 340px; min-width: 0; background: #FBF8F2; border: 1px solid #D8CFBF; border-radius: 12px; padding: clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 16px;">
+<div style="flex: 6 1 340px; min-width: 0; background: #FBF8F2; border: 1px solid #D8CFBF; border-radius: 12px; padding: clamp(20px, 3vw, 32px); display: flex; flex-direction: column; gap: 16px;">
 <h3 style="margin: 0 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 28px; line-height: 1.1; color: #23392C;">Send me a message</h3>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 16px;">
-<div style="display: flex; flex-direction: column; gap: 6px;"><label for="cname" style="font-size: 15px; font-weight: 500; color: #23392C;">Name</label><input id="cname" autocomplete="name" type="text" style="box-sizing: border-box; width: 100%; padding: 0 16px; background: #FBF8F2; color: #23392C; border: 1px solid #23392C; border-radius: 8px; font-family: Jost, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; height: 48px;"></div>
-<div style="display: flex; flex-direction: column; gap: 6px;"><label for="cmail" style="font-size: 15px; font-weight: 500; color: #23392C;">Email</label><input id="cmail" autocomplete="email" type="email" style="box-sizing: border-box; width: 100%; padding: 0 16px; background: #FBF8F2; color: #23392C; border: 1px solid #23392C; border-radius: 8px; font-family: Jost, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; height: 48px;"></div>
-</div>
-<div style="display: flex; flex-direction: column; gap: 6px;"><label for="cmsg" style="font-size: 15px; font-weight: 500; color: #23392C;">Message</label><textarea id="cmsg" rows="3" style="box-sizing: border-box; width: 100%; padding: 0 16px; background: #FBF8F2; color: #23392C; border: 1px solid #23392C; border-radius: 8px; font-family: Jost, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; padding: 12px 16px; min-height: 96px; resize: vertical;"></textarea></div>
-<div><button class="fullbtn" type="button" style="border: 0; cursor: pointer; background: #23392C; color: #F4EEE3; border-radius: 999px; padding: 15px 28px; font-family: Jost, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; font-weight: 500; line-height: 1.2;">Send message</button></div>
-<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4A5A4E;">Please don't share detailed health information here. I'll use your details only to reply to you. <a href="privacy.html" style="text-decoration: underline; text-underline-offset: 3px;">Privacy policy</a></p>
+<p style="margin: 0; font-size: 17px; line-height: 1.6;">Have a question before you book? Email me and I'll reply within 24 hours, Monday to Friday.</p>
+<div><a class="fullbtn" href="mailto:hello@nataliazutehealth.com?subject=Hello%20Natalia" style="display: inline-block; background: #23392C; color: #F4EEE3; border-radius: 999px; padding: 15px 28px; font-family: Jost, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; font-weight: 500; line-height: 1.2; text-decoration: none;">Email me</a></div>
+<p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4A5A4E;">Please don't share detailed health information by email. I'll use your details only to reply to you. <a href="privacy.html" style="text-decoration: underline; text-underline-offset: 3px;">Privacy policy</a></p>
 <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #4A5A4E;">I can't answer urgent health questions by email. If you're unwell, please contact your GP or call NHS 111. In an emergency, call 999.</p>
-</form>
+</div>
 </div>
 </section>
 
