@@ -9,7 +9,7 @@ blog.html and articles: bloated-in-the-afternoon.html, tired-all-the-time.html, 
 
 ## Still to connect before launch
 - Free guide sign-up forms (home and free-guide.html): MailerLite embedded form. For now they go straight to thank-you.html and send nothing.
-- Booking calendar on contact.html: switching to Google Calendar booking pages (appointment schedules), decided 8 Oct. The Cal.com code there is a placeholder until the Google booking links exist. For now the form goes to booked.html.
+- Booking calendar on contact.html: Google Calendar booking page (Free fit call) embedded since 8 Oct, replacing Cal.com. Workspace Business Starter allows one booking page, so paid sessions start with a free call for now; add more booking pages after upgrading to Business Standard.
 - Founding places left: change LEFT in founding.js (one number updates every page; at 0 the founding bar, pill, band and booking option disappear).
 - Contact message form on contact.html: a form tool. For now it sends nothing.
 - Payments: Stripe (with the customer portal turned on, so clients can manage 3 monthly payments online).
