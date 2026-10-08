@@ -9,7 +9,8 @@ blog.html and articles: bloated-in-the-afternoon.html, tired-all-the-time.html, 
 
 ## Still to connect before launch
 - Free guide sign-up forms (home and free-guide.html): MailerLite embedded form. For now they go straight to thank-you.html and send nothing.
-- Booking calendar on contact.html: Cal.com embed (free fit call, Health Review, Root, Root & Grow, Grow coaching, follow-up, plan walk-through). "root" and "founding" currently reuse the Health Review and free-call event links. For now the form goes to booked.html.
+- Booking calendar on contact.html: switching to Google Calendar booking pages (appointment schedules), decided 8 Oct. The Cal.com code there is a placeholder until the Google booking links exist. For now the form goes to booked.html.
+- Founding places left: change LEFT in founding.js (one number updates every page; at 0 the founding bar, pill, band and booking option disappear).
 - Contact message form on contact.html: a form tool. For now it sends nothing.
 - Payments: Stripe (with the customer portal turned on, so clients can manage 3 monthly payments online).
 - Legal pages: remove the "Draft, not yet live" boxes once checked, and fill the dashed placeholders (business address, video service, questionnaire tool, retention period, governing law).
