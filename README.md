@@ -9,7 +9,7 @@ blog.html and articles: bloated-in-the-afternoon.html, tired-all-the-time.html, 
 
 ## Still to connect before launch
 - Free guide sign-up forms (home and free-guide.html): MailerLite embedded form. For now they go straight to thank-you.html and send nothing.
-- Booking calendar on contact.html: Google Calendar booking page (Free fit call) embedded since 8 Oct, replacing Cal.com. Workspace Business Starter allows one booking page, so paid sessions start with a free call for now; add more booking pages after upgrading to Business Standard.
+- Booking calendar on contact.html: Cal.com (username nataliazutehealth, free plan) with all services, set up 8 Oct. Bookings go to Google Calendar (natalia@nataliazutehealth.com) with Google Meet. Paid sessions require Natalia's confirmation and she sends a payment link until Stripe is connected.
 - Founding places left: change LEFT in founding.js (one number updates every page; at 0 the founding bar, pill, band and booking option disappear).
 - Contact message form on contact.html: a form tool. For now it sends nothing.
 - Payments: Stripe (with the customer portal turned on, so clients can manage 3 monthly payments online).
