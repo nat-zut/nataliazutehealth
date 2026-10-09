@@ -57,6 +57,7 @@ details li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:
 .curbtn{background:transparent;color:#23392C}.curbtn[aria-pressed="true"]{background:#23392C;color:#F4EEE3}
 @media (max-width:560px){.anndot{display:block;height:0;overflow:hidden}.annbar{font-size:13px!important}}
 </style>
+<style>@media (min-width: 1100px){.cards{display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:24px;row-gap:0}.cards>.card{display:grid !important;grid-template-rows:subgrid;grid-row:span 7;row-gap:18px;align-content:start}.cards>.card>details{margin-top:0 !important}}</style>
 </head>
 <body>
 <div style="background: #F4EEE3; color: #23392C; font-family: Jost, 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.6; overflow-x: hidden;">
@@ -92,14 +93,14 @@ details li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:
 <div style="display: flex; flex-direction: column; gap: 10px;"><div style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: #9C4F1E;">Options and prices</div><h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: clamp(36px, 4.4vw, 60px); line-height: 1.04; color: #23392C;">Three ways to work together</h2></div>
 <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #4A5A4E;">Show prices in <div role="group" aria-label="Currency" style="display: inline-flex; border: 1px solid #D8CFBF; background: #FBF8F2; border-radius: 999px; padding: 3px;"><button type="button" class="curbtn" data-cur="gbp" aria-pressed="true" style="border: 0; border-radius: 999px; padding: 8px 16px; min-height: 40px; font-family: Jost, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer;">£ GBP</button><button type="button" class="curbtn" data-cur="eur" aria-pressed="false" style="border: 0; border-radius: 999px; padding: 8px 16px; min-height: 40px; font-family: Jost, sans-serif; font-size: 14px; font-weight: 500; cursor: pointer;">€ EUR</button></div></div>
 </div>
-<div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch;">
+<div class="cards" style="display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch;">
 <article id="nutrition" class="card" style="flex: 1 1 340px; min-width: 0; border-radius: 14px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px; padding: 20px 24px 28px; background: #FBF8F2; border: 1px solid #D8CFBF;">
 <div style="height: 240px; border-radius: 10px; overflow: hidden; background: #E6E0D4;"><img loading="lazy" src="images/root-beetroot-wide.jpg" alt="A fresh beetroot with its stalks on marble" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%;"></div>
 <div style="display: flex; flex-direction: column; gap: 6px;"><div style="font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; color: #9C4F1E;">Nutrition · 12 weeks</div>
 <h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 38px; line-height: 1.05;">Root</h3>
 <div style="font-size: 15px; color: #4A5A4E;">Your nutrition foundation: 3 nutrition sessions over 12 weeks</div></div>
 <p style="margin: 0; font-size: 15px; line-height: 1.5; background: #E7ECE2; border-radius: 8px; padding: 12px 14px;"><span style="font-weight: 500;">Best for:</span> you want a thorough health review and a clear, personal plan, and you're ready to commit to it, with my support between sessions.</p>
-<div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-top: 1px solid #D8CFBF; border-bottom: 1px solid #D8CFBF;">
+<div style="display: flex; flex-direction: column; gap: 18px;"><div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-top: 1px solid #D8CFBF; border-bottom: 1px solid #D8CFBF;">
 <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 56px; font-weight: 600; line-height: 1;"><span class="pr" data-gbp="£445" data-eur="€535">£445</span></div>
 <div style="font-size: 14px; color: #4A5A4E;"><span class="pr" data-gbp="or 3 monthly payments: £155, £145, £145" data-eur="or 3 monthly payments: €185, €175, €175">or 3 monthly payments: £155, £145, £145</span></div>
 <div style="font-size: 14px; color: #4A5A4E;"><span class="pr" data-gbp="£485" data-eur="€585">£485</span> if booked separately</div>
@@ -108,7 +109,7 @@ details li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:
 <li style="display: flex; gap: 10px;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#B89A5E" stroke-width="1.2" stroke-linecap="round" style="flex-shrink: 0; margin-top: 6px;" aria-hidden="true"><path d="M7 13V6"></path><path d="M7 7C7 4.5 5 3 2.5 3C2.5 5.5 4.5 7 7 7Z"></path><path d="M7 6C7 3.5 9 2 11.5 2C11.5 4.5 9.5 6 7 6Z"></path></svg><span>90-min consultation, written plan and a 30-min plan walk-through</span></li>
 <li style="display: flex; gap: 10px;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#B89A5E" stroke-width="1.2" stroke-linecap="round" style="flex-shrink: 0; margin-top: 6px;" aria-hidden="true"><path d="M7 13V6"></path><path d="M7 7C7 4.5 5 3 2.5 3C2.5 5.5 4.5 7 7 7Z"></path><path d="M7 6C7 3.5 9 2 11.5 2C11.5 4.5 9.5 6 7 6Z"></path></svg><span>Follow-ups at weeks 6 and 12 to review your progress, and your test results if you chose a test</span></li>
 <li style="display: flex; gap: 10px;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#B89A5E" stroke-width="1.2" stroke-linecap="round" style="flex-shrink: 0; margin-top: 6px;" aria-hidden="true"><path d="M7 13V6"></path><path d="M7 7C7 4.5 5 3 2.5 3C2.5 5.5 4.5 7 7 7Z"></path><path d="M7 6C7 3.5 9 2 11.5 2C11.5 4.5 9.5 6 7 6Z"></path></svg><span>Email support for all 12 weeks</span></li>
-</ul>
+</ul></div>
 <details style="margin-top: auto; border-top: 1px solid #D8CFBF; padding-top: 14px;"><summary>See everything included</summary><div class="lbl" style="color: #4A5A4E;">Health Review, week 1</div><ul>
 <li>Health questionnaire and food diary, which I review before we meet</li>
 <li>90-min consultation: your health story, food, sleep, stress and daily life</li>
@@ -121,8 +122,8 @@ details li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:
 <li>An updated written plan and a 30-min plan walk-through</li>
 <li>At week 12, a plan for the weeks ahead</li>
 </ul></details>
-<div style="display: flex; flex-direction: column; gap: 12px;">
 <a href="contact.html#root" style="display: block; text-align: center; background: #23392C; color: #F4EEE3; border-radius: 999px; padding: 15px 28px; font-size: 16px; font-weight: 500; line-height: 1.2; text-decoration: none;">Book Root</a>
+<div style="display: flex; flex-direction: column; gap: 12px;">
 <div class="row" style="background: #F4EEE3; border-radius: 10px; padding: 16px 18px; display: flex; justify-content: space-between; gap: 16px; align-items: flex-start;">
 <div style="display: flex; flex-direction: column; gap: 4px;"><div style="font-weight: 500;">Or the Health Review only</div><div style="font-size: 14px; color: #4A5A4E;">90-min consultation, written plan and a 30-min plan walk-through</div><a href="contact.html#health-review" style="font-size: 15px; font-weight: 500; color: #9C4F1E; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #B89A5E;">Book a Health Review</a></div>
 <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 30px; font-weight: 600; line-height: 1; flex-shrink: 0;"><span class="pr" data-gbp="£195" data-eur="€235">£195</span></div>
@@ -139,7 +140,7 @@ details li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:
 <h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 38px; line-height: 1.05;">Root &amp; Grow</h3>
 <div style="font-size: 15px; color: #E7ECE2;">3 nutrition and 6 coaching sessions over 12 weeks</div></div>
 <p style="margin: 0; font-size: 15px; line-height: 1.5; background: rgba(244,238,227,0.1); border-radius: 8px; padding: 12px 14px;"><span style="font-weight: 500;">Best for:</span> you've tried before and found it hard to keep going, and you'd like weekly support with motivation and accountability.</p>
-<div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-top: 1px solid rgba(184,154,94,0.5); border-bottom: 1px solid rgba(184,154,94,0.5);">
+<div style="display: flex; flex-direction: column; gap: 18px;"><div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-top: 1px solid rgba(184,154,94,0.5); border-bottom: 1px solid rgba(184,154,94,0.5);">
 <div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 56px; font-weight: 600; line-height: 1;"><span class="pr" data-gbp="£755" data-eur="€925">£755</span></div>
 <div style="font-size: 14px; color: #E7ECE2;"><span class="pr" data-gbp="or 3 monthly payments: £255, £255, £245" data-eur="or 3 monthly payments: €315, €305, €305">or 3 monthly payments: £255, £255, £245</span></div>
 <div style="font-size: 14px; color: #E7ECE2;"><span class="pr" data-gbp="£935" data-eur="€1,155">£935</span> if booked separately</div>
@@ -148,7 +149,7 @@ details li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:
 <li style="display: flex; gap: 10px;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#B89A5E" stroke-width="1.2" stroke-linecap="round" style="flex-shrink: 0; margin-top: 6px;" aria-hidden="true"><path d="M7 13V6"></path><path d="M7 7C7 4.5 5 3 2.5 3C2.5 5.5 4.5 7 7 7Z"></path><path d="M7 6C7 3.5 9 2 11.5 2C11.5 4.5 9.5 6 7 6Z"></path></svg><span>Everything in Root</span></li>
 <li style="display: flex; gap: 10px;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#B89A5E" stroke-width="1.2" stroke-linecap="round" style="flex-shrink: 0; margin-top: 6px;" aria-hidden="true"><path d="M7 13V6"></path><path d="M7 7C7 4.5 5 3 2.5 3C2.5 5.5 4.5 7 7 7Z"></path><path d="M7 6C7 3.5 9 2 11.5 2C11.5 4.5 9.5 6 7 6Z"></path></svg><span>Weekly sessions for the first 6 weeks, then every other week</span></li>
 <li style="display: flex; gap: 10px;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#B89A5E" stroke-width="1.2" stroke-linecap="round" style="flex-shrink: 0; margin-top: 6px;" aria-hidden="true"><path d="M7 13V6"></path><path d="M7 7C7 4.5 5 3 2.5 3C2.5 5.5 4.5 7 7 7Z"></path><path d="M7 6C7 3.5 9 2 11.5 2C11.5 4.5 9.5 6 7 6Z"></path></svg><span>Coaching that goes beyond the plan: what you want, what's held you back, stress, sleep and routines</span></li>
-</ul>
+</ul></div>
 <details style="margin-top: auto; border-top: 1px solid rgba(184,154,94,0.5); padding-top: 14px;"><summary>See everything included</summary><div class="lbl" style="color: #B89A5E;">Nutrition, weeks 1, 6 and 12</div><ul>
 <li>Everything in Root: Health Review, 2 follow-ups, written plans and a 30-min plan walk-through after each</li>
 </ul><div class="lbl" style="color: #B89A5E;">Coaching, weeks 2–5, 8 and 10</div><ul>
@@ -161,8 +162,8 @@ details li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:
 </ul><div class="lbl" style="color: #B89A5E;">All 12 weeks</div><ul>
 <li>Email support between sessions</li>
 </ul></details>
-<div style="display: flex; flex-direction: column; gap: 12px;">
 <a href="contact.html#book" style="display: block; text-align: center; background: #F4EEE3; color: #23392C; border-radius: 999px; padding: 15px 28px; font-size: 16px; font-weight: 500; line-height: 1.2; text-decoration: none;">Book a free call to start</a>
+<div style="display: flex; flex-direction: column; gap: 12px;">
 <p style="margin: 0; font-size: 14px; color: #E7ECE2;">We start with a free 20-min call to check Root &amp; Grow is right for you.</p>
 <div class="row" style="background: rgba(244,238,227,0.1); border-radius: 10px; padding: 16px 18px; display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; color: #F4EEE3;">
 <div style="display: flex; flex-direction: column; gap: 4px;"><div style="font-weight: 500;">After your 12 weeks: keep going with coaching</div><div style="font-size: 14px; color: #E7ECE2;">60-min sessions, pay as you go. Or 2 sessions a month for <span class="pr" data-gbp="£125" data-eur="€155">£125</span>, paid monthly. Stop any time.</div></div>
@@ -180,25 +181,12 @@ details li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:
 <h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 38px; line-height: 1.05;">Grow</h3>
 <div style="font-size: 15px; color: #4A5A4E;">60-min video sessions, booked when it suits you</div></div>
 <p style="margin: 0; font-size: 15px; line-height: 1.5; background: #FBF8F2; border-radius: 8px; padding: 12px 14px;"><span style="font-weight: 500;">Best for:</span> you'd like changes that stick, and to understand what has held you back before.</p>
-<div style="display: flex; flex-direction: column; gap: 10px;">
-<div class="row" style="background: #F4EEE3; border-radius: 10px; padding: 14px 18px; display: flex; justify-content: space-between; gap: 16px; align-items: center;">
-<div style="display: flex; flex-direction: column;"><div style="font-weight: 500;">1 session</div><div style="font-size: 13px; color: #4A5A4E;"><span class="pr" data-gbp="£75" data-eur="€95">£75</span> a session</div></div>
-<div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 32px; font-weight: 600; line-height: 1;"><span class="pr" data-gbp="£75" data-eur="€95">£75</span></div>
-</div>
-<div class="row" style="background: #F4EEE3; border-radius: 10px; padding: 14px 18px; display: flex; justify-content: space-between; gap: 16px; align-items: center;">
-<div style="display: flex; flex-direction: column;"><div style="font-weight: 500;">3 sessions</div><div style="font-size: 13px; color: #4A5A4E;"><span class="pr" data-gbp="About £68" data-eur="About €88">About £68</span> a session · <span class="pr" data-gbp="£225" data-eur="€285">£225</span> if booked separately</div></div>
-<div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 32px; font-weight: 600; line-height: 1;"><span class="pr" data-gbp="£205" data-eur="€265">£205</span></div>
-</div>
-<div class="row" style="background: #FBF8F2; border-radius: 10px; padding: 14px 18px; display: flex; justify-content: space-between; gap: 16px; align-items: center; box-shadow: inset 0 0 0 1px #B89A5E;">
-<div style="display: flex; flex-direction: column;"><div style="font-weight: 500;">6 sessions</div><div style="font-size: 13px; color: #4A5A4E;"><span class="pr" data-gbp="About £61" data-eur="About €78">About £61</span> a session · <span class="pr" data-gbp="£450" data-eur="€570">£450</span> if booked separately</div><div style="font-size: 13px; color: #4A5A4E;"><span class="pr" data-gbp="or 3 monthly payments: £125, £125, £115" data-eur="or 3 monthly payments: €155, €155, €155">or 3 monthly payments: £125, £125, £115</span></div></div>
-<div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 32px; font-weight: 600; line-height: 1;"><span class="pr" data-gbp="£365" data-eur="€465">£365</span></div>
-</div>
-</div>
+<div style="display: flex; flex-direction: column; gap: 18px;"><div class="row" style="background: #FBF8F2; border-radius: 10px; display: flex; flex-direction: column;"><div style="display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 12px 18px;"><div style="display: flex; flex-direction: column; gap: 2px;"><div style="font-weight: 500;">1 session</div></div><div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 30px; font-weight: 600; line-height: 1;"><span class="pr" data-gbp="£75" data-eur="€95">£75</span></div></div><div style="display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 12px 18px; border-top: 1px solid #D8CFBF;"><div style="display: flex; flex-direction: column; gap: 2px;"><div style="font-weight: 500;">3 sessions</div><div style="font-size: 13px; color: #4A5A4E;"><span class="pr" data-gbp="About £68" data-eur="About €88">About £68</span> a session · save <span class="pr" data-gbp="£20" data-eur="€20">£20</span></div></div><div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 30px; font-weight: 600; line-height: 1;"><span class="pr" data-gbp="£205" data-eur="€265">£205</span></div></div><div style="display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 12px 18px; border-top: 1px solid #D8CFBF;"><div style="display: flex; flex-direction: column; gap: 2px;"><div style="font-weight: 500;">6 sessions</div><div style="font-size: 13px; color: #4A5A4E;"><span class="pr" data-gbp="About £61" data-eur="About €78">About £61</span> a session · save <span class="pr" data-gbp="£85" data-eur="€105">£85</span></div><div style="font-size: 13px; color: #4A5A4E;"><span class="pr" data-gbp="or 3 monthly payments: £125, £125, £115" data-eur="or 3 monthly payments: €155, €155, €155">or 3 monthly payments: £125, £125, £115</span></div></div><div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 30px; font-weight: 600; line-height: 1;"><span class="pr" data-gbp="£365" data-eur="€465">£365</span></div></div></div>
 <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 16px; color: #23392C;">
 <li style="display: flex; gap: 10px;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#B89A5E" stroke-width="1.2" stroke-linecap="round" style="flex-shrink: 0; margin-top: 6px;" aria-hidden="true"><path d="M7 13V6"></path><path d="M7 7C7 4.5 5 3 2.5 3C2.5 5.5 4.5 7 7 7Z"></path><path d="M7 6C7 3.5 9 2 11.5 2C11.5 4.5 9.5 6 7 6Z"></path></svg><span>Work out what you really want for your health, and why</span></li>
 <li style="display: flex; gap: 10px;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#B89A5E" stroke-width="1.2" stroke-linecap="round" style="flex-shrink: 0; margin-top: 6px;" aria-hidden="true"><path d="M7 13V6"></path><path d="M7 7C7 4.5 5 3 2.5 3C2.5 5.5 4.5 7 7 7Z"></path><path d="M7 6C7 3.5 9 2 11.5 2C11.5 4.5 9.5 6 7 6Z"></path></svg><span>We start where you are now and move at your pace</span></li>
 <li style="display: flex; gap: 10px;"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#B89A5E" stroke-width="1.2" stroke-linecap="round" style="flex-shrink: 0; margin-top: 6px;" aria-hidden="true"><path d="M7 13V6"></path><path d="M7 7C7 4.5 5 3 2.5 3C2.5 5.5 4.5 7 7 7Z"></path><path d="M7 6C7 3.5 9 2 11.5 2C11.5 4.5 9.5 6 7 6Z"></path></svg><span>The whole picture: stress, sleep, movement, relationships, and the time, energy and support you have</span></li>
-</ul>
+</ul></div>
 <details style="margin-top: auto; border-top: 1px solid #D8CFBF; padding-top: 14px;"><summary>More about coaching</summary><ul>
 <li>Small, realistic steps you choose, and the confidence to keep going</li>
 <li>Understanding what has tripped you up before, and what to do differently</li>
@@ -207,7 +195,8 @@ details li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:
 <li>Open to everyone, no Health Review needed</li>
 <li>The 3-session bundle is paid once; the 6-session bundle can be paid in 3 monthly payments. Book your sessions one at a time, or all at once if you'd like a regular time</li>
 </ul></details>
-<div style="display: flex; flex-direction: column; gap: 12px;"><a href="contact.html#coaching" style="display: block; text-align: center; background: #23392C; color: #F4EEE3; border-radius: 999px; padding: 15px 28px; font-size: 16px; font-weight: 500; line-height: 1.2; text-decoration: none;">Book Grow</a>
+<a href="contact.html#coaching" style="display: block; text-align: center; background: #23392C; color: #F4EEE3; border-radius: 999px; padding: 15px 28px; font-size: 16px; font-weight: 500; line-height: 1.2; text-decoration: none;">Book Grow</a>
+<div style="display: flex; flex-direction: column; gap: 12px;">
 <div class="row" style="background: #FBF8F2; border-radius: 10px; padding: 16px 18px; display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; color: #23392C;">
 <div style="display: flex; flex-direction: column; gap: 4px;"><div style="font-weight: 500;">After your bundle: keep going</div><div style="font-size: 14px; color: #4A5A4E;">60-min sessions, pay as you go. Or 2 sessions a month for <span class="pr" data-gbp="£125" data-eur="€155">£125</span>, paid monthly. Stop any time.</div></div>
 <div style="flex-shrink: 0; text-align: right;"><div style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 30px; font-weight: 600; line-height: 1;"><span class="pr" data-gbp="£65" data-eur="€85">£65</span></div><div style="font-size: 13px; color: #4A5A4E; margin-top: 4px;">a session</div></div>
