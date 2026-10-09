@@ -17,3 +17,6 @@ blog.html and articles: bloated-in-the-afternoon.html, tired-all-the-time.html, 
 - Remove `<meta name="robots" content="noindex, nofollow">` from every page on launch day, so Google can list the site.
 - Custom domain nataliazutehealth.com: Settings > Pages > Custom domain.
 - SEO: when the domain is live, change https://nataliazutehealth.com/ to https://nataliazutehealth.com/ in canonical links, structured data, sitemap.xml and robots.txt, then submit sitemap.xml in Google Search Console.
+
+## BANT / CNHC claims
+Removed on 9 Oct 2026 until Natalia is approved (commit f348e51). To restore the logos, list items, "mBANT" and "Registered Nutritional Therapist" wording: `git revert f348e51`, then link "Find me on the register" to her own BANT and CNHC entries.
