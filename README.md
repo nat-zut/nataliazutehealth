@@ -20,3 +20,5 @@ blog.html and articles: bloated-in-the-afternoon.html, tired-all-the-time.html, 
 
 ## BANT / CNHC claims
 Removed on 9 Oct 2026 until Natalia is approved (commit f348e51). To restore the logos, list items, "mBANT" and "Registered Nutritional Therapist" wording: `git revert f348e51`, then link "Find me on the register" to her own BANT and CNHC entries.
+
+When restoring BANT/CNHC: the credentials heading now reads "Training and qualifications" and the logo row is labelled "Trained with" (9 Oct); change them back to "Training and memberships" / "Professional memberships" with the membership list.
