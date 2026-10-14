@@ -24,9 +24,9 @@ Never call her «зарегистрированный», «диетолог», �
 | Natalja Zute (legal name) | keep in Latin: Natalja Zute |
 | Natalia Zute Health (brand) | keep in Latin: Natalia Zute Health |
 | NATALIA ZUTE / HEALTH (logo text) | keep exactly as in English |
-| Nutritional Therapist & Wellness Coach | нутрициолог и велнес-коуч (as a title line: Нутрициолог и велнес-коуч) |
+| Nutritional Therapist & Wellness Coach | нутрициолог и коуч по здоровью (as a title line: Нутрициолог и коуч по здоровью) |
 | nutritional therapy | нутрициология / работа с питанием (choose what reads naturally) |
-| wellness coaching | велнес-коучинг |
+| wellness coaching | коучинг по здоровью |
 | coaching session | коуч-сессия |
 | Root, Grow, Root & Grow (programme names) | keep in Latin: Root, Grow, Root &amp; Grow |
 | SIGNATURE (sticker) | ФИРМЕННАЯ |
