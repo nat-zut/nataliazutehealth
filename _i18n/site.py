@@ -15,9 +15,18 @@ DOMAIN = "https://nataliazutehealth.com/"
 # 1. pristine English pages from git
 os.makedirs(ORIG, exist_ok=True)
 pages = [f for f in subprocess.check_output(["git", "-C", REPO, "ls-files", "*.html"], text=True).split() if "/" not in f]
+def strip_lang(src):
+    """Remove what this script added to the English pages, so re-runs start clean."""
+    src = re.sub(r'<a class="langsw"[^>]*>[^<]*</a>', "", src)
+    src = re.sub(r'\n<link rel="alternate" hreflang="[^"]*" href="[^"]*">', "", src)
+    src = re.sub(r'<p style="margin: 8px 0 0; font-size: 15px; line-height: 1.5;"><a href="ru/[^"]*" hreflang="ru"[^>]*>Русская версия →</a></p>\n', "", src)
+    src = re.sub(r'<style>\.nav a\{white-space:nowrap\}[^<]*</style>\n', "", src)
+    return src.replace('justify-content: flex-end; gap: 24px;', 'justify-content: flex-end; gap: 32px;', 1)
+
+
 for f in pages:
     open(os.path.join(ORIG, f), "w", encoding="utf-8").write(
-        subprocess.check_output(["git", "-C", REPO, "show", "HEAD:" + f], text=True))
+        strip_lang(subprocess.check_output(["git", "-C", REPO, "show", "HEAD:" + f], text=True)))
 
 # 2. translate
 subprocess.check_call([sys.executable, os.path.join(HERE, "i18n.py"), "build", ORIG, os.path.join(HERE, "ru"), RAW])
