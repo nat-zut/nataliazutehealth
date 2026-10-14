@@ -7,7 +7,7 @@ T = {
  "intro": {
   "en": dict(
     hi="Hi, I&rsquo;m Natalia", role="Nutritional Therapist &amp; Wellness Coach",
-    who_l="Who I help", who="I help women who feel tired, bloated or just not quite themselves.",
+    who_l="Who I help", who="I help women who feel tired, out of balance or just not quite themselves.", areas="Energy · Gut health · Skin · Cycle &amp; hormones · Stress &amp; sleep",
     been="I&rsquo;ve been there.", story="Gut problems run in my family, and in my 20s they started for me too.",
     so="So I trained in nutrition and coaching.", so2="Not for perfect plans, but for changes that fit a real week.",
     how_l="How I work", how="Three simple steps",
@@ -16,7 +16,7 @@ T = {
     swipe="Swipe"),
   "ru": dict(
     hi="Здравствуйте, я&nbsp;Наталья", role="Нутрициолог и коуч по здоровью",
-    who_l="Кому я помогаю", who="Женщинам, которые постоянно устают, сталкиваются со вздутием или просто чувствуют себя не&nbsp;в&nbsp;своей тарелке.",
+    who_l="Кому я помогаю", who="Женщинам, которые устали, потеряли равновесие или просто чувствуют себя не&nbsp;в&nbsp;своей тарелке.", areas="Энергия · Пищеварение · Кожа · Цикл&nbsp;и&nbsp;гормоны · Стресс&nbsp;и&nbsp;сон",
     been="Я знаю, каково это.", story="Проблемы с пищеварением есть у многих в моей семье, а в 20 с небольшим они начались и у меня.",
     so="Поэтому я выучилась на нутрициолога и коуча.", so2="Не ради идеальных планов, а ради перемен, которые вписываются в обычную неделю.",
     how_l="Как я работаю", how="Три простых шага",
@@ -42,9 +42,10 @@ def intro(lang):
     s.append(page(
         '<div class="label" style="margin-top:40px">%s</div><div class="rule" style="margin-top:36px"></div>'
         '<div class="big" style="margin-top:48px">%s</div>'
-        '<div style="position:absolute;left:96px;right:96px;bottom:150px;height:380px;border-radius:24px;'
+        '<div class="body" style="margin-top:34px;font-size:32px;color:#9C4F1E;letter-spacing:.02em">%s</div>'
+        '<div style="position:absolute;left:96px;right:96px;bottom:150px;height:330px;border-radius:24px;'
         'background:url(%s) 50%% 50%%/cover"></div>'
-        % (t["who_l"], t["who"], img("images/403e3cc372607c1c837dbea7b381d086.jpg")),
+        % (t["who_l"], t["who"], t["areas"], img("images/403e3cc372607c1c837dbea7b381d086.jpg")),
         "white", 2, N, h))
     # 3 story with photo
     s.append(page(
