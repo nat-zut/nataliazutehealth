@@ -22,3 +22,9 @@ blog.html and articles: bloated-in-the-afternoon.html, tired-all-the-time.html, 
 Removed on 9 Oct 2026 until Natalia is approved (commit f348e51). To restore the logos, list items, "mBANT" and "Registered Nutritional Therapist" wording: `git revert f348e51`, then link "Find me on the register" to her own BANT and CNHC entries.
 
 When restoring BANT/CNHC: the credentials heading now reads "Training and qualifications" and the logo row is labelled "Trained with" (9 Oct); change them back to "Training and memberships" / "Professional memberships" with the membership list.
+
+## Russian version (added 14 Oct 2026)
+All pages have a Russian copy in ru/ (formal «вы», name Наталья Зуте; logo stays in Latin letters). Each page has an EN/RU link in the header and mobile menu.
+When English text changes, the Russian page needs the same change. The translation files live in _i18n/ (not published): ru/<page>.ru.json holds every English sentence with its Russian version, GLOSSARY.md holds the fixed Russian terms.
+To rebuild: add the new sentences to the JSON, then from _i18n run `python3 site.py ..` (it rebuilds ru/ from the committed English pages and re-adds the language switch).
+Still in English for Russian visitors: the Cal.com booking calendar, the free diary PDF, emails and client forms.
