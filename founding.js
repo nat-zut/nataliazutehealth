@@ -26,14 +26,14 @@
     }
     var full = n === TOTAL;
     if (ru) {
-      set('bar', full ? TOTAL + ' мест для первых клиенток примерно за полцены'
-                      : 'Осталось всего ' + n + ' ' + mest(n) + ' для первых клиенток, примерно за полцены');
+      set('bar', full ? 'Скидка почти 50% для первых ' + TOTAL + ' клиенток'
+                      : 'Скидка почти 50% · осталось всего ' + n + ' ' + mest(n));
       set('pill', full ? TOTAL + ' мест для первых клиенток' : 'Осталось всего ' + n + ' ' + mest(n) + ' для первых клиенток,');
       set('left', 'Осталось ' + n + ' из ' + TOTAL + ' мест');
       return;
     }
-    set('bar', full ? TOTAL + ' founding client places at about half price'
-                    : 'Only ' + n + ' founding ' + places(n) + ' left, at about half price');
+    set('bar', full ? 'Almost 50% off for my first ' + TOTAL + ' clients'
+                    : 'Almost 50% off · only ' + n + ' ' + places(n) + ' left');
     set('pill', full ? TOTAL + ' founding places' : 'Only ' + n + ' founding ' + places(n) + ' left,');
     set('left', n + ' of ' + TOTAL + ' places left');
   }
