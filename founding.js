@@ -29,7 +29,7 @@
       set('bar', full ? 'Скидка почти 50% для первых ' + TOTAL + ' клиенток'
                       : 'Скидка почти 50% · осталось всего ' + n + ' ' + mest(n));
       set('pill', full ? TOTAL + ' мест для первых клиенток' : 'Осталось всего ' + n + ' ' + mest(n) + ' для первых клиенток,');
-      set('left', 'Осталось ' + n + ' из ' + TOTAL + ' мест');
+      set('left', 'осталось ' + n + ' из ' + TOTAL + ' мест');
       return;
     }
     set('bar', full ? 'Almost 50% off for my first ' + TOTAL + ' clients'
