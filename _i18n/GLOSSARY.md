@@ -28,7 +28,7 @@ Never call her «зарегистрированный», «диетолог», �
 | nutritional therapy | нутрициология / работа с питанием (choose what reads naturally) |
 | wellness coaching | коучинг по здоровью |
 | coaching session | коуч-сессия |
-| Root, Grow, Root & Grow (programme names) | keep in Latin: Root, Grow, Root &amp; Grow |
+| Root, Grow, Root & Grow (programme names) | Основа, Рост, Основа и рост (in running text: программа «Основа», so the name stays in the nominative) |
 | SIGNATURE (sticker) | ФИРМЕННАЯ |
 | Health Review | разбор здоровья (as a service name: «Разбор здоровья») |
 | (nutrition) follow-up | повторная консультация |
