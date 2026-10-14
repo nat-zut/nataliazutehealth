@@ -1,10 +1,19 @@
 /* Founding client places: the one number to change.
-   When a founding place is taken, lower LEFT by 1. Every page updates itself. */
+   When a founding place is taken, lower LEFT by 1. Every page (English and Russian) updates itself. */
 (function () {
   var TOTAL = 5;
   var LEFT = 5;
 
+  var ru = (document.documentElement.lang || '').toLowerCase().indexOf('ru') === 0;
+
   function places(n) { return n === 1 ? 'place' : 'places'; }
+  function mest(n) {
+    var a = n % 100, b = n % 10;
+    if (a >= 11 && a <= 14) return 'мест';
+    if (b === 1) return 'место';
+    if (b >= 2 && b <= 4) return 'места';
+    return 'мест';
+  }
   function set(sel, text) {
     document.querySelectorAll('[data-f="' + sel + '"]').forEach(function (el) { el.textContent = text; });
   }
@@ -16,6 +25,13 @@
       return;
     }
     var full = n === TOTAL;
+    if (ru) {
+      set('bar', full ? TOTAL + ' мест для первых клиенток примерно за полцены'
+                      : 'Осталось всего ' + n + ' ' + mest(n) + ' для первых клиенток, примерно за полцены');
+      set('pill', full ? TOTAL + ' мест для первых клиенток' : 'Осталось всего ' + n + ' ' + mest(n) + ' для первых клиенток,');
+      set('left', 'Осталось ' + n + ' из ' + TOTAL + ' мест');
+      return;
+    }
     set('bar', full ? TOTAL + ' founding client places at about half price'
                     : 'Only ' + n + ' founding ' + places(n) + ' left, at about half price');
     set('pill', full ? TOTAL + ' founding places' : 'Only ' + n + ' founding ' + places(n) + ' left,');
