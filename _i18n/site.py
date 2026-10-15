@@ -161,6 +161,9 @@ for page in pages:
     # founding-place note passed to the booking calendar
     out = out.replace('"notes": "I\'d like to ask about a founding client place."',
                       '"notes": "Я бы хотела узнать о месте для первых клиенток."')
+    # Russian pages point to the Russian Instagram account
+    out = out.replace("instagram.com/nataliazutehealth/", "instagram.com/nataliazutehealth_rus/")
+    out = re.sub(r"(?<![\w.])@nataliazutehealth(?![\w.])", "@nataliazutehealth_rus", out)
     os.makedirs(os.path.join(REPO, "ru"), exist_ok=True)
     open(os.path.join(REPO, "ru", page), "w", encoding="utf-8").write(out)
     report.append(page)
