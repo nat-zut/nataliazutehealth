@@ -8,7 +8,7 @@ thank-you.html, booked.html, 404.html, terms.html, privacy.html, cookies.html,
 blog.html and articles: bloated-in-the-afternoon.html, tired-all-the-time.html, food-and-symptom-diary.html
 
 ## Still to connect before launch
-- Free guide sign-up forms (home and free-guide.html): MailerLite embedded form. For now they go straight to thank-you.html and send nothing.
+- Free guide sign-up forms (home and free-guide.html, EN and RU): connected 17 Oct 2026 via signup.js (form ids and group ids are in that file). Everyone joins "Diary (English)" or "Diary (Russian)" in MailerLite; ticking the email box also adds "Newsletter (English/Russian)". The diary PDFs are in files/ (blocked in robots.txt, linked only from the diary email). To update a diary, replace the PDF with the same file name.
 - Booking calendar on contact.html: Cal.com (username nataliazutehealth, free plan) with all services, set up 8 Oct. Bookings go to Google Calendar (natalia@nataliazutehealth.com) with Google Meet. Paid sessions require Natalia's confirmation and she sends a payment link until Stripe is connected.
 - Founding places left: change LEFT in founding.js (one number updates every page; at 0 the founding bar, pill, band and booking option disappear).
 - Contact message form on contact.html: a form tool. For now it sends nothing.
@@ -27,4 +27,4 @@ When restoring BANT/CNHC: the credentials heading now reads "Training and qualif
 All pages have a Russian copy in ru/ (formal «вы», name Наталья Зуте; logo stays in Latin letters). Each page has an EN/RU link in the header and mobile menu.
 When English text changes, the Russian page needs the same change. The translation files live in _i18n/ (not published): ru/<page>.ru.json holds every English sentence with its Russian version, GLOSSARY.md holds the fixed Russian terms.
 To rebuild: add the new sentences to the JSON, then from _i18n run `python3 site.py ..` (it rebuilds ru/ from the committed English pages and re-adds the language switch).
-Still in English for Russian visitors: the Cal.com booking calendar, the free diary PDF, emails and client forms.
+Still in English for Russian visitors: the Cal.com booking calendar and client forms. The diary PDF has a Russian version, «Что мне помогает» (files/chto-mne-pomogaet-dnevnik.pdf).
