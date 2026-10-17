@@ -44,7 +44,7 @@ Never call her «зарегистрированный», «диетолог», �
 | email support | поддержка по email |
 | GP | ваш врач (GP) the first time on a page, then «врач» |
 | the free guide / free 7-day diary | бесплатный 7-дневный дневник |
-| What Helps Me (diary title) | keep in Latin: What Helps Me |
+| What Helps Me (diary title) | «Что мне помогает» (changed 17 Oct 2026; was kept in Latin) |
 | Choose nourished, not perfect. (tagline) | Выбирайте заботу о себе, а не идеал. |
 | gut health | здоровье кишечника / пищеварение |
 | bloating | вздутие |
