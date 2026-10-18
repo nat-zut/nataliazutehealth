@@ -84,3 +84,67 @@ def intro(lang):
 
 
 POSTS = {"intro": intro}
+
+
+T["tired"] = {
+  "en": dict(
+    kick="Energy", title="Tired by lunchtime?", sub="4 things to look at",
+    items=[
+      ("Breakfast", "What did you have, if anything? Coffee alone, or a pastry on the go, may leave you running out of steam sooner than a breakfast with some protein and fibre, like eggs on toast or yoghurt with oats."),
+      ("The gap", "How long did you go without eating? A late lunch after an early start is a long gap. Notice when the dip comes."),
+      ("Sleep", "Look at the last two or three nights, not just last night. Short or broken sleep often shows up the next afternoon."),
+      ("Drinks", "How much water did you have before lunch? And when was your last coffee? Not drinking enough can leave you feeling tired."),
+    ],
+    try_l="Try this week", try_t="Each day, write down when your energy dips and what came just before. A pattern often shows up within a few days.",
+    gp="See your GP if you&rsquo;ve felt tired for a few weeks and don&rsquo;t know why, or if tiredness is affecting your daily life.",
+    save="Save this for later", swipe="Swipe"),
+  "ru": dict(
+    kick="Энергия", title="Нет сил уже к&nbsp;обеду?", sub="4 вещи, на которые стоит посмотреть",
+    items=[
+      ("Завтрак", "Что вы ели утром и ели ли вообще? Один кофе или выпечка на бегу могут закончиться быстрее, чем завтрак с белком и клетчаткой, например яйца с тостом или йогурт с овсянкой."),
+      ("Перерыв", "Сколько времени вы были без еды? Поздний обед после раннего подъёма — это долгий перерыв. Заметьте, когда приходит спад."),
+      ("Сон", "Посмотрите на последние две-три ночи, а не только на вчерашнюю. Короткий или прерывистый сон часто чувствуется на следующий день после обеда."),
+      ("Напитки", "Сколько воды вы выпили до обеда? И когда был последний кофе? Если пить мало, можно чувствовать усталость."),
+    ],
+    try_l="Попробуйте на этой неделе", try_t="Каждый день записывайте, когда падает энергия и что было прямо перед этим. Закономерность часто видна уже через несколько дней.",
+    gp="Обратитесь к врачу, если усталость держится несколько недель без понятной причины или мешает обычной жизни.",
+    save="Сохраните, чтобы не потерять", swipe="Листайте"),
+}
+
+
+def tired(lang):
+    t, h = T["tired"][lang], HANDLE[lang]
+    N = 2 + len(t["items"])
+    s = []
+    # 1 cover: photo top, title below
+    s.append(page(
+        '<div style="position:absolute;left:0;right:0;top:0;height:600px;background:url(%s) 50%% 45%%/cover"></div>'
+        '<div style="position:absolute;left:96px;right:96px;top:650px">'
+        '<div class="label">%s</div>'
+        '<div class="h1" style="margin-top:26px;font-size:%dpx">%s</div>'
+        '<div class="h3" style="margin-top:22px;font-style:italic;color:#4A5A4E;font-size:%dpx">%s</div>'
+        '<div class="arrow" style="margin-top:36px">%s &rarr;</div></div>'
+        % (img("images/41d0d2957ea062832eb648961566769a.jpg"), t["kick"], 112 if lang == "en" else 96, t["title"], 64 if lang == "en" else 54, t["sub"], t["swipe"]),
+        "", 1, N, h))
+    # 2-5 items
+    for i, (head, body) in enumerate(t["items"], 1):
+        s.append(page(
+            '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+            '<div style="font-family:\'Cormorant Garamond\';font-weight:500;font-size:220px;line-height:.8;color:#B89A5E">%d</div>'
+            '<div class="h2" style="margin-top:40px">%s</div><div class="rule" style="margin-top:44px"></div>'
+            '<div class="body" style="margin-top:44px;font-size:40px">%s</div></div>'
+            % (i, head, body),
+            "white" if i % 2 else "", i + 1, N, h))
+    # last: try this + GP
+    s.append(page(
+        '<div style="display:flex;gap:56px;align-items:center;margin-top:20px">%s'
+        '<div><div class="label">%s</div></div></div>'
+        '<div class="big" style="margin-top:56px;font-size:62px">%s</div>'
+        '<div style="position:absolute;left:96px;right:96px;bottom:150px;background:#F4EEE3;border-left:6px solid #9C4F1E;border-radius:16px;padding:36px 40px">'
+        '<div class="body" style="font-size:32px;color:#23392C">%s</div></div>'
+        % (ring_photo("images/cc4942476c283c1b1a3a7e8394274244.jpg", 230, "50% 30%"), t["try_l"], t["try_t"], t["gp"]),
+        "sage", N, N, h))
+    return s
+
+
+POSTS["tired"] = tired
