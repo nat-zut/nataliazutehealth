@@ -150,3 +150,62 @@ def tired(lang):
 
 
 POSTS["tired"] = tired
+
+
+T["coaching"] = {
+  "en": dict(
+    kick="Coaching", title="Knowing what to eat is only half of it",
+    s2="You probably already know a lot. Vegetables help. Sleep matters. Water is good for you.",
+    s3="The hard part is doing it on a busy Tuesday, when you&rsquo;re tired and everyone needs something from you.",
+    s4_h="That&rsquo;s where coaching comes in", s4="I don&rsquo;t tell you what to do. Together we find what matters to you, what gets in the way, and small steps you choose yourself.",
+    q_l="Questions I might ask you",
+    qs=["What would feel different if this worked?", "What usually gets in the way?", "What&rsquo;s one small step you&rsquo;d really take this week?"],
+    end="Nutrition gives you the plan. Coaching helps you live it.", swipe="Swipe"),
+  "ru": dict(
+    kick="Коучинг", title="Знать, что есть, — это только половина",
+    s2="Вы, скорее всего, уже многое знаете. Овощи полезны. Сон важен. Вода нужна.",
+    s3="Сложнее всего сделать это в обычный загруженный вторник, когда вы устали и всем от вас что-то нужно.",
+    s4_h="Вот здесь помогает коучинг", s4="Я не говорю, что вам делать. Вместе мы находим, что важно именно вам, что мешает, и маленькие шаги, которые вы выбираете сами.",
+    q_l="Вопросы, которые я могу вам задать",
+    qs=["Что изменится, если это получится?", "Что обычно мешает?", "Какой один маленький шаг вы правда сделаете на этой неделе?"],
+    end="Питание даёт план. Коучинг помогает по нему жить.", swipe="Листайте"),
+}
+
+
+def coaching(lang):
+    t, h, N = T["coaching"][lang], HANDLE[lang], 6
+    s = []
+    # 1 cover (grid type C, plain)
+    s.append(page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">%s'
+        '<div class="label" style="margin-top:70px">%s</div>'
+        '<div class="h1" style="margin-top:34px;font-size:%dpx">%s</div>'
+        '<div class="rule" style="margin-top:56px"></div>'
+        '<div class="arrow" style="margin-top:44px">%s &rarr;</div></div>'
+        % (EMBLEM.format(s=130), t["kick"], 100 if lang == "en" else 88, t["title"], t["swipe"]),
+        "sage", 1, N, h))
+    for i, txt in enumerate([t["s2"], t["s3"]], 2):
+        s.append(page(
+            '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+            '<div class="rule"></div><div class="big" style="margin-top:56px">%s</div></div>' % txt,
+            "white" if i == 2 else "", i, N, h))
+    s.append(page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+        '<div class="h2">%s</div><div class="rule" style="margin-top:48px"></div>'
+        '<div class="body" style="margin-top:48px;font-size:42px">%s</div></div>' % (t["s4_h"], t["s4"]),
+        "white", 4, N, h))
+    s.append(page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+        '<div class="label">%s</div><ol class="steps">%s</ol></div>'
+        % (t["q_l"], "".join('<li><span class="k">%d</span><span class="t">%s</span></li>' % (i + 1, q) for i, q in enumerate(t["qs"]))),
+        "", 5, N, h))
+    s.append(page(
+        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:110px">%s'
+        '<div class="h2" style="margin-top:70px">%s</div>'
+        '<div class="label" style="margin-top:56px;letter-spacing:.12em;text-transform:none">%s</div></div>'
+        % (ring_photo("images/e65d692a766322ff9007f1e03d416859.jpg", 400, "50% 30%"), t["end"], h),
+        "sage", 6, N, ""))
+    return s
+
+
+POSTS["coaching"] = coaching
