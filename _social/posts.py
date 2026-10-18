@@ -116,15 +116,17 @@ def tired(lang):
     t, h = T["tired"][lang], HANDLE[lang]
     N = 2 + len(t["items"])
     s = []
-    # 1 cover: photo top, title below
+    # 1 cover (grid type B, colourful): full-bleed photo, title on a cream card
     s.append(page(
-        '<div style="position:absolute;left:0;right:0;top:0;height:600px;background:url(%s) 50%% 45%%/cover"></div>'
-        '<div style="position:absolute;left:96px;right:96px;top:650px">'
+        '<div style="position:absolute;inset:0;background:url(%s) 50%% 50%%/cover"></div>'
+        '<div style="position:absolute;left:80px;right:80px;top:50%%;transform:translateY(-50%%);background:rgba(251,248,242,.94);'
+        'border-radius:28px;padding:64px 64px 56px;text-align:center">'
         '<div class="label">%s</div>'
         '<div class="h1" style="margin-top:26px;font-size:%dpx">%s</div>'
-        '<div class="h3" style="margin-top:22px;font-style:italic;color:#4A5A4E;font-size:%dpx">%s</div>'
-        '<div class="arrow" style="margin-top:36px">%s &rarr;</div></div>'
-        % (img("images/41d0d2957ea062832eb648961566769a.jpg"), t["kick"], 112 if lang == "en" else 96, t["title"], 64 if lang == "en" else 54, t["sub"], t["swipe"]),
+        '<div class="h3" style="margin-top:20px;font-style:italic;color:#4A5A4E;font-size:%dpx">%s</div>'
+        '<div class="arrow" style="margin-top:34px">%s &rarr;</div></div>'
+        '<div style="position:absolute;left:0;right:0;bottom:0;height:150px;background:linear-gradient(transparent,rgba(251,248,242,.9))"></div>'
+        % (img("images/41d0d2957ea062832eb648961566769a.jpg"), t["kick"], 108 if lang == "en" else 92, t["title"], 60 if lang == "en" else 50, t["sub"], t["swipe"]),
         "", 1, N, h))
     # 2-5 items
     for i, (head, body) in enumerate(t["items"], 1):
