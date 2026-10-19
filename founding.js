@@ -26,16 +26,16 @@
     }
     var full = n === TOTAL;
     if (ru) {
-      set('bar', full ? 'Специальная цена для первых ' + TOTAL + ' клиенток'
+      set('bar', full ? 'Специальная цена для первых ' + TOTAL + ' клиенток · сессии с 8 декабря'
                       : 'Специальная цена · осталось всего ' + n + ' ' + mest(n));
       set('pill', full ? TOTAL + ' мест для первых клиенток' : 'Осталось всего ' + n + ' ' + mest(n) + ' для первых клиенток,');
-      set('left', 'осталось ' + n + ' из ' + TOTAL + ' мест');
+      set('left', full ? 'всего ' + TOTAL + ' мест' : 'осталось ' + n + ' из ' + TOTAL + ' мест');
       return;
     }
-    set('bar', full ? 'Special price for my first ' + TOTAL + ' clients'
+    set('bar', full ? 'Special price for my first ' + TOTAL + ' clients · sessions from 8 Dec'
                     : 'Special price · only ' + n + ' ' + places(n) + ' left');
     set('pill', full ? TOTAL + ' founding places' : 'Only ' + n + ' founding ' + places(n) + ' left,');
-    set('left', n + ' of ' + TOTAL + ' places left');
+    set('left', full ? 'Only ' + TOTAL + ' places' : n + ' of ' + TOTAL + ' places left');
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
 })();
