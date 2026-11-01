@@ -383,9 +383,11 @@ T["story"] = {
     vegan="Ten years of unbalanced vegetarian and vegan eating took a toll on my already shaky health. My energy kept dropping, I was losing weight, and my digestion and hormones got worse.",
     turn="At some point I knew there had to be another way. So I trained in nutrition.",
     turn2="It brought some uncomfortable truths: the way I lived didn&rsquo;t suit my body or my family history.",
-    path="It isn&rsquo;t a magic pill. It&rsquo;s a path of discipline and awareness, and I&rsquo;m still on it.",
+    path="It isn&rsquo;t a magic pill. It&rsquo;s a path of discipline and awareness. Not an easy one, but for me the only way to real health.",
     path2="Recent viruses and stress set me back, and I&rsquo;m recovering again. That&rsquo;s real life too.",
-    end="Not an easy path, but for me the only way to real health.",
+    imp="I&rsquo;m not perfect,<br>and I&rsquo;m still on this path.",
+    imp2="I just do what I can, every day. Doing it imperfectly beats not doing it at all.",
+    end="Choose nourished,<br>not perfect.",
     end_sub="If you&rsquo;re looking for your own way, start with a free 20-minute call. The link is in my bio.",
     swipe="Swipe"),
   "ru": dict(
@@ -396,9 +398,11 @@ T["story"] = {
     vegan="Десять лет несбалансированного вегетарианства и веганства сыграли злую шутку с моим и без того пошатнувшимся здоровьем. Энергии становилось всё меньше, я теряла вес, а пищеварение и гормоны давали о себе знать всё сильнее.",
     turn="В какой-то момент я поняла, что должен быть другой путь. И пошла учиться на нутрициолога.",
     turn2="Пришли неудобные открытия: то, как я жила, просто не подходило моему телу и моей наследственности.",
-    path="Это не волшебная таблетка. Это путь дисциплины и осознанности, и я иду по нему до сих пор.",
+    path="Это не волшебная таблетка, а путь дисциплины и осознанности. Путь непростой, но для меня единственный, чтобы вернуть здоровье <span style=\"white-space:nowrap\">по-настоящему</span>.",
     path2="Недавние вирусы и стресс откатили меня назад, и я снова восстанавливаюсь. Это тоже часть жизни.",
-    end="Путь непростой, но для меня единственный, чтобы вернуть здоровье по-настоящему.",
+    imp="Я не идеальная,<br>и я всё ещё в пути.",
+    imp2="Я просто каждый день делаю то, что в моих силах. Лучше сделать не идеально, чем не сделать совсем.",
+    end="Выбирайте заботу о&nbsp;себе,<br>а&nbsp;не&nbsp;идеал.",
     end_sub="Если вы тоже ищете свой путь, начните с бесплатного <span style=\"white-space:nowrap\">20-минутного</span> звонка. Ссылка в профиле.",
     swipe="Листайте"),
 }
@@ -415,7 +419,7 @@ def _text(body, sub=None, cls="", n=0, N=0, h="", size=None):
 
 def story(lang):
     """My story (grid type B, colourful). Natalia's own story, 1 Nov 2026."""
-    t, h, N = T["story"][lang], HANDLE[lang], 7
+    t, h, N = T["story"][lang], HANDLE[lang], 8
     sz = None if lang == "en" else 66
     s = []
     s.append(page(
@@ -443,15 +447,23 @@ def story(lang):
         '<div class="body" style="margin-top:48px;font-size:40px">%s</div></div>'
         % (EMBLEM.format(s=120), 76 if lang == "en" else 66, t["turn"], t["turn2"]),
         "sage", 5, N, h))
-    s.append(_text(t["path"], t["path2"], "white", 6, N, h, sz))
+    s.append(_text(t["path"], t["path2"], "white", 6, N, h, 62 if lang == "en" else 56))
+    s.append(page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+        '<div>%s</div>'
+        '<div class="h2" style="margin-top:64px;font-size:%dpx">%s</div><div class="rule" style="margin-top:56px"></div>'
+        '<div class="big" style="margin-top:52px;font-size:%dpx;font-style:italic;color:#4A5A4E">%s</div></div>'
+        % (EMBLEM.format(s=120), 84 if lang == "en" else 76, t["imp"], 56 if lang == "en" else 52, t["imp2"]),
+        "sage", 7, N, h))
     s.append(page(
         '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:110px">%s'
-        '<div class="h2" style="margin-top:60px;font-size:%dpx">%s</div>'
-        '<div class="body" style="margin-top:36px;max-width:820px">%s</div>'
+        '<div class="h1" style="margin-top:60px;font-size:%dpx;font-style:italic">%s</div>'
+        '<div class="rule" style="margin-top:44px"></div>'
+        '<div class="body" style="margin-top:40px;max-width:820px">%s</div>'
         '<div class="label" style="margin-top:44px;letter-spacing:.12em;text-transform:none">%s</div></div>'
         % (ring_photo("images/35e2f5bc66badfbb8809fc1d85e00f0c.jpg", 360, "50% 25%"),
-           72 if lang == "en" else 62, t["end"], t["end_sub"], h),
-        "", 7, N, ""))
+           88 if lang == "en" else 74, t["end"], t["end_sub"], h),
+        "", 8, N, ""))
     return s
 
 
