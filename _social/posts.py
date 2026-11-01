@@ -378,7 +378,7 @@ T["story"] = {
   "en": dict(
     kick="Meet Natalia", title="My story",
     move_h="It started with a move",
-    move="In 2010 I moved to the UK. University, a full-time job and the stress of a new country. That&rsquo;s when my digestion problems began.",
+    move="In 2010 I moved to the UK. The stress of moving, culture shock, university and a full-time job. That&rsquo;s when my digestion problems began.",
     years="For years I ignored the symptoms. Tablets helped while I took them, and then everything came back.",
     vegan="Ten years of eating vegan didn&rsquo;t suit me. My energy kept dropping, and my digestion and hormones got worse.",
     turn="At some point I knew there had to be another way. So I trained in nutrition.",
@@ -391,7 +391,7 @@ T["story"] = {
   "ru": dict(
     kick="Знакомство", title="Моя история",
     move_h="Всё началось с переезда",
-    move="В 2010 году я переехала в Великобританию. Университет, работа на полную ставку, стресс от переезда. Тогда и начались проблемы с пищеварением.",
+    move="В 2010 году я переехала в Великобританию. Стресс от переезда, культурный шок, университет и работа на полную ставку. Тогда и начались проблемы с пищеварением.",
     years="Годами я не обращала внимания на симптомы. Таблетки помогали, пока я их пила, а потом всё возвращалось.",
     vegan="Десять лет веганства мне не подошли. Энергии становилось всё меньше, а пищеварение и гормоны давали о себе знать всё сильнее.",
     turn="В какой-то момент я поняла, что должен быть другой путь. И пошла учиться на нутрициолога.",
