@@ -93,20 +93,22 @@ T["tired"] = {
       ("Breakfast", "What did you have, if anything? Coffee alone, or a pastry on the go, may leave you running out of steam sooner than a breakfast with some protein and fibre, like eggs on toast or yoghurt with oats."),
       ("The gap", "How long did you go without eating? A late lunch after an early start is a long gap. Notice when the dip comes."),
       ("Sleep", "Look at the last two or three nights, not just last night. Short or broken sleep often shows up the next afternoon."),
-      ("Drinks", "How much water did you have before lunch? And when was your last coffee? Not drinking enough can leave you feeling tired."),
+      ("Drinks", "How much water did you have before lunch? Not drinking enough can leave you tired. And when was your last coffee? A late one can affect your sleep."),
     ],
     try_l="Try this week", try_t="Each day, write down when your energy dips and what came just before. A pattern often shows up within a few days.",
+    diary="My free 7-day diary makes this easier. Link in bio.",
     gp="See your GP if you&rsquo;ve felt tired for a few weeks and don&rsquo;t know why, or if tiredness is affecting your daily life.",
     save="Save this for later", swipe="Swipe"),
   "ru": dict(
-    kick="Энергия", title="Нет сил уже к&nbsp;обеду?", sub="4 вещи, на которые стоит посмотреть",
+    kick="Энергия", title="Нет сил уже к&nbsp;обеду?", sub="4 вещи, на которые стоит обратить внимание",
     items=[
-      ("Завтрак", "Что вы ели утром и ели ли вообще? Один кофе или выпечка на бегу могут закончиться быстрее, чем завтрак с белком и клетчаткой, например яйца с тостом или йогурт с овсянкой."),
-      ("Перерыв", "Сколько времени вы были без еды? Поздний обед после раннего подъёма означает долгий перерыв. Заметьте, когда приходит спад."),
-      ("Сон", "Посмотрите на последние две-три ночи, а не только на вчерашнюю. Короткий или прерывистый сон часто чувствуется на следующий день после обеда."),
-      ("Напитки", "Сколько воды вы выпили до обеда? И когда был последний кофе? Если пить мало, можно чувствовать усталость."),
+      ("Завтрак", "Что вы ели утром и ели ли вообще? Если на завтрак только кофе или выпечка на бегу, силы могут закончиться быстрее, чем после завтрака с белком и клетчаткой, например яиц с тостом или йогурта с овсянкой."),
+      ("Долго без еды", "Сколько времени вы были без еды? Поздний обед после раннего подъёма означает долгий перерыв. Заметьте, когда приходит спад."),
+      ("Сон", "Посмотрите на последние две-три ночи, а не только на вчерашнюю. Короткий или прерывистый сон часто даёт о себе знать во второй половине следующего дня."),
+      ("Напитки", "Сколько воды вы выпили до обеда? Когда воды мало, легко почувствовать усталость. И когда был последний кофе? Поздний кофе может мешать сну."),
     ],
     try_l="Попробуйте на этой неделе", try_t="Каждый день записывайте, когда падает энергия и что было прямо перед этим. Закономерность часто видна уже через несколько дней.",
+    diary="С бесплатным дневником «Что мне помогает» это проще. Ссылка в профиле.",
     gp="Обратитесь к врачу, если усталость держится несколько недель без понятной причины или мешает обычной жизни.",
     save="Сохраните, чтобы не потерять", swipe="Листайте"),
 }
@@ -126,7 +128,7 @@ def tired(lang):
         '<div class="h3" style="margin-top:20px;font-style:italic;color:#4A5A4E;font-size:%dpx">%s</div>'
         '<div class="arrow" style="margin-top:34px">%s &rarr;</div></div>'
         '<div style="position:absolute;left:0;right:0;bottom:0;height:150px;background:linear-gradient(transparent,rgba(251,248,242,.9))"></div>'
-        % (img("images/41d0d2957ea062832eb648961566769a.jpg"), t["kick"], 108 if lang == "en" else 92, t["title"], 60 if lang == "en" else 50, t["sub"], t["swipe"]),
+        % (img("images/de146ff7566dce2cdcff871f3977bce0.jpg"), t["kick"], 108 if lang == "en" else 92, t["title"], 60 if lang == "en" else 50, t["sub"], t["swipe"]),
         "", 1, N, h))
     # 2-5 items
     for i, (head, body) in enumerate(t["items"], 1):
@@ -134,17 +136,18 @@ def tired(lang):
             '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
             '<div style="font-family:\'Cormorant Garamond\';font-weight:500;font-size:220px;line-height:.8;color:#B89A5E">%d</div>'
             '<div class="h2" style="margin-top:40px">%s</div><div class="rule" style="margin-top:44px"></div>'
-            '<div class="body" style="margin-top:44px;font-size:40px">%s</div></div>'
+            '<div class="body" style="margin-top:44px;font-size:44px">%s</div></div>'
             % (i, head, body),
             "white" if i % 2 else "", i + 1, N, h))
     # last: try this + GP
     s.append(page(
         '<div style="display:flex;gap:56px;align-items:center;margin-top:20px">%s'
         '<div><div class="label">%s</div></div></div>'
-        '<div class="big" style="margin-top:56px;font-size:62px">%s</div>'
+        '<div class="big" style="margin-top:48px;font-size:%dpx">%s</div>'
+        '<div class="body" style="margin-top:28px;font-size:36px;color:#9C4F1E">%s</div>'
         '<div style="position:absolute;left:96px;right:96px;bottom:150px;background:#F4EEE3;border-left:6px solid #9C4F1E;border-radius:16px;padding:36px 40px">'
         '<div class="body" style="font-size:32px;color:#23392C">%s</div></div>'
-        % (ring_photo("images/cc4942476c283c1b1a3a7e8394274244.jpg", 230, "50% 30%"), t["try_l"], t["try_t"], t["gp"]),
+        % (ring_photo("images/cc4942476c283c1b1a3a7e8394274244.jpg", 230, "50% 30%"), t["try_l"], 58 if lang == "en" else 54, t["try_t"], t["diary"], t["gp"]),
         "sage", N, N, h))
     return s
 
@@ -222,9 +225,35 @@ def _list(items):
         '<span style="font-size:44px;line-height:1.3">%s</span></li>' % x for x in items))
 
 
+def _btn(text, top=48):
+    """Rust call-to-action button, readable on a phone."""
+    return ('<div style="margin-top:%dpx;display:inline-block;background:#9C4F1E;color:#FBF8F2;font-size:38px;font-weight:500;'
+            'letter-spacing:.02em;padding:26px 52px;border-radius:999px">%s</div>' % (top, text))
+
+
+def _mock(lang, h=620, front=1, back=3):
+    """The real diary pages, fanned, as a product shot."""
+    f = "what-helps-me-diary" if lang == "en" else "chto-mne-pomogaet-dnevnik"
+    w = int(h * 909 / 1287)
+    pg = ('<div style="position:absolute;width:%dpx;height:%dpx;background:url(%s) 0 0/cover;border-radius:6px;'
+          'box-shadow:0 18px 40px rgba(35,57,44,.18),0 2px 6px rgba(35,57,44,.12);%s"></div>')
+    return ('<div style="position:relative;width:%dpx;height:%dpx;margin:0 auto">%s%s</div>'
+            % (int(w * 1.55), h + 40,
+               pg % (w, h, img("_social/mock/%s-%02d.png" % (f, back)), "left:%dpx;top:30px;transform:rotate(5deg)" % int(w * .55)),
+               pg % (w, h, img("_social/mock/%s-%02d.png" % (f, front)), "left:0;top:0;transform:rotate(-4deg)")))
+
+
 def _steps(items):
     return '<ol class="steps">%s</ol>' % "".join(
         '<li><span class="k">%d</span><span class="t">%s</span></li>' % (i + 1, x) for i, x in enumerate(items))
+
+
+def _steps_ex(items):
+    """Numbered items, each with a short example line underneath."""
+    return '<ol class="steps" style="margin-top:44px">%s</ol>' % "".join(
+        '<li style="padding:30px 0"><span class="k" style="font-size:76px">%d</span><span class="t">%s'
+        '<span style="display:block;margin-top:8px;font-size:31px;line-height:1.4;font-style:italic;color:#4A5A4E">%s</span></span></li>'
+        % (i + 1, a, b) for i, (a, b) in enumerate(items))
 
 
 T["meet"] = {
@@ -295,7 +324,7 @@ POSTS["meet"] = meet
 T["howiwork"] = {
   "en": dict(
     kick="Nutrition &amp; coaching", title="How I work", cover_sub="Knowing what to eat is only half of it",
-    s2="You probably already know a lot. Vegetables help. Sleep matters. Water is good for you.",
+    s2="Eat your veg. Sleep more. Drink water. You&rsquo;ve heard it all.",
     s3="The hard part is doing it on a busy Tuesday, when you&rsquo;re tired and everyone needs something from you.",
     two_l="So I bring two things together",
     two=[("Nutrition", "We find what may be behind how you feel and write a plan for your real week."),
@@ -306,22 +335,26 @@ T["howiwork"] = {
     start=[("A free 20-minute call", "We get to know each other and see if we&rsquo;re a good fit. No advice yet, and no obligation."),
            ("Your 90-minute Health Review", "We look at what may be behind how you feel, and you get a written plan."),
            ("Weekly coaching", "If you choose a programme, I support you every week while the changes settle in.")],
-    end="Nutrition gives you the plan. Coaching helps you live it.", cta="Book your free call &middot; link in bio",
+    end="Nutrition gives you the plan. Coaching helps you live it.",
+    where="Online, for women in the UK and Europe. Sessions start in January. Free calls are open now.",
+    cta="Book your free call &middot; link in bio",
     swipe="Swipe"),
   "ru": dict(
-    kick="Питание и коучинг", title="Как я работаю", cover_sub="Знать, что есть, это только половина дела",
-    s2="Вы, скорее всего, уже многое знаете. Овощи полезны. Сон важен. Вода нужна.",
-    s3="Сложнее всего делать это в обычный загруженный вторник, когда вы устали и всем от вас что-то нужно.",
+    kick="Питание и коучинг", title="Как я работаю", cover_sub="Понимать, что есть, важно, но&nbsp;это лишь половина дела.",
+    s2="Ешьте овощи. Высыпайтесь. Пейте воду. Вы всё это уже слышали.",
+    s3="Сложнее всего делать это в&nbsp;самый обычный вторник, когда вы устали и всем от вас что-то нужно.",
     two_l="Поэтому я соединяю два подхода",
-    two=[("Питание", "Разбираемся, в чём может быть причина, и составляем план под вашу реальную неделю."),
+    two=[("Питание", "Разбираемся, что может стоять за вашим самочувствием, и составляем план, который впишется в вашу обычную жизнь."),
          ("Коучинг", "Каждую неделю смотрим, что получается, что мешает и какой следующий маленький шаг вы выберете.")],
     q_l="Вопросы, которые я могу вам задать",
-    qs=["Что изменится, если всё получится?", "Что обычно мешает?", "Какой маленький шаг вы правда сделаете на этой неделе?"],
+    qs=["Что изменится, если всё получится?", "Что обычно мешает?", "Какой маленький шаг вы точно сделаете на этой неделе?"],
     start_l="С чего мы начинаем",
     start=[("Бесплатный <span style=\"white-space:nowrap\">20-минутный</span> звонок", "Знакомимся и понимаем, подходим ли друг другу. Без рекомендаций и без обязательств."),
-           ("Разбор здоровья, 90&nbsp;минут", "Разбираемся, в чём может быть причина вашего самочувствия, и вы получаете письменный план."),
+           ("Разбор здоровья, 90&nbsp;минут", "Разбираемся, что может стоять за вашим самочувствием, и вы получаете письменный план."),
            ("Коучинг каждую неделю", "Если вы выбираете программу, я поддерживаю вас каждую неделю, пока изменения не станут привычкой.")],
-    end="Питание даёт план. Коучинг помогает жить по&nbsp;нему.", cta="Запишитесь на бесплатный звонок &middot; ссылка в профиле",
+    end="Питание даёт план. Коучинг помогает жить по&nbsp;нему.",
+    where="Онлайн, для женщин в Великобритании и Европе. Консультации с января, бесплатные звонки уже открыты.",
+    cta="Бесплатный звонок &middot; ссылка в профиле",
     swipe="Листайте"),
 }
 
@@ -363,11 +396,13 @@ def howiwork(lang):
             % (i + 1, a, b) for i, (a, b) in enumerate(t["start"]))),
         "white", 6, N, h))
     s.append(page(
-        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:110px">%s'
-        '<div class="h2" style="margin-top:64px;font-size:%dpx">%s</div>'
-        '<div class="label" style="margin-top:52px;letter-spacing:.12em;text-transform:none">%s</div></div>'
-        % (ring_photo("images/e65d692a766322ff9007f1e03d416859.jpg", 380, "50% 30%"),
-           76 if lang == "en" else 68, t["end"], t["cta"]),
+        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:70px">%s'
+        '<div class="h2" style="margin-top:52px;font-size:%dpx">%s</div>'
+        '<div class="rule" style="margin-top:40px"></div>'
+        '<div class="body" style="margin-top:36px;max-width:840px;font-size:36px">%s</div>%s'
+        '<div class="label" style="margin-top:40px;letter-spacing:.12em;text-transform:none">%s</div></div>'
+        % (ring_photo("images/e65d692a766322ff9007f1e03d416859.jpg", 320, "50% 30%"),
+           72 if lang == "en" else 64, t["end"], t["where"], _btn(t["cta"], 44), h),
         "sage", 7, N, ""))
     return s
 
@@ -377,34 +412,46 @@ POSTS["howiwork"] = howiwork
 
 T["story"] = {
   "en": dict(
-    kick="Meet Natalia", title="My story",
+    kick="Why I do this", title="My story",
     move_h="It started with a move",
     move="In 2010 I moved to the UK. The stress of moving, culture shock, university and a full-time job. That&rsquo;s when my digestion problems began.",
-    years="For years I ignored the symptoms. Tablets helped while I took them, and then everything came back.",
-    vegan="Ten years of unbalanced vegetarian and vegan eating took a toll on my already shaky health. My energy kept dropping, I was losing weight, and my digestion and hormones got worse.",
+    years="For years I ignored the symptoms. Medication eased them, but I never looked at what else in my life might be playing a part.",
+    vegan="For ten years I ate vegetarian, then vegan, without really planning it around what my body needed. It shook my already fragile health further: my energy kept dropping, I was losing weight, and my digestion and hormones got worse.",
     turn="At some point I knew there had to be another way. So I trained in nutrition.",
     turn2="It brought some uncomfortable truths: the way I lived didn&rsquo;t suit my body or my family history.",
-    path="It isn&rsquo;t a magic pill. It&rsquo;s a path of discipline and awareness. Not an easy one, but for me the only way to real health.",
-    path2="Recent viruses and stress set me back, and I&rsquo;m recovering again. That&rsquo;s real life too.",
+    path="There was no quick fix. It&rsquo;s been a path of discipline and awareness. Not an easy one, but it&rsquo;s what helped me feel like myself again.",
+    path2="This year a run of illnesses and stress set me back, and I&rsquo;m rebuilding again. That&rsquo;s real life too.",
+    cred_l="My training", post="BSc (Hons), Dip CNM",
+    cred=[("Nutritional Therapy", "College of Naturopathic Medicine (CNM), 2024"),
+          ("Naturopathic Nutrition Clinic Assistant Supervisor training", "CNM, 2025"),
+          ("Masterful Health and Wellness Coaching", "Real Balance Global Wellness Services, 2025"),
+          ("Wellness &amp; Health Coach", "Real Balance Global Wellness Services, 2026")],
     imp="I&rsquo;m not perfect,<br>and I&rsquo;m still on this path.",
     imp2="I just do what I can, every day. Doing it imperfectly beats not doing it at all.",
     end="Choose nourished,<br>not perfect.",
-    end_sub="If you&rsquo;re looking for your own way, start with a free 20-minute call. The link is in my bio.",
+    why="That&rsquo;s why I work the way I do: small steps that fit real life, with support every week.",
+    end_sub="Looking for your own way? Start with a free <span style=\"white-space:nowrap\">20-minute call.</span>", cta="Book your free call &middot; link in bio",
     swipe="Swipe"),
   "ru": dict(
-    kick="Знакомство", title="Моя история",
+    kick="Почему я этим занимаюсь", title="Моя история",
     move_h="Всё началось с переезда",
     move="В 2010 году я переехала в Великобританию. Стресс от переезда, культурный шок, университет и работа на полную ставку. Тогда и начались проблемы с пищеварением.",
-    years="Годами я не обращала внимания на симптомы. Таблетки помогали, пока я их пила, а потом всё возвращалось.",
-    vegan="Десять лет несбалансированного вегетарианства и веганства сыграли злую шутку с моим и без того пошатнувшимся здоровьем. Энергии становилось всё меньше, я теряла вес, а пищеварение и гормоны давали о себе знать всё сильнее.",
+    years="Годами я не обращала внимания на симптомы. Лекарства их облегчали, но я не задумывалась, что ещё в моей жизни может на это влиять.",
+    vegan="Десять лет я была вегетарианкой, потом веганкой и питалась, не особо думая о&nbsp;том, что нужно моему телу. Это ещё сильнее подорвало моё и без того пошатнувшееся здоровье: энергии становилось всё меньше, я теряла вес, а пищеварение и гормоны шалили всё больше.",
     turn="В какой-то момент я поняла, что должен быть другой путь. И пошла учиться на нутрициолога.",
-    turn2="Пришли неудобные открытия: то, как я жила, просто не подходило моему телу и моей наследственности.",
-    path="Это не волшебная таблетка, а путь дисциплины и осознанности. Путь непростой, но для меня единственный, чтобы вернуть здоровье <span style=\"white-space:nowrap\">по-настоящему</span>.",
-    path2="Недавние вирусы и стресс откатили меня назад, и я снова восстанавливаюсь. Это тоже часть жизни.",
-    imp="Я не идеальная,<br>и я всё ещё в пути.",
+    turn2="Пришлось признать неприятную правду: то, как я жила, не подходило ни моему телу, ни моей наследственности.",
+    path="Быстрого решения не было. Это путь дисциплины и осознанности. Непростой, но именно он помог мне снова почувствовать себя собой.",
+    path2="Недавние вирусы и стресс снова выбили меня из колеи, и сейчас я восстанавливаюсь. Это тоже часть жизни.",
+    cred_l="Моё обучение", post="BSc (Hons), Dip CNM",
+    cred=[("Нутрициология (Nutritional Therapy)", "Колледж натуропатической медицины (CNM), 2024"),
+          ("Практика ассистента-супервайзера клиники натуропатического питания", "CNM, 2025"),
+          ("Курс коучинга здоровья и благополучия (Masterful Health and Wellness Coaching)", "Real Balance Global Wellness Services, 2025"),
+          ("Велнес-коуч и коуч по здоровью (Wellness &amp; Health Coach)", "Real Balance Global Wellness Services, 2026")],
+    imp="Я не идеальна,<br>и я всё ещё в пути.",
     imp2="Я просто каждый день делаю то, что в моих силах. Лучше сделать не идеально, чем не сделать совсем.",
     end="Выбирайте заботу о&nbsp;себе,<br>а&nbsp;не&nbsp;идеал.",
-    end_sub="Если вы тоже ищете свой путь, начните с бесплатного <span style=\"white-space:nowrap\">20-минутного</span> звонка. Ссылка в профиле.",
+    why="Поэтому я работаю именно так: маленькие шаги, которые вписываются в обычную жизнь, и поддержка каждую неделю.",
+    end_sub="Ищете свой путь? Начните с бесплатного <span style=\"white-space:nowrap\">20-минутного звонка.</span>", cta="Бесплатный звонок &middot; ссылка в профиле",
     swipe="Листайте"),
 }
 
@@ -420,7 +467,7 @@ def _text(body, sub=None, cls="", n=0, N=0, h="", size=None):
 
 def story(lang):
     """My story (grid type B, colourful). Natalia's own story, 1 Nov 2026."""
-    t, h, N = T["story"][lang], HANDLE[lang], 8
+    t, h, N = T["story"][lang], HANDLE[lang], 9
     sz = None if lang == "en" else 66
     s = []
     s.append(page(
@@ -436,11 +483,11 @@ def story(lang):
         '<div class="photo" style="height:600px;background-image:url(%s);background-position:50%% 22%%"></div>'
         '<div class="h2" style="margin-top:56px;font-size:%dpx">%s</div>'
         '<div class="body" style="margin-top:26px;font-size:%dpx">%s</div>'
-        % (img("images/8d4e7cf590b2ebfa2cbed8f4f339360f.jpg"), 76 if lang == "en" else 68, t["move_h"],
+        % (img("images/28f38d0abcb4b5b6bce8c61b60b663a7.jpg"), 76 if lang == "en" else 68, t["move_h"],
            36 if lang == "en" else 34, t["move"]),
         "", 2, N, h))
     s.append(_text(t["years"], None, "white", 3, N, h, sz))
-    s.append(_text(t["vegan"], None, "", 4, N, h, 64 if lang == "en" else 58))
+    s.append(_text(t["vegan"], None, "", 4, N, h, 58 if lang == "en" else 52))
     s.append(page(
         '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
         '<div>%s</div>'
@@ -448,23 +495,32 @@ def story(lang):
         '<div class="body" style="margin-top:48px;font-size:40px">%s</div></div>'
         % (EMBLEM.format(s=120), 76 if lang == "en" else 66, t["turn"], t["turn2"]),
         "sage", 5, N, h))
-    s.append(_text(t["path"], t["path2"], "white", 6, N, h, 62 if lang == "en" else 56))
+    s.append(page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+        '<div class="label">%s</div><div class="h3" style="margin-top:24px;font-size:56px">Natalia Zute, %s</div>'
+        '<ul style="list-style:none;margin-top:40px;border-top:1.5px solid #D8CFBF">%s</ul></div>'
+        % (t["cred_l"], t["post"], "".join(
+            '<li style="padding:28px 0;border-bottom:1.5px solid #D8CFBF"><div style="font-size:%dpx;line-height:1.3;color:#23392C">%s</div>'
+            '<div style="margin-top:8px;font-size:28px;color:#4A5A4E">%s</div></li>' % (36 if lang == "en" else 33, a, b) for a, b in t["cred"])),
+        "white", 6, N, h))
+    s.append(_text(t["path"], t["path2"], "", 7, N, h, 62 if lang == "en" else 56))
     s.append(page(
         '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
         '<div>%s</div>'
         '<div class="h2" style="margin-top:64px;font-size:%dpx">%s</div><div class="rule" style="margin-top:56px"></div>'
         '<div class="big" style="margin-top:52px;font-size:%dpx;font-style:italic;color:#4A5A4E">%s</div></div>'
         % (EMBLEM.format(s=120), 84 if lang == "en" else 76, t["imp"], 56 if lang == "en" else 52, t["imp2"]),
-        "sage", 7, N, h))
+        "sage", 8, N, h))
     s.append(page(
-        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:110px">%s'
-        '<div class="h1" style="margin-top:60px;font-size:%dpx;font-style:italic">%s</div>'
-        '<div class="rule" style="margin-top:44px"></div>'
-        '<div class="body" style="margin-top:40px;max-width:820px">%s</div>'
-        '<div class="label" style="margin-top:44px;letter-spacing:.12em;text-transform:none">%s</div></div>'
-        % (ring_photo("images/cc4942476c283c1b1a3a7e8394274244.jpg", 360, "50% 30%"),
-           88 if lang == "en" else 74, t["end"], t["end_sub"], h),
-        "", 8, N, ""))
+        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:60px">%s'
+        '<div class="h1" style="margin-top:44px;font-size:%dpx;font-style:italic">%s</div>'
+        '<div class="rule" style="margin-top:36px"></div>'
+        '<div class="body" style="margin-top:32px;max-width:860px;font-size:35px;color:#23392C">%s</div>'
+        '<div class="body" style="margin-top:20px;max-width:860px;font-size:35px">%s</div>%s'
+        '<div class="label" style="margin-top:36px;letter-spacing:.12em;text-transform:none">%s</div></div>'
+        % (ring_photo("images/cc4942476c283c1b1a3a7e8394274244.jpg", 290, "50% 30%"),
+           84 if lang == "en" else 70, t["end"], t["why"], t["end_sub"], _btn(t["cta"], 40), h),
+        "", 9, N, ""))
     return s
 
 
@@ -503,13 +559,13 @@ def _cover_plain(kick, title, sub, swipe, tsize, N, h, cls="sage"):
 
 
 def _pairs(items, start, n, N, h, cls):
-    """Two numbered items on one slide."""
+    """Two numbered items on one slide, always at the same height."""
     blocks = "".join(
-        '<div style="padding:44px 0;border-bottom:1.5px solid #D8CFBF;display:flex;gap:40px">'
-        '<div style="font-family:\'Cormorant Garamond\';font-weight:500;font-size:110px;line-height:.8;color:#B89A5E;width:70px;flex:none">%d</div>'
-        '<div><div class="h3" style="font-size:56px">%s</div><div class="body" style="margin-top:16px;font-size:36px">%s</div></div></div>'
+        '<div style="padding:52px 0;border-bottom:1.5px solid #D8CFBF;display:flex;gap:40px">'
+        '<div style="font-family:\'Cormorant Garamond\';font-weight:500;font-size:130px;line-height:.8;color:#B89A5E;width:84px;flex:none">%d</div>'
+        '<div><div class="h3" style="font-size:64px">%s</div><div class="body" style="margin-top:18px;font-size:40px">%s</div></div></div>'
         % (start + i, a, b) for i, (a, b) in enumerate(items))
-    return page('<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+    return page('<div style="padding-top:70px">'
                 '<div style="border-top:1.5px solid #D8CFBF">%s</div></div>' % blocks, cls, n, N, h)
 
 
@@ -517,7 +573,7 @@ T["bloating"] = {
   "en": dict(
     kick="Digestion", title="Bloated by the afternoon?", sub="8 everyday things that may be behind it",
     intro="Your jeans fit in the morning. By 4pm, they don&rsquo;t.",
-    intro2="Most bloating comes from gas in your gut. Food, drinks and the air you swallow add up through the day, and stress and long hours at a desk can slow things down.",
+    intro2="Bloating is often linked to gas building up in your gut. Food, drinks and the air you swallow add to it through the day, and stress and long hours at a desk can slow things down.",
     items=[("Eating quickly", "When you eat fast, you swallow more air. Sit down for lunch, even for 15 minutes."),
            ("Fizzy drinks", "The bubbles are gas. Swap one fizzy drink a day for still water or herbal tea."),
            ("A big lunch, no breakfast", "One large meal can be harder to manage. Try a simple breakfast and a lighter lunch."),
@@ -528,14 +584,14 @@ T["bloating"] = {
            ("Your cycle", "Some women notice more bloating at certain times. Note your cycle day next to how you feel.")],
     one="Start with one change",
     one2="Pick one thing from this list, try it for a week and notice what happens. My free 7-day diary makes it easier. The link is in my bio.",
-    gp="See your GP if bloating keeps coming back, if you&rsquo;re losing weight without trying, or if you see blood in your poo.",
+    gp="See your GP if you feel bloated most days for 3 weeks or more, if you&rsquo;re losing weight without trying, or if you see blood in your poo.",
     swipe="Swipe"),
   "ru": dict(
     kick="Пищеварение", title="Вздутие к&nbsp;вечеру?", sub="8 обычных причин, которые могут за этим стоять",
     intro="Утром джинсы сидят свободно, а к четырём часам уже нет.",
-    intro2="Чаще всего вздутие связано с газами в кишечнике. За день накапливаются еда, напитки и воздух, который мы заглатываем, а стресс и долгое сидение за столом могут замедлять пищеварение.",
+    intro2="Вздутие часто связано с газами в кишечнике. Они накапливаются за день из-за еды, напитков и воздуха, который мы заглатываем, а стресс и долгое сидение за столом могут замедлять пищеварение.",
     items=[("Едите быстро", "Когда едите быстро или на ходу, вы заглатываете больше воздуха. Садитесь за обед хотя бы на 15 минут."),
-           ("Газированные напитки", "Пузырьки и есть газ. Замените один такой напиток в день на обычную воду или травяной чай."),
+           ("Газированные напитки", "Пузырьки и есть газ. Замените один такой напиток в день на воду без газа или травяной чай."),
            ("Большой обед без завтрака", "С одной большой порцией справиться сложнее. Попробуйте простой завтрак и обед полегче."),
            ("Мало воды", "Вода помогает пищеварению. Держите стакан или бутылку на виду."),
            ("Много клетчатки сразу", "Фасоль, чечевица и капуста полезны. Добавляйте их понемногу, пока кишечник привыкает."),
@@ -543,8 +599,8 @@ T["bloating"] = {
            ("Стресс", "Кишечник и мозг тесно связаны. Сделайте несколько медленных вдохов перед едой."),
            ("Ваш цикл", "Некоторые женщины замечают, что вздутие сильнее в определённые дни. Записывайте день цикла рядом с самочувствием.")],
     one="Начните с одного изменения",
-    one2="Выберите что-то одно из списка, попробуйте неделю и понаблюдайте. С бесплатным дневником «Что мне помогает» это проще. Ссылка в профиле.",
-    gp="Обратитесь к врачу, если вздутие возвращается снова и снова, если вы худеете без причины или замечаете кровь в стуле.",
+    one2="Выберите что-то одно из списка, попробуйте в течение недели и понаблюдайте. С бесплатным дневником «Что мне помогает» это проще. Ссылка в профиле.",
+    gp="Обратитесь к врачу, если вздутие беспокоит почти каждый день 3 недели и дольше, если вы худеете без причины или замечаете кровь в стуле.",
     swipe="Листайте"),
 }
 
@@ -562,7 +618,7 @@ def bloating(lang):
         '<div class="body" style="margin-top:30px;font-size:38px">%s</div>'
         '<div style="position:absolute;left:96px;right:96px;bottom:150px;background:#F4EEE3;border-left:6px solid #9C4F1E;border-radius:16px;padding:36px 40px">'
         '<div class="body" style="font-size:32px;color:#23392C">%s</div></div>'
-        % (ring_photo("images/28f38d0abcb4b5b6bce8c61b60b663a7.jpg", 230, "50% 25%"),
+        % (ring_photo("images/e65d692a766322ff9007f1e03d416859.jpg", 230, "50% 30%"),
            72 if lang == "en" else 64, t["one"], t["one2"], t["gp"]),
         "sage", N, N, h))
     return s
@@ -573,46 +629,57 @@ POSTS["bloating"] = bloating
 
 T["diary"] = {
   "en": dict(
-    kick="Digestion", title="How to find out what helps you", sub="A food and mood diary in&nbsp;5&nbsp;minutes a&nbsp;day",
+    kick="Free diary", title="How to find out what helps you", sub="A food and mood diary in&nbsp;5&nbsp;minutes a&nbsp;day",
     what_l="What to write down each day",
     what=["Food and drinks, roughly when", "Sleep, and how rested you felt", "Energy: a score from 1 to 5", "Digestion: bloating and comfort", "Skin, mood and stress", "Your cycle day"],
     easy_l="Keep it easy",
     easy=["Fill it in at the end of the day. It takes about 5 minutes.", "Be honest, not perfect. There are no wrong answers.", "Missed a day? Just pick it up tomorrow."],
+    care="If writing down food feels stressful, skip that part. Please don&rsquo;t cut out foods on your own: bring what you notice to a call or your GP.",
     look_l="After 7 days, ask yourself",
     look=["Which days felt better? What was different?", "Do I feel worse at a certain time, or after certain meals?", "How did sleep and stress affect the next day?"],
-    end="Get my free 7-day diary, What Helps Me",
-    end_sub="The link is in my bio. Want help reading it? Bring it to a free 20-minute call.",
+    end="Get my free 7-day diary<br>&ldquo;What Helps Me&rdquo;",
+    end_sub="Want help reading it? Book a free 20-minute call and we&rsquo;ll look at it&nbsp;together.", cta="Get the diary &middot; link in bio",
     swipe="Swipe"),
   "ru": dict(
-    kick="Пищеварение", title="Как понять, что помогает именно вам", sub="Дневник питания и самочувствия за&nbsp;5&nbsp;минут в&nbsp;день",
+    kick="Бесплатный дневник", title="Как понять, что помогает именно вам", sub="Дневник питания и самочувствия за&nbsp;5&nbsp;минут в&nbsp;день",
     what_l="Что записывать каждый день",
-    what=["Еду и напитки, примерно во сколько", "Сон и насколько вы отдохнули", "Энергию: оценка от 1 до 5", "Пищеварение: вздутие и комфорт", "Кожу, настроение и стресс", "День цикла"],
+    what=["Еду и напитки, примерно во сколько", "Сон: насколько вы выспались", "Энергию: оценка от 1 до 5", "Пищеварение: вздутие и комфорт", "Кожу, настроение и стресс", "День цикла"],
     easy_l="Как не бросить",
     easy=["Заполняйте вечером, это около 5 минут.", "Честно, а не идеально. Неправильных ответов нет.", "Пропустили день? Просто продолжите завтра."],
+    care="Если записывать еду тревожно, пропустите этот пункт. И не исключайте продукты самостоятельно: обсудите наблюдения на звонке или с врачом.",
     look_l="Через 7 дней спросите себя",
-    look=["В какие дни было лучше? Что тогда было иначе?", "Хуже ли мне в определённое время или после какой-то еды?", "Как сон и стресс влияли на следующий день?"],
-    end="Заберите бесплатный дневник «Что мне помогает»",
-    end_sub="Ссылка в профиле. Хотите разобрать его вместе? Приходите с ним на бесплатный <span style=\"white-space:nowrap\">20-минутный</span> звонок.",
+    look=["В какие дни самочувствие было лучше? Что в них было по-другому?", "Хуже ли мне в определённое время или после какой-то еды?", "Как сон и стресс влияли на следующий день?"],
+    end="Заберите бесплатный дневник<br>«Что мне помогает»",
+    end_sub="Хотите разобраться в записях? Запишитесь на бесплатный <span style=\"white-space:nowrap\">20-минутный</span> звонок, и мы посмотрим их&nbsp;вместе.", cta="Забрать дневник &middot; ссылка в профиле",
     swipe="Листайте"),
 }
 
 
 def diary(lang):
     t, h, N = T["diary"][lang], HANDLE[lang], 5
-    s = [_cover_plain(t["kick"], t["title"], t["sub"], t["swipe"], 96 if lang == "en" else 84, N, h)]
+    s = [page(
+        '<div style="text-align:center;padding-top:20px"><div class="label">%s</div>'
+        '<div class="h1" style="margin-top:24px;font-size:%dpx">%s</div>'
+        '<div class="h3" style="margin-top:18px;font-style:italic;color:#4A5A4E;font-size:%dpx">%s</div></div>'
+        '<div style="position:absolute;left:0;right:0;top:%dpx">%s</div>'
+        '<div class="arrow" style="position:absolute;right:96px;bottom:130px">%s &rarr;</div>'
+        % (t["kick"], 92 if lang == "en" else 80, t["title"], 46 if lang == "en" else 42, t["sub"],
+           520, _mock(lang, 520), t["swipe"]),
+        "sage", 1, N, h)]
     s.append(page('<div class="label" style="margin-top:30px">%s</div><div class="rule" style="margin-top:32px"></div>%s'
                   % (t["what_l"], _list(t["what"])), "white", 2, N, h))
     s.append(page('<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
-                  '<div class="label">%s</div>%s</div>' % (t["easy_l"], _steps(t["easy"])), "", 3, N, h))
+                  '<div class="label">%s</div>%s'
+                  '<div style="margin-top:48px;background:#FBF8F2;border-left:6px solid #9C4F1E;border-radius:16px;padding:30px 36px">'
+                  '<div class="body" style="font-size:31px;color:#23392C">%s</div></div></div>' % (t["easy_l"], _steps(t["easy"]), t["care"]), "", 3, N, h))
     s.append(page('<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
                   '<div class="label">%s</div>%s</div>' % (t["look_l"], _steps(t["look"])), "white", 4, N, h))
     s.append(page(
-        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:110px">%s'
-        '<div class="h2" style="margin-top:60px;font-size:%dpx">%s</div>'
-        '<div class="body" style="margin-top:36px;max-width:820px">%s</div>'
-        '<div class="label" style="margin-top:44px;letter-spacing:.12em;text-transform:none">%s</div></div>'
-        % (ring_photo("images/f91da419f3c3f8d922409f82ce6a13df.jpg", 360, "50% 50%"),
-           72 if lang == "en" else 62, t["end"], t["end_sub"], h),
+        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:30px">%s'
+        '<div class="h2" style="margin-top:36px;font-size:%dpx">%s</div>'
+        '<div class="body" style="margin-top:24px;max-width:860px;font-size:34px">%s</div>%s'
+        '<div class="label" style="margin-top:32px;letter-spacing:.12em;text-transform:none">%s</div></div>'
+        % (_mock(lang, 400, 1, 2), 68 if lang == "en" else 60, t["end"], t["end_sub"], _btn(t["cta"], 36), h),
         "sage", 5, N, ""))
     return s
 
@@ -626,24 +693,36 @@ T["allornothing"] = {
     s2="Sound familiar? On Monday you start a whole new life. By Wednesday, everything is back to how it was.",
     s2b="It isn&rsquo;t a lack of willpower. It&rsquo;s usually one of these four traps.",
     traps_l="Four common traps",
-    traps=["Changing everything at once", "Following rules without your own reason", "Seeing one bad day as failure", "No plan for busy days"],
+    traps=[("Changing everything at once", "New diet, gym and 2 litres of water, all on Monday."),
+           ("Following someone else&rsquo;s rules without your own why", "No sugar, because everyone online says so."),
+           ("Seeing one bad day as failure", "One takeaway, and the whole week feels ruined."),
+           ("No plan for busy days", "A late meeting, and dinner turns into crisps.")],
     help_l="What helps instead",
-    help=["One small step you&rsquo;re sure you can do", "Your own reason: what will be different for you?", "A plan B for busy days", "Starting again, without guilt"],
+    help=[("One small step you&rsquo;re sure you can do", "Protein at breakfast three days this week."),
+          ("Your own why: what will be different for you?", "Having the energy for a walk with the kids after work."),
+          ("A plan B for busy days", "Eggs and a bag of salad in the fridge for late evenings."),
+          ("Starting again, without guilt", "Missed a day? Your next meal is a fresh start.")],
     q_l="A question for this week", q="What&rsquo;s one small thing I could do, even on a bad day?",
     end="Choose nourished,<br>not perfect.",
-    end_sub="In coaching we find your small steps together. Book a free 20-minute call: the link is in my bio.",
+    end_sub="In coaching we find your small steps together. Start with a free <span style=\"white-space:nowrap\">20-minute call.</span>", cta="Book your free call &middot; link in bio",
     swipe="Swipe"),
   "ru": dict(
-    kick="Коучинг", title="Всё или ничего?", sub="Почему мы бросаем к&nbsp;среде и&nbsp;что помогает",
+    kick="Коучинг", title="Всё или ничего?", sub="Почему к&nbsp;среде мы всё бросаем и&nbsp;что с&nbsp;этим делать",
     s2="Знакомо? В понедельник начинается новая жизнь, а к среде всё снова как было.",
     s2b="Дело не в силе воли. Чаще всего это одна из четырёх ловушек.",
     traps_l="Четыре ловушки",
-    traps=["Менять всё сразу", "Следовать правилам без своей причины", "Считать один плохой день провалом", "Не иметь плана на трудные дни"],
+    traps=[("Менять всё сразу", "В понедельник новая диета, спортзал и 2 литра воды."),
+           ("Следовать чужим правилам, не понимая, зачем это вам", "Отказаться от сахара, потому что так советуют все в интернете."),
+           ("Считать один плохой день провалом", "Одна пицца, и кажется, что вся неделя испорчена."),
+           ("Не иметь плана на загруженные дни", "Поздняя встреча, и ужином становятся чипсы.")],
     help_l="Что помогает",
-    help=["Один маленький шаг, в котором вы уверены", "Своя причина: что изменится именно для вас?", "План Б на загруженные дни", "Начинать заново без чувства вины"],
-    q_l="Вопрос на эту неделю", q="Что одно маленькое я могу делать даже в плохой день?",
+    help=[("Один маленький шаг, в котором вы уверены", "Белок на завтрак три дня на этой неделе."),
+          ("Ваше «зачем»: что изменится именно для&nbsp;вас?", "Чтобы после работы были силы погулять с детьми."),
+          ("План Б на загруженные дни", "Яйца и готовый салат в холодильнике на поздние вечера."),
+          ("Начинать заново без чувства вины", "Пропустили день? Следующий приём пищи и есть новый старт.")],
+    q_l="Вопрос на эту неделю", q="Какой маленький шаг я могу сделать даже в&nbsp;самый тяжёлый день?",
     end="Выбирайте заботу о&nbsp;себе,<br>а&nbsp;не&nbsp;идеал.",
-    end_sub="На коучинге мы вместе находим ваши маленькие шаги. Запишитесь на бесплатный <span style=\"white-space:nowrap\">20-минутный</span> звонок, ссылка в профиле.",
+    end_sub="На коучинге мы вместе находим ваши маленькие шаги. Начните с бесплатного <span style=\"white-space:nowrap\">20-минутного звонка.</span>", cta="Бесплатный звонок &middot; ссылка в профиле",
     swipe="Листайте"),
 }
 
@@ -652,20 +731,19 @@ def allornothing(lang):
     """Coaching (grid type A, her photo)."""
     t, h, N = T["allornothing"][lang], HANDLE[lang], 6
     s = [page(
-        '<div>%s</div>'
-        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;margin-top:50px">%s'
-        '<div class="label" style="margin-top:44px">%s</div>'
+        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;margin-top:60px">%s'
+        '<div class="label" style="margin-top:56px">%s</div>'
         '<div class="h1" style="margin-top:22px;font-size:%dpx">%s</div>'
         '<div class="h3" style="margin-top:18px;font-style:italic;color:#4A5A4E;font-size:%dpx">%s</div>'
         '<div class="arrow" style="margin-top:30px">%s &rarr;</div></div>'
-        % (lockup(), ring_photo("images/06423a6c00e39aeee5560e879c85eb10.jpg", 400, "40% 30%"), t["kick"],
+        % (ring_photo("images/06423a6c00e39aeee5560e879c85eb10.jpg", 440, "40% 30%"), t["kick"],
            112 if lang == "en" else 104, t["title"], 50 if lang == "en" else 44, t["sub"], t["swipe"]),
         "", 1, N, h)]
     s.append(_text(t["s2"], t["s2b"], "white", 2, N, h, 66 if lang == "en" else 60))
     s.append(page('<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
-                  '<div class="label">%s</div>%s</div>' % (t["traps_l"], _steps(t["traps"])), "", 3, N, h))
+                  '<div class="label">%s</div>%s</div>' % (t["traps_l"], _steps_ex(t["traps"])), "", 3, N, h))
     s.append(page('<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
-                  '<div class="label">%s</div>%s</div>' % (t["help_l"], _steps(t["help"])), "white", 4, N, h))
+                  '<div class="label">%s</div>%s</div>' % (t["help_l"], _steps_ex(t["help"])), "white", 4, N, h))
     s.append(page(
         '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
         '<div>%s</div><div class="label" style="margin-top:60px">%s</div>'
@@ -676,9 +754,9 @@ def allornothing(lang):
         '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">'
         '<div class="h1" style="font-size:%dpx;font-style:italic">%s</div>'
         '<div class="rule" style="margin-top:48px"></div>'
-        '<div class="body" style="margin-top:44px;max-width:820px">%s</div>'
+        '<div class="body" style="margin-top:44px;max-width:820px">%s</div>%s'
         '<div class="label" style="margin-top:44px;letter-spacing:.12em;text-transform:none">%s</div></div>'
-        % (96 if lang == "en" else 80, t["end"], t["end_sub"], h),
+        % (96 if lang == "en" else 80, t["end"], t["end_sub"], _btn(t["cta"], 48), h),
         "", 6, N, ""))
     return s
 
