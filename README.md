@@ -9,6 +9,7 @@ blog.html and articles: bloated-in-the-afternoon.html, tired-all-the-time.html, 
 
 ## Still to connect before launch
 - Free guide sign-up forms (home and free-guide.html, EN and RU): connected 17 Oct 2026 via signup.js (form ids and group ids are in that file). Everyone joins "Diary (English)" or "Diary (Russian)" in MailerLite; ticking the email box also adds "Newsletter (English/Russian)". The diary PDFs are in files/ (blocked in robots.txt, linked only from the diary email). To update a diary, replace the PDF with the same file name.
+- Paid booking switch (1 Nov 2026): only the free call and founding-place call are bookable. To open paid sessions, set PAID_OPEN = true in the booking script on contact.html and ru/contact.html (first sessions 8 Jan 2027), and unhide the paid event types in Cal.com.
 - Booking calendar on contact.html: Cal.com (username nataliazutehealth, free plan) with all services, set up 8 Oct. Bookings go to Google Calendar (natalia@nataliazutehealth.com) with Google Meet. Paid sessions require Natalia's confirmation and she sends a payment link until Stripe is connected.
 - Founding places left: change LEFT in founding.js (one number updates every page; at 0 the founding bar, pill, band and booking option disappear).
 - Contact message form on contact.html: a form tool. For now it sends nothing.
