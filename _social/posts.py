@@ -376,29 +376,47 @@ POSTS["howiwork"] = howiwork
 
 T["story"] = {
   "en": dict(
-    kick="Meet Natalia", title="Why I do this work",
-    fam="Gut problems run in my family. In my 20s they started for me too.",
-    fam2="I know how tiring it is to feel unwell and not know why.",
-    move_h="A new country, a new rhythm",
-    move="In 2017 I moved to the UK. New food, a new routine, a different pace. My body noticed every change, and I saw how much daily life shapes how we feel.",
-    so="So I trained in nutrition and coaching.", so2="Not to hand out perfect plans, but to help changes fit real life.",
-    end="Feel at home in your body.", end_sub="Follow for simple ideas for your digestion, energy, skin and cycle.",
+    kick="Meet Natalia", title="My story",
+    move_h="It started with a move",
+    move="In 2010 I moved to the UK. University, a full-time job and the stress of a new country. That&rsquo;s when my digestion problems began.",
+    years="For years I ignored the symptoms. Tablets helped while I took them, and then everything came back.",
+    vegan="Ten years of eating vegan didn&rsquo;t suit me. My energy kept dropping, and my digestion and hormones got worse.",
+    turn="At some point I knew there had to be another way. So I trained in nutrition.",
+    turn2="It brought some uncomfortable truths: the way I lived didn&rsquo;t suit my body or my family history.",
+    path="It isn&rsquo;t a magic pill. It&rsquo;s a path of discipline and awareness, and I&rsquo;m still on it.",
+    path2="Recent viruses and stress set me back, and I&rsquo;m recovering again. That&rsquo;s real life too.",
+    end="Not an easy path, but for me the only way to real health.",
+    end_sub="If you&rsquo;re looking for your own way, start with a free 20-minute call. The link is in my bio.",
     swipe="Swipe"),
   "ru": dict(
-    kick="Знакомство", title="Почему я этим занимаюсь",
-    fam="Проблемы с пищеварением есть у многих в моей семье. Лет в 20 они начались и у меня.",
-    fam2="Я знаю, как утомительно чувствовать себя плохо и не понимать почему.",
-    move_h="Новая страна, новый ритм",
-    move="В 2017 году я переехала в Великобританию. Новая еда, новый распорядок, другой темп. Тело замечало каждую перемену, и я поняла, как сильно повседневная жизнь влияет на самочувствие.",
-    so="Поэтому я выучилась на нутрициолога и коуча.", so2="Не ради идеальных планов, а чтобы перемены вписывались в обычную жизнь.",
-    end="Почувствуйте себя в&nbsp;своём теле как&nbsp;дома.", end_sub="Подписывайтесь: простые идеи для пищеварения, энергии, кожи и цикла.",
+    kick="Знакомство", title="Моя история",
+    move_h="Всё началось с переезда",
+    move="В 2010 году я переехала в Великобританию. Университет, работа на полную ставку, стресс от переезда. Тогда и начались проблемы с пищеварением.",
+    years="Годами я не обращала внимания на симптомы. Таблетки помогали, пока я их пила, а потом всё возвращалось.",
+    vegan="Десять лет веганства мне не подошли. Энергии становилось всё меньше, а пищеварение и гормоны давали о себе знать всё сильнее.",
+    turn="В какой-то момент я поняла, что должен быть другой путь. И пошла учиться на нутрициолога.",
+    turn2="Пришли неудобные открытия: то, как я жила, просто не подходило моему телу и моей наследственности.",
+    path="Это не волшебная таблетка. Это путь дисциплины и осознанности, и я иду по нему до сих пор.",
+    path2="Недавние вирусы и стресс откатили меня назад, и я снова восстанавливаюсь. Это тоже часть жизни.",
+    end="Путь непростой, но для меня единственный, чтобы вернуть здоровье по-настоящему.",
+    end_sub="Если вы тоже ищете свой путь, начните с бесплатного <span style=\"white-space:nowrap\">20-минутного</span> звонка. Ссылка в профиле.",
     swipe="Листайте"),
 }
 
 
+def _text(body, sub=None, cls="", n=0, N=0, h="", size=None):
+    return page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+        '<div class="rule"></div><div class="big" style="margin-top:56px%s">%s</div>%s</div>'
+        % (";font-size:%dpx" % size if size else "", body,
+           '<div class="body" style="margin-top:44px;font-size:40px">%s</div>' % sub if sub else ""),
+        cls, n, N, h)
+
+
 def story(lang):
-    """Pinned 3 (grid type B, colourful)."""
-    t, h, N = T["story"][lang], HANDLE[lang], 5
+    """My story (grid type B, colourful). Natalia's own story, 1 Nov 2026."""
+    t, h, N = T["story"][lang], HANDLE[lang], 7
+    sz = None if lang == "en" else 66
     s = []
     s.append(page(
         '<div style="position:absolute;inset:0;background:url(%s) 50%% 25%%/cover"></div>'
@@ -407,35 +425,33 @@ def story(lang):
         '<div class="label">%s</div>'
         '<div class="h1" style="margin-top:22px;font-size:%dpx">%s</div>'
         '<div class="arrow" style="margin-top:30px">%s &rarr;</div></div>'
-        % (img("images/28f38d0abcb4b5b6bce8c61b60b663a7.jpg"), t["kick"], 96 if lang == "en" else 82, t["title"], t["swipe"]),
+        % (img("images/28f38d0abcb4b5b6bce8c61b60b663a7.jpg"), t["kick"], 110 if lang == "en" else 100, t["title"], t["swipe"]),
         "", 1, N, h))
-    s.append(page(
-        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
-        '<div class="rule"></div><div class="big" style="margin-top:56px">%s</div>'
-        '<div class="body" style="margin-top:44px;font-size:40px">%s</div></div>' % (t["fam"], t["fam2"]),
-        "white", 2, N, h))
     s.append(page(
         '<div class="photo" style="height:600px;background-image:url(%s);background-position:50%% 22%%"></div>'
         '<div class="h2" style="margin-top:56px;font-size:%dpx">%s</div>'
         '<div class="body" style="margin-top:26px;font-size:%dpx">%s</div>'
         % (img("images/8d4e7cf590b2ebfa2cbed8f4f339360f.jpg"), 76 if lang == "en" else 68, t["move_h"],
-           36 if lang == "en" else 33, t["move"]),
-        "", 3, N, h))
+           36 if lang == "en" else 34, t["move"]),
+        "", 2, N, h))
+    s.append(_text(t["years"], None, "white", 3, N, h, sz))
+    s.append(_text(t["vegan"], None, "", 4, N, h, sz))
     s.append(page(
         '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
         '<div>%s</div>'
-        '<div class="h2" style="margin-top:64px">%s</div><div class="rule" style="margin-top:56px"></div>'
-        '<div class="big" style="margin-top:56px;font-style:italic;color:#4A5A4E">%s</div></div>'
-        % (EMBLEM.format(s=120), t["so"], t["so2"]),
-        "sage", 4, N, h))
+        '<div class="h2" style="margin-top:64px;font-size:%dpx">%s</div><div class="rule" style="margin-top:56px"></div>'
+        '<div class="body" style="margin-top:48px;font-size:40px">%s</div></div>'
+        % (EMBLEM.format(s=120), 76 if lang == "en" else 66, t["turn"], t["turn2"]),
+        "sage", 5, N, h))
+    s.append(_text(t["path"], t["path2"], "white", 6, N, h, sz))
     s.append(page(
-        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:120px">%s'
-        '<div class="h2" style="margin-top:64px;font-size:%dpx">%s</div>'
-        '<div class="body" style="margin-top:36px;max-width:800px">%s</div>'
-        '<div class="label" style="margin-top:48px;letter-spacing:.12em;text-transform:none">%s</div></div>'
-        % (ring_photo("images/35e2f5bc66badfbb8809fc1d85e00f0c.jpg", 380, "50% 25%"),
-           84 if lang == "en" else 72, t["end"], t["end_sub"], h),
-        "", 5, N, ""))
+        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:110px">%s'
+        '<div class="h2" style="margin-top:60px;font-size:%dpx">%s</div>'
+        '<div class="body" style="margin-top:36px;max-width:820px">%s</div>'
+        '<div class="label" style="margin-top:44px;letter-spacing:.12em;text-transform:none">%s</div></div>'
+        % (ring_photo("images/35e2f5bc66badfbb8809fc1d85e00f0c.jpg", 360, "50% 25%"),
+           72 if lang == "en" else 62, t["end"], t["end_sub"], h),
+        "", 7, N, ""))
     return s
 
 
