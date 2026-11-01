@@ -302,7 +302,11 @@ T["howiwork"] = {
          ("Coaching", "Every week we look at what&rsquo;s working, what gets in the way, and the next small step you choose.")],
     q_l="Questions I might ask you",
     qs=["What would feel different if this worked?", "What usually gets in the way?", "What&rsquo;s one small step you&rsquo;d really take this week?"],
-    end="Nutrition gives you the plan. Coaching helps you live it.", cta="Free 20-minute call &middot; link in bio",
+    start_l="How we start",
+    start=[("A free 20-minute call", "We get to know each other and see if we&rsquo;re a good fit. No advice yet, and no obligation."),
+           ("Your 90-minute Health Review", "We look at what may be behind how you feel, and you get a written plan."),
+           ("Weekly coaching", "If you choose a programme, I support you every week while the changes settle in.")],
+    end="Nutrition gives you the plan. Coaching helps you live it.", cta="Book your free call &middot; link in bio",
     swipe="Swipe"),
   "ru": dict(
     kick="Как я работаю", title="Знать, что есть, это только половина дела",
@@ -313,14 +317,18 @@ T["howiwork"] = {
          ("Коучинг", "Каждую неделю смотрим, что получается, что мешает и какой следующий маленький шаг вы выберете.")],
     q_l="Вопросы, которые я могу вам задать",
     qs=["Что изменится, если всё получится?", "Что обычно мешает?", "Какой маленький шаг вы правда сделаете на этой неделе?"],
-    end="Питание даёт план. Коучинг помогает жить по&nbsp;нему.", cta="Бесплатный <span style=\"white-space:nowrap\">20-минутный</span> звонок &middot; ссылка в профиле",
+    start_l="С чего мы начинаем",
+    start=[("Бесплатный <span style=\"white-space:nowrap\">20-минутный</span> звонок", "Знакомимся и понимаем, подходим ли друг другу. Без рекомендаций и без обязательств."),
+           ("Разбор здоровья, 90&nbsp;минут", "Разбираемся, в чём может быть причина вашего самочувствия, и вы получаете письменный план."),
+           ("Коучинг каждую неделю", "Если вы выбираете программу, я поддерживаю вас каждую неделю, пока изменения не станут привычкой.")],
+    end="Питание даёт план. Коучинг помогает жить по&nbsp;нему.", cta="Запишитесь на бесплатный звонок &middot; ссылка в профиле",
     swipe="Листайте"),
 }
 
 
 def howiwork(lang):
     """Pinned 2 (grid type C, plain)."""
-    t, h, N = T["howiwork"][lang], HANDLE[lang], 6
+    t, h, N = T["howiwork"][lang], HANDLE[lang], 7
     s = []
     s.append(page(
         '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">%s'
@@ -347,12 +355,19 @@ def howiwork(lang):
         '<div class="label">%s</div>%s</div>' % (t["q_l"], _steps(t["qs"])),
         "", 5, N, h))
     s.append(page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+        '<div class="label">%s</div><ol class="steps">%s</ol></div>'
+        % (t["start_l"], "".join(
+            '<li><span class="k">%d</span><span class="t"><b style="font-weight:500;color:#23392C">%s.</b> %s</span></li>'
+            % (i + 1, a, b) for i, (a, b) in enumerate(t["start"]))),
+        "white", 6, N, h))
+    s.append(page(
         '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:110px">%s'
         '<div class="h2" style="margin-top:64px;font-size:%dpx">%s</div>'
         '<div class="label" style="margin-top:52px;letter-spacing:.12em;text-transform:none">%s</div></div>'
         % (ring_photo("images/e65d692a766322ff9007f1e03d416859.jpg", 380, "50% 30%"),
            76 if lang == "en" else 68, t["end"], t["cta"]),
-        "sage", 6, N, ""))
+        "sage", 7, N, ""))
     return s
 
 
