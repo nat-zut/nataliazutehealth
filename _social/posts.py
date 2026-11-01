@@ -294,7 +294,7 @@ POSTS["meet"] = meet
 
 T["howiwork"] = {
   "en": dict(
-    kick="How I work", title="Knowing what to eat is only half of it",
+    kick="Nutrition &amp; coaching", title="How I work", cover_sub="Knowing what to eat is only half of it",
     s2="You probably already know a lot. Vegetables help. Sleep matters. Water is good for you.",
     s3="The hard part is doing it on a busy Tuesday, when you&rsquo;re tired and everyone needs something from you.",
     two_l="So I bring two things together",
@@ -309,7 +309,7 @@ T["howiwork"] = {
     end="Nutrition gives you the plan. Coaching helps you live it.", cta="Book your free call &middot; link in bio",
     swipe="Swipe"),
   "ru": dict(
-    kick="Как я работаю", title="Знать, что есть, это только половина дела",
+    kick="Питание и коучинг", title="Как я работаю", cover_sub="Знать, что есть, это только половина дела",
     s2="Вы, скорее всего, уже многое знаете. Овощи полезны. Сон важен. Вода нужна.",
     s3="Сложнее всего делать это в обычный загруженный вторник, когда вы устали и всем от вас что-то нужно.",
     two_l="Поэтому я соединяю два подхода",
@@ -334,9 +334,10 @@ def howiwork(lang):
         '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">%s'
         '<div class="label" style="margin-top:70px">%s</div>'
         '<div class="h1" style="margin-top:34px;font-size:%dpx">%s</div>'
-        '<div class="rule" style="margin-top:56px"></div>'
+        '<div class="h3" style="margin-top:26px;font-style:italic;color:#4A5A4E;font-size:%dpx">%s</div>'
+        '<div class="rule" style="margin-top:52px"></div>'
         '<div class="arrow" style="margin-top:44px">%s &rarr;</div></div>'
-        % (EMBLEM.format(s=130), t["kick"], 100 if lang == "en" else 86, t["title"], t["swipe"]),
+        % (EMBLEM.format(s=130), t["kick"], 132 if lang == "en" else 120, t["title"], 54 if lang == "en" else 48, t["cover_sub"], t["swipe"]),
         "sage", 1, N, h))
     for i, txt in enumerate([t["s2"], t["s3"]], 2):
         s.append(page(
@@ -423,13 +424,13 @@ def story(lang):
     sz = None if lang == "en" else 66
     s = []
     s.append(page(
-        '<div style="position:absolute;inset:0;background:url(%s) 50%% 25%%/cover"></div>'
+        '<div style="position:absolute;inset:0;background:url(%s) 50%% 20%%/cover"></div>'
         '<div style="position:absolute;left:80px;right:80px;bottom:150px;background:rgba(251,248,242,.95);'
         'border-radius:28px;padding:56px 64px 50px;text-align:center">'
         '<div class="label">%s</div>'
         '<div class="h1" style="margin-top:22px;font-size:%dpx">%s</div>'
         '<div class="arrow" style="margin-top:30px">%s &rarr;</div></div>'
-        % (img("images/28f38d0abcb4b5b6bce8c61b60b663a7.jpg"), t["kick"], 110 if lang == "en" else 100, t["title"], t["swipe"]),
+        % (img("images/35e2f5bc66badfbb8809fc1d85e00f0c.jpg"), t["kick"], 110 if lang == "en" else 100, t["title"], t["swipe"]),
         "", 1, N, h))
     s.append(page(
         '<div class="photo" style="height:600px;background-image:url(%s);background-position:50%% 22%%"></div>'
@@ -461,10 +462,225 @@ def story(lang):
         '<div class="rule" style="margin-top:44px"></div>'
         '<div class="body" style="margin-top:40px;max-width:820px">%s</div>'
         '<div class="label" style="margin-top:44px;letter-spacing:.12em;text-transform:none">%s</div></div>'
-        % (ring_photo("images/35e2f5bc66badfbb8809fc1d85e00f0c.jpg", 360, "50% 25%"),
+        % (ring_photo("images/cc4942476c283c1b1a3a7e8394274244.jpg", 360, "50% 30%"),
            88 if lang == "en" else 74, t["end"], t["end_sub"], h),
         "", 8, N, ""))
     return s
 
 
 POSTS["story"] = story
+
+
+# ---------------------------------------------------------------------------
+# Profile topics, 1 Nov 2026: digestion and coaching (from the blog articles)
+# ---------------------------------------------------------------------------
+
+def _cover_photo(photo, pos, kick, title, sub, swipe, tsize, ssize, N, h):
+    """Grid type B (colourful): full-bleed photo, title on a cream card."""
+    return page(
+        '<div style="position:absolute;inset:0;background:url(%s) %s/cover"></div>'
+        '<div style="position:absolute;left:80px;right:80px;top:50%%;transform:translateY(-50%%);background:rgba(251,248,242,.95);'
+        'border-radius:28px;padding:64px 64px 56px;text-align:center">'
+        '<div class="label">%s</div>'
+        '<div class="h1" style="margin-top:26px;font-size:%dpx">%s</div>'
+        '<div class="h3" style="margin-top:20px;font-style:italic;color:#4A5A4E;font-size:%dpx">%s</div>'
+        '<div class="arrow" style="margin-top:34px">%s &rarr;</div></div>'
+        % (img(photo), pos, kick, tsize, title, ssize, sub, swipe),
+        "", 1, N, h)
+
+
+def _cover_plain(kick, title, sub, swipe, tsize, N, h, cls="sage"):
+    """Grid type C (plain)."""
+    return page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">%s'
+        '<div class="label" style="margin-top:70px">%s</div>'
+        '<div class="h1" style="margin-top:34px;font-size:%dpx">%s</div>'
+        '<div class="h3" style="margin-top:26px;font-style:italic;color:#4A5A4E;font-size:52px">%s</div>'
+        '<div class="rule" style="margin-top:48px"></div>'
+        '<div class="arrow" style="margin-top:40px">%s &rarr;</div></div>'
+        % (EMBLEM.format(s=130), kick, tsize, title, sub, swipe),
+        cls, 1, N, h)
+
+
+def _pairs(items, start, n, N, h, cls):
+    """Two numbered items on one slide."""
+    blocks = "".join(
+        '<div style="padding:44px 0;border-bottom:1.5px solid #D8CFBF;display:flex;gap:40px">'
+        '<div style="font-family:\'Cormorant Garamond\';font-weight:500;font-size:110px;line-height:.8;color:#B89A5E;width:70px;flex:none">%d</div>'
+        '<div><div class="h3" style="font-size:56px">%s</div><div class="body" style="margin-top:16px;font-size:36px">%s</div></div></div>'
+        % (start + i, a, b) for i, (a, b) in enumerate(items))
+    return page('<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+                '<div style="border-top:1.5px solid #D8CFBF">%s</div></div>' % blocks, cls, n, N, h)
+
+
+T["bloating"] = {
+  "en": dict(
+    kick="Digestion", title="Bloated by the afternoon?", sub="8 everyday things that may be behind it",
+    intro="Your jeans fit in the morning. By 4pm, they don&rsquo;t.",
+    intro2="Most bloating comes from gas in your gut. Food, drinks and the air you swallow add up through the day, and stress and long hours at a desk can slow things down.",
+    items=[("Eating quickly", "When you eat fast, you swallow more air. Sit down for lunch, even for 15 minutes."),
+           ("Fizzy drinks", "The bubbles are gas. Swap one fizzy drink a day for still water or herbal tea."),
+           ("A big lunch, no breakfast", "One large meal can be harder to manage. Try a simple breakfast and a lighter lunch."),
+           ("Not enough water", "Water helps keep things moving. Keep a glass where you can see it."),
+           ("Lots of fibre at once", "Beans, lentils and cabbage are good for you. Add them slowly while your gut gets used to them."),
+           ("Sitting for hours", "Movement helps digestion. A 10-minute walk after lunch is an easy start."),
+           ("Stress", "Your gut and brain are closely connected. Try a few slow breaths before you eat."),
+           ("Your cycle", "Some women notice more bloating at certain times. Note your cycle day next to how you feel.")],
+    one="Start with one change",
+    one2="Pick one thing from this list, try it for a week and notice what happens. My free 7-day diary makes it easier. The link is in my bio.",
+    gp="See your GP if bloating keeps coming back, if you&rsquo;re losing weight without trying, or if you see blood in your poo.",
+    swipe="Swipe"),
+  "ru": dict(
+    kick="Пищеварение", title="Вздутие к&nbsp;вечеру?", sub="8 обычных причин, которые могут за этим стоять",
+    intro="Утром джинсы сидят свободно, а к четырём часам уже нет.",
+    intro2="Чаще всего вздутие связано с газами в кишечнике. За день накапливаются еда, напитки и воздух, который мы заглатываем, а стресс и долгое сидение за столом могут замедлять пищеварение.",
+    items=[("Едите быстро", "Когда едите быстро или на ходу, вы заглатываете больше воздуха. Садитесь за обед хотя бы на 15 минут."),
+           ("Газированные напитки", "Пузырьки и есть газ. Замените один такой напиток в день на обычную воду или травяной чай."),
+           ("Большой обед без завтрака", "С одной большой порцией справиться сложнее. Попробуйте простой завтрак и обед полегче."),
+           ("Мало воды", "Вода помогает пищеварению. Держите стакан или бутылку на виду."),
+           ("Много клетчатки сразу", "Фасоль, чечевица и капуста полезны. Добавляйте их понемногу, пока кишечник привыкает."),
+           ("Долго сидите", "Движение помогает пищеварению. Начните с прогулки на 10 минут после обеда."),
+           ("Стресс", "Кишечник и мозг тесно связаны. Сделайте несколько медленных вдохов перед едой."),
+           ("Ваш цикл", "Некоторые женщины замечают, что вздутие сильнее в определённые дни. Записывайте день цикла рядом с самочувствием.")],
+    one="Начните с одного изменения",
+    one2="Выберите что-то одно из списка, попробуйте неделю и понаблюдайте. С бесплатным дневником «Что мне помогает» это проще. Ссылка в профиле.",
+    gp="Обратитесь к врачу, если вздутие возвращается снова и снова, если вы худеете без причины или замечаете кровь в стуле.",
+    swipe="Листайте"),
+}
+
+
+def bloating(lang):
+    t, h, N = T["bloating"][lang], HANDLE[lang], 7
+    s = [_cover_photo("images/d9e980fc6f2525e38a3eef2ba0d7c5f3.jpg", "50% 50%", t["kick"], t["title"], t["sub"], t["swipe"],
+                      104 if lang == "en" else 100, 52 if lang == "en" else 46, N, h)]
+    s.append(_text(t["intro"], t["intro2"], "white", 2, N, h, 66 if lang == "en" else 60))
+    for k in range(4):
+        s.append(_pairs(t["items"][2 * k:2 * k + 2], 2 * k + 1, k + 3, N, h, "" if k % 2 == 0 else "white"))
+    s.append(page(
+        '<div style="display:flex;gap:56px;align-items:center;margin-top:20px">%s</div>'
+        '<div class="h2" style="margin-top:56px;font-size:%dpx">%s</div>'
+        '<div class="body" style="margin-top:30px;font-size:38px">%s</div>'
+        '<div style="position:absolute;left:96px;right:96px;bottom:150px;background:#F4EEE3;border-left:6px solid #9C4F1E;border-radius:16px;padding:36px 40px">'
+        '<div class="body" style="font-size:32px;color:#23392C">%s</div></div>'
+        % (ring_photo("images/28f38d0abcb4b5b6bce8c61b60b663a7.jpg", 230, "50% 25%"),
+           72 if lang == "en" else 64, t["one"], t["one2"], t["gp"]),
+        "sage", N, N, h))
+    return s
+
+
+POSTS["bloating"] = bloating
+
+
+T["diary"] = {
+  "en": dict(
+    kick="Digestion", title="How to find out what helps you", sub="A food and mood diary in&nbsp;5&nbsp;minutes a&nbsp;day",
+    what_l="What to write down each day",
+    what=["Food and drinks, roughly when", "Sleep, and how rested you felt", "Energy: a score from 1 to 5", "Digestion: bloating and comfort", "Skin, mood and stress", "Your cycle day"],
+    easy_l="Keep it easy",
+    easy=["Fill it in at the end of the day. It takes about 5 minutes.", "Be honest, not perfect. There are no wrong answers.", "Missed a day? Just pick it up tomorrow."],
+    look_l="After 7 days, ask yourself",
+    look=["Which days felt better? What was different?", "Do I feel worse at a certain time, or after certain meals?", "How did sleep and stress affect the next day?"],
+    end="Get my free 7-day diary, What Helps Me",
+    end_sub="The link is in my bio. Want help reading it? Bring it to a free 20-minute call.",
+    swipe="Swipe"),
+  "ru": dict(
+    kick="Пищеварение", title="Как понять, что помогает именно вам", sub="Дневник питания и самочувствия за&nbsp;5&nbsp;минут в&nbsp;день",
+    what_l="Что записывать каждый день",
+    what=["Еду и напитки, примерно во сколько", "Сон и насколько вы отдохнули", "Энергию: оценка от 1 до 5", "Пищеварение: вздутие и комфорт", "Кожу, настроение и стресс", "День цикла"],
+    easy_l="Как не бросить",
+    easy=["Заполняйте вечером, это около 5 минут.", "Честно, а не идеально. Неправильных ответов нет.", "Пропустили день? Просто продолжите завтра."],
+    look_l="Через 7 дней спросите себя",
+    look=["В какие дни было лучше? Что тогда было иначе?", "Хуже ли мне в определённое время или после какой-то еды?", "Как сон и стресс влияли на следующий день?"],
+    end="Заберите бесплатный дневник «Что мне помогает»",
+    end_sub="Ссылка в профиле. Хотите разобрать его вместе? Приходите с ним на бесплатный <span style=\"white-space:nowrap\">20-минутный</span> звонок.",
+    swipe="Листайте"),
+}
+
+
+def diary(lang):
+    t, h, N = T["diary"][lang], HANDLE[lang], 5
+    s = [_cover_plain(t["kick"], t["title"], t["sub"], t["swipe"], 96 if lang == "en" else 84, N, h)]
+    s.append(page('<div class="label" style="margin-top:30px">%s</div><div class="rule" style="margin-top:32px"></div>%s'
+                  % (t["what_l"], _list(t["what"])), "white", 2, N, h))
+    s.append(page('<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+                  '<div class="label">%s</div>%s</div>' % (t["easy_l"], _steps(t["easy"])), "", 3, N, h))
+    s.append(page('<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+                  '<div class="label">%s</div>%s</div>' % (t["look_l"], _steps(t["look"])), "white", 4, N, h))
+    s.append(page(
+        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:110px">%s'
+        '<div class="h2" style="margin-top:60px;font-size:%dpx">%s</div>'
+        '<div class="body" style="margin-top:36px;max-width:820px">%s</div>'
+        '<div class="label" style="margin-top:44px;letter-spacing:.12em;text-transform:none">%s</div></div>'
+        % (ring_photo("images/f91da419f3c3f8d922409f82ce6a13df.jpg", 360, "50% 50%"),
+           72 if lang == "en" else 62, t["end"], t["end_sub"], h),
+        "sage", 5, N, ""))
+    return s
+
+
+POSTS["diary"] = diary
+
+
+T["allornothing"] = {
+  "en": dict(
+    kick="Coaching", title="All or nothing?", sub="Why we give up by Wednesday, and what helps",
+    s2="Sound familiar? On Monday you start a whole new life. By Wednesday, everything is back to how it was.",
+    s2b="It isn&rsquo;t a lack of willpower. It&rsquo;s usually one of these four traps.",
+    traps_l="Four common traps",
+    traps=["Changing everything at once", "Following rules without your own reason", "Seeing one bad day as failure", "No plan for busy days"],
+    help_l="What helps instead",
+    help=["One small step you&rsquo;re sure you can do", "Your own reason: what will be different for you?", "A plan B for busy days", "Starting again, without guilt"],
+    q_l="A question for this week", q="What&rsquo;s one small thing I could do, even on a bad day?",
+    end="Choose nourished,<br>not perfect.",
+    end_sub="In coaching we find your small steps together. Book a free 20-minute call: the link is in my bio.",
+    swipe="Swipe"),
+  "ru": dict(
+    kick="Коучинг", title="Всё или ничего?", sub="Почему мы бросаем к&nbsp;среде и&nbsp;что помогает",
+    s2="Знакомо? В понедельник начинается новая жизнь, а к среде всё снова как было.",
+    s2b="Дело не в силе воли. Чаще всего это одна из четырёх ловушек.",
+    traps_l="Четыре ловушки",
+    traps=["Менять всё сразу", "Следовать правилам без своей причины", "Считать один плохой день провалом", "Не иметь плана на трудные дни"],
+    help_l="Что помогает",
+    help=["Один маленький шаг, в котором вы уверены", "Своя причина: что изменится именно для вас?", "План Б на загруженные дни", "Начинать заново без чувства вины"],
+    q_l="Вопрос на эту неделю", q="Что одно маленькое я могу делать даже в плохой день?",
+    end="Выбирайте заботу о&nbsp;себе,<br>а&nbsp;не&nbsp;идеал.",
+    end_sub="На коучинге мы вместе находим ваши маленькие шаги. Запишитесь на бесплатный <span style=\"white-space:nowrap\">20-минутный</span> звонок, ссылка в профиле.",
+    swipe="Листайте"),
+}
+
+
+def allornothing(lang):
+    """Coaching (grid type A, her photo)."""
+    t, h, N = T["allornothing"][lang], HANDLE[lang], 6
+    s = [page(
+        '<div>%s</div>'
+        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;margin-top:50px">%s'
+        '<div class="label" style="margin-top:44px">%s</div>'
+        '<div class="h1" style="margin-top:22px;font-size:%dpx">%s</div>'
+        '<div class="h3" style="margin-top:18px;font-style:italic;color:#4A5A4E;font-size:%dpx">%s</div>'
+        '<div class="arrow" style="margin-top:30px">%s &rarr;</div></div>'
+        % (lockup(), ring_photo("images/06423a6c00e39aeee5560e879c85eb10.jpg", 400, "40% 30%"), t["kick"],
+           112 if lang == "en" else 104, t["title"], 50 if lang == "en" else 44, t["sub"], t["swipe"]),
+        "", 1, N, h)]
+    s.append(_text(t["s2"], t["s2b"], "white", 2, N, h, 66 if lang == "en" else 60))
+    s.append(page('<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+                  '<div class="label">%s</div>%s</div>' % (t["traps_l"], _steps(t["traps"])), "", 3, N, h))
+    s.append(page('<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+                  '<div class="label">%s</div>%s</div>' % (t["help_l"], _steps(t["help"])), "white", 4, N, h))
+    s.append(page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+        '<div>%s</div><div class="label" style="margin-top:60px">%s</div>'
+        '<div class="h2" style="margin-top:36px;font-style:italic;font-size:%dpx">%s</div></div>'
+        % (EMBLEM.format(s=120), t["q_l"], 84 if lang == "en" else 74, t["q"]),
+        "sage", 5, N, h))
+    s.append(page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">'
+        '<div class="h1" style="font-size:%dpx;font-style:italic">%s</div>'
+        '<div class="rule" style="margin-top:48px"></div>'
+        '<div class="body" style="margin-top:44px;max-width:820px">%s</div>'
+        '<div class="label" style="margin-top:44px;letter-spacing:.12em;text-transform:none">%s</div></div>'
+        % (96 if lang == "en" else 80, t["end"], t["end_sub"], h),
+        "", 6, N, ""))
+    return s
+
+
+POSTS["allornothing"] = allornothing
