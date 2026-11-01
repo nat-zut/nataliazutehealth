@@ -380,7 +380,7 @@ T["story"] = {
     move_h="It started with a move",
     move="In 2010 I moved to the UK. The stress of moving, culture shock, university and a full-time job. That&rsquo;s when my digestion problems began.",
     years="For years I ignored the symptoms. Tablets helped while I took them, and then everything came back.",
-    vegan="Ten years of eating vegan didn&rsquo;t suit me. My energy kept dropping, and my digestion and hormones got worse.",
+    vegan="Ten years of unbalanced vegetarian and vegan eating took a toll on my already shaky health. My energy kept dropping, I was losing weight, and my digestion and hormones got worse.",
     turn="At some point I knew there had to be another way. So I trained in nutrition.",
     turn2="It brought some uncomfortable truths: the way I lived didn&rsquo;t suit my body or my family history.",
     path="It isn&rsquo;t a magic pill. It&rsquo;s a path of discipline and awareness, and I&rsquo;m still on it.",
@@ -393,7 +393,7 @@ T["story"] = {
     move_h="Всё началось с переезда",
     move="В 2010 году я переехала в Великобританию. Стресс от переезда, культурный шок, университет и работа на полную ставку. Тогда и начались проблемы с пищеварением.",
     years="Годами я не обращала внимания на симптомы. Таблетки помогали, пока я их пила, а потом всё возвращалось.",
-    vegan="Десять лет веганства мне не подошли. Энергии становилось всё меньше, а пищеварение и гормоны давали о себе знать всё сильнее.",
+    vegan="Десять лет несбалансированного вегетарианства и веганства сыграли злую шутку с моим и без того пошатнувшимся здоровьем. Энергии становилось всё меньше, я теряла вес, а пищеварение и гормоны давали о себе знать всё сильнее.",
     turn="В какой-то момент я поняла, что должен быть другой путь. И пошла учиться на нутрициолога.",
     turn2="Пришли неудобные открытия: то, как я жила, просто не подходило моему телу и моей наследственности.",
     path="Это не волшебная таблетка. Это путь дисциплины и осознанности, и я иду по нему до сих пор.",
@@ -435,7 +435,7 @@ def story(lang):
            36 if lang == "en" else 34, t["move"]),
         "", 2, N, h))
     s.append(_text(t["years"], None, "white", 3, N, h, sz))
-    s.append(_text(t["vegan"], None, "", 4, N, h, sz))
+    s.append(_text(t["vegan"], None, "", 4, N, h, 64 if lang == "en" else 58))
     s.append(page(
         '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
         '<div>%s</div>'
