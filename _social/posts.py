@@ -762,3 +762,55 @@ def allornothing(lang):
 
 
 POSTS["allornothing"] = allornothing
+
+
+# ---------------------------------------------------------------------------
+# Pancakes two ways (moved to December). One recipe: green buckwheat, water, salt.
+# ---------------------------------------------------------------------------
+
+def _photo_card(photo, pos, kick, body, n, N, h, sub=None, where="bottom:150px"):
+    return page(
+        '<div style="position:absolute;inset:0;background:url(%s) %s/cover"></div>'
+        '<div style="position:absolute;left:64px;right:64px;%s;background:rgba(251,248,242,.95);border-radius:24px;padding:44px 52px">'
+        '<div class="label">%s</div><div class="body" style="margin-top:18px;font-size:38px;color:#23392C">%s</div>%s</div>'
+        % (img(photo), pos, where, kick, body, '<div class="body" style="margin-top:14px;font-size:30px">%s</div>' % sub if sub else ""),
+        "", n, N, h)
+
+
+T["pancakes2"] = {
+  "en": dict(
+    kick="Breakfast", title="Buckwheat pancakes, two ways", sub="Savoury or sweet", swipe="Swipe",
+    base_l="The base", base="Green buckwheat soaked overnight, fresh water and a pinch of salt. That&rsquo;s it.",
+    base2="Green buckwheat is naturally gluten-free. If you need to avoid gluten strictly, choose one labelled gluten-free.",
+    sav_l="Savoury", sav="Scrambled eggs, smoked salmon, avocado and fresh parsley.",
+    sw_l="Sweet", sw_h="Or keep it sweet", sw="Fresh fruit, a spoon of yoghurt and a few nuts. Kiwi and banana work well.",
+    b_l="Make a batch", b_h="Cook a few at once.", b="They keep in the fridge for up to two days, so the next breakfast is half ready.",
+    tag="Choose nourished, not perfect."),
+  "ru": dict(
+    kick="Завтрак", title="Гречневые блины: два&nbsp;варианта", sub="Сытные или сладкие", swipe="Листайте",
+    base_l="Основа", base="Зелёная гречка, замоченная на ночь, свежая вода и щепотка соли. Больше ничего.",
+    base2="Гречка от природы не содержит глютена. Если вам нужно строго его избегать, выбирайте упаковку с маркировкой «без глютена».",
+    sav_l="Сытные", sav="Яичница-болтунья, слабосолёный лосось, авокадо и свежая петрушка.",
+    sw_l="Сладкие", sw_h="Или сладкие", sw="Свежие фрукты, ложка йогурта и немного орехов. Отлично подходят киви и банан.",
+    b_l="Про запас", b_h="Испеките сразу несколько.", b="В холодильнике они хранятся до двух дней, и следующий завтрак уже наполовину готов.",
+    tag="Выбирайте заботу о&nbsp;себе, а&nbsp;не&nbsp;идеал."),
+}
+
+
+def pancakes2(lang):
+    t, h, N = T["pancakes2"][lang], HANDLE[lang], 5
+    s = [_cover_photo("_social/photos/pancakes-9360.jpg", "50% 100%", t["kick"], t["title"], t["sub"], t["swipe"],
+                      96 if lang == "en" else 86, 50 if lang == "en" else 46, N, h)]
+    s.append(_photo_card("_social/photos/pancakes-9355.jpg", "50% 40%", t["base_l"], t["base"], 2, N, h, t["base2"]))
+    s.append(_photo_card("_social/photos/pancakes-9359.jpg", "50% 70%", t["sav_l"], t["sav"], 3, N, h, None, "top:96px"))
+    for i, (l, hh, b, cls) in enumerate([(t["sw_l"], t["sw_h"], t["sw"], "white"), (t["b_l"], t["b_h"], t["b"], "")], 4):
+        s.append(page(
+            '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+            '<div class="label">%s</div><div class="h2" style="margin-top:28px">%s</div><div class="rule" style="margin-top:44px"></div>'
+            '<div class="body" style="margin-top:40px;font-size:42px">%s</div>%s</div>'
+            % (l, hh, b, '<div class="h3" style="margin-top:48px;font-style:italic;color:#4A5A4E;font-size:52px">%s</div>' % t["tag"] if i == 5 else ""),
+            cls, i, N, h))
+    return s
+
+
+POSTS["pancakes2"] = pancakes2
