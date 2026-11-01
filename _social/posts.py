@@ -20,7 +20,7 @@ T = {
     been="Я знаю, каково это.", story="Проблемы с пищеварением есть у многих в моей семье, а в 20 с небольшим они начались и у меня.",
     so="Поэтому я выучилась на нутрициолога и коуча.", so2="Не ради идеальных планов, а ради перемен, которые вписываются в обычную неделю.",
     how_l="Как я работаю", how="Три простых шага",
-    steps=["Разбираемся, что может стоять за вашим самочувствием", "Вместе составляем план под вашу реальную неделю", "Помогаю не бросить — с коучингом"],
+    steps=["Разбираемся, что может стоять за вашим самочувствием", "Вместе составляем план под вашу реальную неделю", "Помогаю не бросить с помощью коучинга"],
     tag="Выбирайте заботу о&nbsp;себе, а&nbsp;не&nbsp;идеал.", follow="Подписывайтесь: простые идеи для энергии, пищеварения, кожи и цикла.",
     swipe="Листайте"),
  }
@@ -102,7 +102,7 @@ T["tired"] = {
     kick="Энергия", title="Нет сил уже к&nbsp;обеду?", sub="4 вещи, на которые стоит посмотреть",
     items=[
       ("Завтрак", "Что вы ели утром и ели ли вообще? Один кофе или выпечка на бегу могут закончиться быстрее, чем завтрак с белком и клетчаткой, например яйца с тостом или йогурт с овсянкой."),
-      ("Перерыв", "Сколько времени вы были без еды? Поздний обед после раннего подъёма — это долгий перерыв. Заметьте, когда приходит спад."),
+      ("Перерыв", "Сколько времени вы были без еды? Поздний обед после раннего подъёма означает долгий перерыв. Заметьте, когда приходит спад."),
       ("Сон", "Посмотрите на последние две-три ночи, а не только на вчерашнюю. Короткий или прерывистый сон часто чувствуется на следующий день после обеда."),
       ("Напитки", "Сколько воды вы выпили до обеда? И когда был последний кофе? Если пить мало, можно чувствовать усталость."),
     ],
@@ -162,7 +162,7 @@ T["coaching"] = {
     qs=["What would feel different if this worked?", "What usually gets in the way?", "What&rsquo;s one small step you&rsquo;d really take this week?"],
     end="Nutrition gives you the plan. Coaching helps you live it.", swipe="Swipe"),
   "ru": dict(
-    kick="Коучинг", title="Знать, что есть, — это только половина",
+    kick="Коучинг", title="Знать, что есть, это только половина дела",
     s2="Вы, скорее всего, уже многое знаете. Овощи полезны. Сон важен. Вода нужна.",
     s3="Сложнее всего сделать это в обычный загруженный вторник, когда вы устали и всем от вас что-то нужно.",
     s4_h="Вот здесь помогает коучинг", s4="Я не говорю, что вам делать. Вместе мы находим, что важно именно вам, что мешает, и маленькие шаги, которые вы выбираете сами.",
@@ -209,3 +209,219 @@ def coaching(lang):
 
 
 POSTS["coaching"] = coaching
+
+
+# ---------------------------------------------------------------------------
+# Pinned posts, 1 Nov 2026 (positioning "Feel at home in your body", 19 Oct)
+# ---------------------------------------------------------------------------
+
+def _list(items):
+    return ('<ul style="list-style:none;margin-top:44px;border-top:1.5px solid #D8CFBF">%s</ul>' % "".join(
+        '<li style="display:flex;gap:28px;align-items:center;padding:30px 0;border-bottom:1.5px solid #D8CFBF">'
+        '<span style="width:14px;height:14px;border-radius:50%%;background:#B89A5E;flex:none"></span>'
+        '<span style="font-size:44px;line-height:1.3">%s</span></li>' % x for x in items))
+
+
+def _steps(items):
+    return '<ol class="steps">%s</ol>' % "".join(
+        '<li><span class="k">%d</span><span class="t">%s</span></li>' % (i + 1, x) for i, x in enumerate(items))
+
+
+T["meet"] = {
+  "en": dict(
+    hi="Hi, I&rsquo;m Natalia", role="Nutritional Therapist &amp; Wellness Coach",
+    head="Feel at home<br>in your body.", head_sub="Nutrition and coaching, online, in English and Russian.",
+    who_l="Who I help", who="Women who want to feel like themselves again. I can support you with:",
+    areas=["Digestion and bloating", "Low energy", "Skin flare-ups", "Difficult cycles", "Stress and sleep"],
+    how_l="How I can help",
+    steps=["We look at what may be behind how you feel", "We write a plan that fits your real week", "I support you every week while it becomes a habit"],
+    end="Start with a free<br>20-minute call", end_sub="A relaxed chat to see if we&rsquo;re a good fit. The link is in my bio.",
+    swipe="Swipe"),
+  "ru": dict(
+    hi="Здравствуйте, я&nbsp;Наталья", role="Нутрициолог и коуч по здоровью",
+    head="Почувствуйте себя в&nbsp;своём теле как&nbsp;дома.", head_sub="Питание и коучинг онлайн, на русском и английском.",
+    who_l="Кому я помогаю", who="Женщинам, которые хотят снова чувствовать себя собой. Я помогаю, если беспокоят:",
+    areas=["Пищеварение и вздутие", "Нехватка энергии", "Высыпания на коже", "Сложный цикл", "Стресс и сон"],
+    how_l="Как я помогаю",
+    steps=["Разбираемся, в чём может быть причина вашего самочувствия", "Составляем план, который впишется в вашу реальную неделю", "Каждую неделю поддерживаю вас, пока изменения не станут привычкой"],
+    end="Начните с бесплатного <span style=\"white-space:nowrap\">20-минутного</span> звонка", end_sub="Спокойный разговор, чтобы понять, подходим ли мы друг другу. Ссылка в профиле.",
+    swipe="Листайте"),
+}
+
+
+def meet(lang):
+    """Pinned 1 (grid type A, photo)."""
+    t, h, N = T["meet"][lang], HANDLE[lang], 5
+    s = []
+    s.append(page(
+        '<div>%s</div>'
+        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;margin-top:60px">%s'
+        '<div class="h1" style="margin-top:56px;font-size:%dpx">%s</div>'
+        '<div class="label" style="margin-top:34px">%s</div>'
+        '<div class="arrow" style="margin-top:40px">%s &rarr;</div></div>'
+        % (lockup(), ring_photo("images/bb046ce461b4ce6d97f4430a1fc7dddb.jpg", 450, "50% 35%"),
+           112 if lang == "en" else 96, t["hi"], t["role"], t["swipe"]),
+        "", 1, N, h))
+    s.append(page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">%s'
+        '<div class="h1" style="margin-top:70px;font-size:%dpx">%s</div>'
+        '<div class="rule" style="margin-top:56px"></div>'
+        '<div class="body" style="margin-top:48px;max-width:780px">%s</div></div>'
+        % (EMBLEM.format(s=130), 108 if lang == "en" else 92, t["head"], t["head_sub"]),
+        "sage", 2, N, h))
+    s.append(page(
+        '<div class="label" style="margin-top:30px">%s</div><div class="rule" style="margin-top:32px"></div>'
+        '<div class="big" style="margin-top:44px;font-size:%dpx">%s</div>%s'
+        % (t["who_l"], 62 if lang == "en" else 56, t["who"], _list(t["areas"])),
+        "white", 3, N, h))
+    s.append(page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+        '<div class="label">%s</div>%s</div>' % (t["how_l"], _steps(t["steps"])),
+        "", 4, N, h))
+    s.append(page(
+        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:120px">%s'
+        '<div class="h2" style="margin-top:64px;font-size:%dpx">%s</div>'
+        '<div class="body" style="margin-top:36px;max-width:800px">%s</div>'
+        '<div class="label" style="margin-top:48px;letter-spacing:.12em;text-transform:none">%s</div></div>'
+        % (ring_photo("images/cc4942476c283c1b1a3a7e8394274244.jpg", 380, "50% 30%"),
+           80 if lang == "en" else 70, t["end"], t["end_sub"], h),
+        "sage", 5, N, ""))
+    return s
+
+
+POSTS["meet"] = meet
+
+
+T["howiwork"] = {
+  "en": dict(
+    kick="How I work", title="Knowing what to eat is only half of it",
+    s2="You probably already know a lot. Vegetables help. Sleep matters. Water is good for you.",
+    s3="The hard part is doing it on a busy Tuesday, when you&rsquo;re tired and everyone needs something from you.",
+    two_l="So I bring two things together",
+    two=[("Nutrition", "We find what may be behind how you feel and write a plan for your real week."),
+         ("Coaching", "Every week we look at what&rsquo;s working, what gets in the way, and the next small step you choose.")],
+    q_l="Questions I might ask you",
+    qs=["What would feel different if this worked?", "What usually gets in the way?", "What&rsquo;s one small step you&rsquo;d really take this week?"],
+    end="Nutrition gives you the plan. Coaching helps you live it.", cta="Free 20-minute call &middot; link in bio",
+    swipe="Swipe"),
+  "ru": dict(
+    kick="Как я работаю", title="Знать, что есть, это только половина дела",
+    s2="Вы, скорее всего, уже многое знаете. Овощи полезны. Сон важен. Вода нужна.",
+    s3="Сложнее всего делать это в обычный загруженный вторник, когда вы устали и всем от вас что-то нужно.",
+    two_l="Поэтому я соединяю два подхода",
+    two=[("Питание", "Разбираемся, в чём может быть причина, и составляем план под вашу реальную неделю."),
+         ("Коучинг", "Каждую неделю смотрим, что получается, что мешает и какой следующий маленький шаг вы выберете.")],
+    q_l="Вопросы, которые я могу вам задать",
+    qs=["Что изменится, если всё получится?", "Что обычно мешает?", "Какой маленький шаг вы правда сделаете на этой неделе?"],
+    end="Питание даёт план. Коучинг помогает жить по&nbsp;нему.", cta="Бесплатный <span style=\"white-space:nowrap\">20-минутный</span> звонок &middot; ссылка в профиле",
+    swipe="Листайте"),
+}
+
+
+def howiwork(lang):
+    """Pinned 2 (grid type C, plain)."""
+    t, h, N = T["howiwork"][lang], HANDLE[lang], 6
+    s = []
+    s.append(page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">%s'
+        '<div class="label" style="margin-top:70px">%s</div>'
+        '<div class="h1" style="margin-top:34px;font-size:%dpx">%s</div>'
+        '<div class="rule" style="margin-top:56px"></div>'
+        '<div class="arrow" style="margin-top:44px">%s &rarr;</div></div>'
+        % (EMBLEM.format(s=130), t["kick"], 100 if lang == "en" else 86, t["title"], t["swipe"]),
+        "sage", 1, N, h))
+    for i, txt in enumerate([t["s2"], t["s3"]], 2):
+        s.append(page(
+            '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+            '<div class="rule"></div><div class="big" style="margin-top:56px">%s</div></div>' % txt,
+            "white" if i == 2 else "", i, N, h))
+    s.append(page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+        '<div class="label">%s</div><ol class="steps">%s</ol></div>'
+        % (t["two_l"], "".join(
+            '<li><span class="k">%d</span><span class="t"><b style="font-weight:500;color:#23392C">%s.</b> %s</span></li>'
+            % (i + 1, a, b) for i, (a, b) in enumerate(t["two"]))),
+        "white", 4, N, h))
+    s.append(page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+        '<div class="label">%s</div>%s</div>' % (t["q_l"], _steps(t["qs"])),
+        "", 5, N, h))
+    s.append(page(
+        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:110px">%s'
+        '<div class="h2" style="margin-top:64px;font-size:%dpx">%s</div>'
+        '<div class="label" style="margin-top:52px;letter-spacing:.12em;text-transform:none">%s</div></div>'
+        % (ring_photo("images/e65d692a766322ff9007f1e03d416859.jpg", 380, "50% 30%"),
+           76 if lang == "en" else 68, t["end"], t["cta"]),
+        "sage", 6, N, ""))
+    return s
+
+
+POSTS["howiwork"] = howiwork
+
+
+T["story"] = {
+  "en": dict(
+    kick="Meet Natalia", title="Why I do this work",
+    fam="Gut problems run in my family. In my 20s they started for me too.",
+    fam2="I know how tiring it is to feel unwell and not know why.",
+    move_h="A new country, a new rhythm",
+    move="In 2017 I moved to the UK. New food, a new routine, a different pace. My body noticed every change, and I saw how much daily life shapes how we feel.",
+    so="So I trained in nutrition and coaching.", so2="Not to hand out perfect plans, but to help changes fit real life.",
+    end="Feel at home in your body.", end_sub="Follow for simple ideas for your digestion, energy, skin and cycle.",
+    swipe="Swipe"),
+  "ru": dict(
+    kick="Знакомство", title="Почему я этим занимаюсь",
+    fam="Проблемы с пищеварением есть у многих в моей семье. Лет в 20 они начались и у меня.",
+    fam2="Я знаю, как утомительно чувствовать себя плохо и не понимать почему.",
+    move_h="Новая страна, новый ритм",
+    move="В 2017 году я переехала в Великобританию. Новая еда, новый распорядок, другой темп. Тело замечало каждую перемену, и я поняла, как сильно повседневная жизнь влияет на самочувствие.",
+    so="Поэтому я выучилась на нутрициолога и коуча.", so2="Не ради идеальных планов, а чтобы перемены вписывались в обычную жизнь.",
+    end="Почувствуйте себя в&nbsp;своём теле как&nbsp;дома.", end_sub="Подписывайтесь: простые идеи для пищеварения, энергии, кожи и цикла.",
+    swipe="Листайте"),
+}
+
+
+def story(lang):
+    """Pinned 3 (grid type B, colourful)."""
+    t, h, N = T["story"][lang], HANDLE[lang], 5
+    s = []
+    s.append(page(
+        '<div style="position:absolute;inset:0;background:url(%s) 50%% 25%%/cover"></div>'
+        '<div style="position:absolute;left:80px;right:80px;bottom:150px;background:rgba(251,248,242,.95);'
+        'border-radius:28px;padding:56px 64px 50px;text-align:center">'
+        '<div class="label">%s</div>'
+        '<div class="h1" style="margin-top:22px;font-size:%dpx">%s</div>'
+        '<div class="arrow" style="margin-top:30px">%s &rarr;</div></div>'
+        % (img("images/28f38d0abcb4b5b6bce8c61b60b663a7.jpg"), t["kick"], 96 if lang == "en" else 82, t["title"], t["swipe"]),
+        "", 1, N, h))
+    s.append(page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+        '<div class="rule"></div><div class="big" style="margin-top:56px">%s</div>'
+        '<div class="body" style="margin-top:44px;font-size:40px">%s</div></div>' % (t["fam"], t["fam2"]),
+        "white", 2, N, h))
+    s.append(page(
+        '<div class="photo" style="height:600px;background-image:url(%s);background-position:50%% 22%%"></div>'
+        '<div class="h2" style="margin-top:56px;font-size:%dpx">%s</div>'
+        '<div class="body" style="margin-top:26px;font-size:%dpx">%s</div>'
+        % (img("images/8d4e7cf590b2ebfa2cbed8f4f339360f.jpg"), 76 if lang == "en" else 68, t["move_h"],
+           36 if lang == "en" else 33, t["move"]),
+        "", 3, N, h))
+    s.append(page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+        '<div>%s</div>'
+        '<div class="h2" style="margin-top:64px">%s</div><div class="rule" style="margin-top:56px"></div>'
+        '<div class="big" style="margin-top:56px;font-style:italic;color:#4A5A4E">%s</div></div>'
+        % (EMBLEM.format(s=120), t["so"], t["so2"]),
+        "sage", 4, N, h))
+    s.append(page(
+        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:120px">%s'
+        '<div class="h2" style="margin-top:64px;font-size:%dpx">%s</div>'
+        '<div class="body" style="margin-top:36px;max-width:800px">%s</div>'
+        '<div class="label" style="margin-top:48px;letter-spacing:.12em;text-transform:none">%s</div></div>'
+        % (ring_photo("images/35e2f5bc66badfbb8809fc1d85e00f0c.jpg", 380, "50% 25%"),
+           84 if lang == "en" else 72, t["end"], t["end_sub"], h),
+        "", 5, N, ""))
+    return s
+
+
+POSTS["story"] = story
