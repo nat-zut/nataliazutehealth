@@ -47,7 +47,7 @@
       if (full) setBar('Специальная цена для первых ' + TOTAL + ' клиенток', 'сессии с 8 января');
       else setBar('Специальная цена · осталось всего ' + n + ' ' + mest(n));
       set('pill', full ? TOTAL + ' мест для первых клиенток' : 'Осталось всего ' + n + ' ' + mest(n) + ' для первых клиенток,');
-      set('left', full ? 'всего ' + TOTAL + ' мест' : 'осталось ' + n + ' из ' + TOTAL + ' мест');
+      set('left', full ? 'Всего ' + TOTAL + ' мест' : 'Осталось ' + n + ' из ' + TOTAL + ' мест');
       return;
     }
     if (full) setBar('Special price for my first ' + TOTAL + ' clients', 'sessions from 8 Jan');
