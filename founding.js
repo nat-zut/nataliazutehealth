@@ -31,7 +31,7 @@
   function style() {
     if (document.getElementById('annbar-style')) return;
     var st = document.createElement('style'); st.id = 'annbar-style';
-    st.textContent = '@media (max-width:560px){.annsep{display:none}.annwhen::before{content:"\\A";white-space:pre}.annw1{text-transform:uppercase}html[lang^=ru] .annbar>span:first-child{display:block;margin:0 0 2px!important}}';
+    st.textContent = '@media (max-width:560px){.annsep{display:none}.annwhen::before{content:"\\A";white-space:pre}.annw1{text-transform:uppercase}}';
     document.head.appendChild(st);
   }
   function run() {
