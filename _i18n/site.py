@@ -19,7 +19,7 @@ def strip_lang(src):
     """Remove what this script added to the English pages, so re-runs start clean."""
     src = re.sub(r'<a class="langsw"[^>]*>[^<]*</a>', "", src)
     src = re.sub(r'\n<link rel="alternate" hreflang="[^"]*" href="[^"]*">', "", src)
-    src = re.sub(r'<p style="margin: 8px 0 0; font-size: 16px; line-height: 1.5;"><a href="ru/[^"]*" hreflang="ru"[^>]*>Русская версия →</a></p>\n', "", src)
+    src = re.sub(r'<p style="margin: 8px 0 0; font-size: \d+px; line-height: 1.5;"><a href="ru/[^"]*" hreflang="ru"[^>]*>Русская версия →</a></p>\n', "", src)
     src = re.sub(r'<style>\.nav a\{white-space:nowrap\}[^<]*</style>\n', "", src)
     return src.replace('justify-content: flex-end; gap: 24px;', 'justify-content: flex-end; gap: 32px;', 1)
 
