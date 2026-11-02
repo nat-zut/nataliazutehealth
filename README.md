@@ -10,11 +10,13 @@ blog.html and articles: bloated-in-the-afternoon.html, tired-all-the-time.html, 
 ## Still to connect before launch
 - Free guide sign-up forms (home and free-guide.html, EN and RU): connected 17 Oct 2026 via signup.js (form ids and group ids are in that file). Everyone joins "Diary (English)" or "Diary (Russian)" in MailerLite; ticking the email box also adds "Newsletter (English/Russian)". The diary PDFs are in files/ (blocked in robots.txt, linked only from the diary email). To update a diary, replace the PDF with the same file name.
 - Paid booking switch (1 Nov 2026): only the free call and founding-place call are bookable. To open paid sessions, set PAID_OPEN = true in the booking script on contact.html and ru/contact.html (first sessions 8 Jan 2027), and unhide the paid event types in Cal.com.
+- Online payment (decided 2 Nov 2026): from 8 Jan every paid session is paid online at booking and the client gets an automatic confirmation (Terms: the contract starts at payment + confirmation). Before opening: connect Stripe to Cal.com, add a Stripe price to each paid event (separate events where the price or currency differs, plus the first of 3 monthly payments), and switch OFF "requires confirmation" on paid events.
+- Free calls blocked 18-25 Nov 2026 by a busy event "Closed for bookings" in Google Calendar (natalia@). Delete it to reopen.
 - Booking calendar on contact.html: Cal.com (username nataliazutehealth, free plan) with all services, set up 8 Oct. Bookings go to Google Calendar (natalia@nataliazutehealth.com) with Google Meet. Paid sessions require Natalia's confirmation and she sends a payment link until Stripe is connected.
 - Founding places left: change LEFT in founding.js (one number updates every page; at 0 the founding bar, pill, band and booking option disappear).
 - Contact message form on contact.html: a form tool. For now it sends nothing.
 - Payments: Stripe (with the customer portal turned on, so clients can manage 3 monthly payments online).
-- Legal pages: remove the "Draft, not yet live" boxes once checked, and fill the dashed placeholders (business address, video service, questionnaire tool, retention period, governing law).
+- Legal pages: finished 2 Nov 2026 (draft boxes removed, placeholders filled). When BANT/CNHC membership is approved, add them back to Terms section 16 (complaints) and the Privacy list.
 - Remove `<meta name="robots" content="noindex, nofollow">` from every page on launch day, so Google can list the site.
 - Custom domain nataliazutehealth.com: Settings > Pages > Custom domain.
 - SEO: when the domain is live, change https://nataliazutehealth.com/ to https://nataliazutehealth.com/ in canonical links, structured data, sitemap.xml and robots.txt, then submit sitemap.xml in Google Search Console.
