@@ -40,7 +40,7 @@ def switch_html(lang, other_href):
     olang = "ru" if lang == "en" else "en-GB"
     return ('<a class="langsw" href="%s" hreflang="%s" lang="%s" title="%s" aria-label="%s" '
             'style="display: inline-block; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; line-height: 1; '
-            'text-decoration: none; color: #23392C; padding: 12px 2px; border-bottom: 1px solid #B89A5E; white-space: nowrap;">%s</a>'
+            'text-decoration: none; color: #23392C; padding: 12px 2px; min-width: 44px; text-align: center; box-sizing: border-box; border-bottom: 1px solid #B89A5E; white-space: nowrap;">%s</a>'
             % (other_href, olang, olang, title, title, oth))
 
 

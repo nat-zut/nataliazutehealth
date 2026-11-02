@@ -84,9 +84,10 @@ img{max-width:100%}
 <div style="flex: 4 1 260px; min-width: 0;">
 <label for="bookpick" style="display: block; margin: 0 0 10px; font-size: 13px; font-weight: 500; letter-spacing: 0.16em; line-height: 1.5; text-transform: uppercase; color: #4A5A4E;">Choose what to book</label>
 <p id="paid-note" style="margin: 0 0 14px; font-size: 16px; line-height: 1.5; color: #23392C;">Paid sessions start on 8 January 2027. Until then you can book a free 20-minute call.</p>
+<p id="paid-hash-note" hidden style="margin: 0 0 18px; padding: 12px 16px; background: #FBF8F2; border-left: 3px solid #B89A5E; border-radius: 6px; font-size: 16px; line-height: 1.5; color: #23392C;">The option you chose opens for booking on 8 January 2027. For now, book a free 20-minute call, and we'll plan your start together.</p>
 <select id="bookpick" style="box-sizing: border-box; width: 100%; margin: 0 0 28px; padding: 14px 16px; background: #FBF8F2; color: #23392C; border: 1px solid #23392C; border-radius: 8px; font-family: Jost, 'Helvetica Neue', Arial, sans-serif; font-size: 16px;">
 <option value="fit">Free fit call · 20 min</option>
-<option value="founding" data-f-hide>Founding place · starts with a free call</option>
+<option value="founding" data-f-hide>Founding place · free call first</option>
 <option value="health-review">Health Review · nutrition · 90 min</option>
 <option value="root">Root · nutrition · 12 weeks</option>
 <option value="programme">Root &amp; Grow · nutrition + coaching · 12 weeks</option>
@@ -165,6 +166,7 @@ img{max-width:100%}
   document.getElementById("bookpick").addEventListener("change", function () { pick(this.value); });
   document.querySelectorAll(".incpick").forEach(function (b) { b.addEventListener("click", function () { pick(b.getAttribute("data-pick")); }); });
   var h = location.hash.replace("#", "");
+  if (!PAID_OPEN && services[h] && FREE.indexOf(h) < 0) { var hn = document.getElementById("paid-hash-note"), pn0 = document.getElementById("paid-note"); if (hn) { hn.hidden = false; if (pn0) pn0.hidden = true; } }
   pick(services[h] ? h : "fit");
   if (services[h] && h !== "fit") document.getElementById("book").scrollIntoView();
 })();
