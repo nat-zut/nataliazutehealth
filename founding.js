@@ -22,7 +22,7 @@
       el.textContent = '';
       el.appendChild(document.createTextNode(first));
       if (when) {
-        var dot = document.createElement('span'); dot.className = 'annsep'; dot.textContent = ' · ';
+        var dot = document.createElement('span'); dot.className = 'annsep'; dot.textContent = ' ';
         var w = document.createElement('span'); w.className = 'annwhen'; var w1 = document.createElement('span'); w1.className = 'annw1'; w1.textContent = when.charAt(0); w.appendChild(w1); w.appendChild(document.createTextNode(when.slice(1)));
         el.appendChild(dot); el.appendChild(w);
       }
@@ -44,14 +44,14 @@
     }
     var full = n === TOTAL;
     if (ru) {
-      if (full) setBar('Специальная цена для первых ' + TOTAL + ' клиенток', 'сессии с 8 января');
-      else setBar('Специальная цена · осталось всего ' + n + ' ' + mest(n));
+      if (full) setBar('Специальная цена для первых ' + TOTAL + ' клиенток.', 'Сессии начинаются 8 января.');
+      else setBar('Специальная цена для первых клиенток: осталось всего ' + n + ' ' + mest(n) + '.');
       set('pill', full ? TOTAL + ' мест для первых клиенток' : 'Осталось всего ' + n + ' ' + mest(n) + ' для первых клиенток,');
       set('left', full ? 'Всего ' + TOTAL + ' мест' : 'Осталось ' + n + ' из ' + TOTAL + ' мест');
       return;
     }
-    if (full) setBar('Special price for my first ' + TOTAL + ' clients', 'sessions from 8 Jan');
-    else setBar('Special price · only ' + n + ' ' + places(n) + ' left');
+    if (full) setBar('My first ' + TOTAL + ' clients get a special price.', 'Sessions start on 8 January.');
+    else setBar('Special price for my first clients: only ' + n + ' ' + places(n) + ' left.');
     set('pill', full ? TOTAL + ' founding places' : 'Only ' + n + ' founding ' + places(n) + ' left,');
     set('left', full ? 'Only ' + TOTAL + ' places' : n + ' of ' + TOTAL + ' places left');
   }
