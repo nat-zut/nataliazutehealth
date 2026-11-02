@@ -23,7 +23,7 @@
       el.appendChild(document.createTextNode(first));
       if (when) {
         var dot = document.createElement('span'); dot.className = 'annsep'; dot.textContent = ' · ';
-        var w = document.createElement('span'); w.className = 'annwhen'; w.textContent = when;
+        var w = document.createElement('span'); w.className = 'annwhen'; var w1 = document.createElement('span'); w1.className = 'annw1'; w1.textContent = when.charAt(0); w.appendChild(w1); w.appendChild(document.createTextNode(when.slice(1)));
         el.appendChild(dot); el.appendChild(w);
       }
     });
@@ -31,7 +31,7 @@
   function style() {
     if (document.getElementById('annbar-style')) return;
     var st = document.createElement('style'); st.id = 'annbar-style';
-    st.textContent = '@media (max-width:560px){.annsep{display:none}.annwhen{display:block}.annwhen::first-letter{text-transform:uppercase}html[lang^=ru] .annbar>span:first-child{display:block;margin:0 0 2px!important}}';
+    st.textContent = '@media (max-width:560px){.annsep{display:none}.annwhen::before{content:"\\A";white-space:pre}.annw1{text-transform:uppercase}html[lang^=ru] .annbar>span:first-child{display:block;margin:0 0 2px!important}}';
     document.head.appendChild(st);
   }
   function run() {
