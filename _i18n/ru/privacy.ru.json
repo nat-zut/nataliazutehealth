@@ -105,5 +105,9 @@
  "a professional body I belong to, only if a complaint is made about my work": "профессиональная ассоциация, членом которой я являюсь, только если на мою работу поступит жалоба",
  "Enquiries that do not become bookings: up to 12 months. Client records, including your questionnaire, plan and session notes: 8 years after our last session, in line with NHS guidance for adult health records. Invoices and tax records: 6 years plus the current year. Email list: until you unsubscribe.": "Обращения, которые не стали записью: до 12 месяцев. Записи о клиентках, включая вашу анкету, план и заметки с сессий: 8 лет после нашей последней сессии, в соответствии с рекомендациями NHS для медицинских записей взрослых. Счета и налоговая отчётность: 6 лет плюс текущий год. Список рассылки: пока вы не отпишетесь.",
  "Session recordings: deleted once they have been used for my training or accreditation, and within 12 months at most, or sooner if you ask. AI transcripts: deleted once I have written up my notes, within 30 days.": "Записи сессий: удаляются после того, как они использованы для моего обучения или аккредитации, и не позднее чем через 12 месяцев, или раньше, если вы попросите. Расшифровки ИИ: удаляются после того, как я оформлю свои заметки, в течение 30 дней.",
- "an independent body handling a complaint about my work, only if one is made": "независимая организация, которая рассматривает жалобу на мою работу (только если такая жалоба поступит)"
+ "an independent body handling a complaint about my work, only if one is made": "независимая организация, которая рассматривает жалобу на мою работу (только если такая жалоба поступит)",
+ "or 3 monthly payments: £235, £230, £230": "или 3 ежемесячных платежа: £235, £230, £230",
+ "<1>or 3 monthly payments: £235, £230, £230</1>": "<1>или 3 ежемесячных платежа: £235, £230, £230</1>",
+ "or 3 monthly payments: £75, £70, £70": "или 3 ежемесячных платежа: £75, £70, £70",
+ "<1>or 3 monthly payments: £75, £70, £70</1>": "<1>или 3 ежемесячных платежа: £75, £70, £70</1>"
 }
