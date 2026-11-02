@@ -45,8 +45,8 @@ def switch_html(lang, other_href):
 
 
 HEAD_CSS = {
-    "en": "<style>.nav a{white-space:nowrap}@media (max-width: 1330px){.nav{display:none!important}.menubtn{display:flex!important}}@media (max-width: 900px){.hbtn{display:none!important}}</style>",
-    "ru": "<style>.nav a{white-space:nowrap}@media (max-width: 1400px){.nav{display:none!important}.menubtn{display:flex!important}}@media (max-width: 980px){.hbtn{display:none!important}}</style>",
+    "en": "<style>.nav a{white-space:nowrap}@media (max-width: 1199px){.nav{display:none!important}.menubtn{display:flex!important}}@media (max-width: 900px){.hbtn{display:none!important}}</style>",
+    "ru": "<style>.nav a{white-space:nowrap}@media (max-width: 1239px){.nav{display:none!important}.menubtn{display:flex!important}}@media (max-width: 980px){.hbtn{display:none!important}}</style>",
 }
 RIGHT_OLD = 'justify-content: flex-end; gap: 32px;'
 RIGHT_NEW = 'justify-content: flex-end; gap: 24px;'
