@@ -19,7 +19,7 @@ def strip_lang(src):
     """Remove what this script added to the English pages, so re-runs start clean."""
     src = re.sub(r'<a class="langsw"[^>]*>[^<]*</a>', "", src)
     src = re.sub(r'\n<link rel="alternate" hreflang="[^"]*" href="[^"]*">', "", src)
-    src = re.sub(r'<p style="margin: 8px 0 0; font-size: 15px; line-height: 1.5;"><a href="ru/[^"]*" hreflang="ru"[^>]*>Русская версия →</a></p>\n', "", src)
+    src = re.sub(r'<p style="margin: 8px 0 0; font-size: 16px; line-height: 1.5;"><a href="ru/[^"]*" hreflang="ru"[^>]*>Русская версия →</a></p>\n', "", src)
     src = re.sub(r'<style>\.nav a\{white-space:nowrap\}[^<]*</style>\n', "", src)
     return src.replace('justify-content: flex-end; gap: 24px;', 'justify-content: flex-end; gap: 32px;', 1)
 
@@ -31,7 +31,7 @@ for f in pages:
 # 2. translate
 subprocess.check_call([sys.executable, os.path.join(HERE, "i18n.py"), "build", ORIG, os.path.join(HERE, "ru"), RAW])
 
-SW_STYLE = "display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; white-space: nowrap; line-height: 1;"
+SW_STYLE = "display: flex; align-items: center; gap: 6px; font-size: 15px; font-weight: 500; letter-spacing: 0.14em; white-space: nowrap; line-height: 1;"
 
 
 def switch_html(lang, other_href):
@@ -39,7 +39,7 @@ def switch_html(lang, other_href):
     title = "Русская версия сайта" if lang == "en" else "English version of this site"
     olang = "ru" if lang == "en" else "en-GB"
     return ('<a class="langsw" href="%s" hreflang="%s" lang="%s" title="%s" aria-label="%s" '
-            'style="display: inline-block; font-size: 13px; font-weight: 500; letter-spacing: 0.14em; line-height: 1; '
+            'style="display: inline-block; font-size: 15px; font-weight: 500; letter-spacing: 0.14em; line-height: 1; '
             'text-decoration: none; color: #23392C; padding: 12px 2px; min-width: 44px; text-align: center; box-sizing: border-box; border-bottom: 1px solid #B89A5E; white-space: nowrap;">%s</a>'
             % (other_href, olang, olang, title, title, oth))
 
@@ -54,7 +54,7 @@ RIGHT_NEW = 'justify-content: flex-end; gap: 24px;'
 
 def menu_html(lang, other_href):
     text, olang = ("Русская версия", "ru") if lang == "en" else ("English version", "en-GB")
-    return ('<p style="margin: 8px 0 0; font-size: 15px; line-height: 1.5;"><a href="%s" hreflang="%s" lang="%s" '
+    return ('<p style="margin: 8px 0 0; font-size: 16px; line-height: 1.5;"><a href="%s" hreflang="%s" lang="%s" '
             'style="display: inline-block; padding: 10px 0; color: #23392C;">%s →</a></p>' % (other_href, olang, olang, text))
 
 
@@ -150,7 +150,7 @@ for page in pages:
     if page in ("privacy.html", "terms.html", "cookies.html") and ru.h1:
         intro = ru.h1.find_next_sibling("p") or ru.h1
         note = BeautifulSoup(
-            '<p style="margin: 0 0 24px; font-size: 15px; line-height: 1.5; color: #4A5A4E;">'
+            '<p style="margin: 0 0 24px; font-size: 16px; line-height: 1.5; color: #4A5A4E;">'
             'Это перевод для вашего удобства. Если русская и английская версии расходятся, действует '
             '<a href="../%s" hreflang="en-GB" lang="en-GB" style="color: #23392C;">английская версия</a>.</p>' % page,
             "html.parser")

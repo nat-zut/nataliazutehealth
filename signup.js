@@ -22,7 +22,7 @@
     email.required = true;
     var msg = document.createElement("p");
     msg.setAttribute("role", "alert");
-    msg.style.cssText = "margin:0;font-size:15px;line-height:1.5;color:#9C4F1E;display:none";
+    msg.style.cssText = "margin:0;font-size:16px;line-height:1.5;color:#9C4F1E;display:none";
     form.appendChild(msg);
 
     form.addEventListener("submit", function (e) {
