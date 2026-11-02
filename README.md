@@ -5,7 +5,7 @@ Built from the approved designs ("Website Design v1", 6 Oct 2026). Plain HTML, n
 ## Pages
 index.html (home), about.html, work-with-me.html, contact.html, free-guide.html,
 thank-you.html, booked.html, 404.html, terms.html, privacy.html, cookies.html,
-blog.html and articles: bloated-in-the-afternoon.html, tired-all-the-time.html, food-and-symptom-diary.html
+Blog removed 2 Nov 2026 (Natalia will write her own articles). The old blog and 3 articles (EN + RU) are kept, unpublished, in _archive/blog/. To bring the blog back, move the pages back to the root and ru/, re-add the Blog link to the header and mobile menu, and add them to sitemap.xml.
 
 ## Still to connect before launch
 - Free guide sign-up forms (home and free-guide.html, EN and RU): connected 17 Oct 2026 via signup.js (form ids and group ids are in that file). Everyone joins "Diary (English)" or "Diary (Russian)" in MailerLite; ticking the email box also adds "Newsletter (English/Russian)". The diary PDFs are in files/ (blocked in robots.txt, linked only from the diary email). To update a diary, replace the PDF with the same file name.
