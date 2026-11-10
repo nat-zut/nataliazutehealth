@@ -1,7 +1,13 @@
 """Instagram slides for Natalia Zute Health, rendered from HTML in the website's style.
 
 python3 _social/build.py <post-name> [lang ...]   -> _social/out/<post>/<lang>-01.png ...
-Posts are defined in _social/posts.py. Fonts in _social/fonts (installed to ~/.fonts).
+Posts are defined in _social/posts.py. Fonts in _social/fonts are embedded in each slide (no install needed).
+Needs Python Playwright; on Natalia's Mac use ~/.local/share/nzh-venv/bin/python.
+
+Text style v2 (7 Nov 2026): feedback that slide text was too small and thin on a phone. Body text is now
+bigger (46px), darker (Forest) and Jost Medium; headings Cormorant SemiBold; footer 30px with Bronze page numbers.
+Text style v3 (9 Nov 2026): more feedback that text was small (her reference: a Telegram post, big dark bold text).
+Minimums on the 1080px slide: body 52px, notes and small print 40px+, footer 34px. render() warns if text runs into the footer.
 """
 import asyncio, base64, os, sys, mimetypes
 from playwright.async_api import async_playwright
@@ -11,7 +17,25 @@ ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 
 C = dict(cream="#F4EEE3", white="#FBF8F2", forest="#23392C", muted="#4A5A4E",
-         rust="#9C4F1E", gold="#B89A5E", line="#D8CFBF", sage="#E7ECE2")
+         rust="#9C4F1E", gold="#B89A5E", line="#D8CFBF", sage="#E7ECE2", bronze="#7D5A28")
+
+
+def _fonts():
+    d = os.path.join(HERE, "fonts")
+    faces = [("Cormorant Garamond", "CormorantGaramond-%s.ttf", [("Light", 300, "normal"), ("Regular", 400, "normal"),
+              ("Medium", 500, "normal"), ("SemiBold", 600, "normal"), ("Italic", 400, "italic"), ("MediumItalic", 500, "italic")]),
+             ("Jost", "Jost-%s.ttf", [("Light", 300, "normal"), ("Regular", 400, "normal"), ("Medium", 500, "normal"), ("SemiBold", 600, "normal")])]
+    out = []
+    for fam, pat, ws in faces:
+        for name, w, st in ws:
+            f = os.path.join(d, pat % name)
+            if os.path.exists(f):
+                out.append("@font-face{font-family:'%s';font-weight:%d;font-style:%s;src:url(data:font/ttf;base64,%s) format('truetype')}"
+                           % (fam, w, st, base64.b64encode(open(f, "rb").read()).decode()))
+    return "\n".join(out)
+
+
+FONTS = _fonts()
 
 
 def img(path):
@@ -61,36 +85,36 @@ def ring_photo(src, size, pos="50% 30%"):
 CSS = """
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:1080px;height:1350px}
-body{font-family:Jost;color:%(forest)s;-webkit-font-smoothing:antialiased}
+body{font-family:Jost;color:%(forest)s;-webkit-font-smoothing:antialiased;text-wrap:pretty;font-variant-numeric:lining-nums}
 .slide{position:relative;width:1080px;height:1350px;overflow:hidden;background:%(cream)s;padding:96px 96px 0}
 .slide.white{background:%(white)s}.slide.sage{background:%(sage)s}
 .lockup{display:inline-flex;align-items:center;gap:16px;white-space:nowrap}
 .ln{font-family:'Cormorant Garamond';font-weight:500;font-size:24px;letter-spacing:.26em}
 .lr{width:1px;height:26px;background:%(gold)s}.ls{font-size:11px;font-weight:500;letter-spacing:.32em}
-.label{font-size:26px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:%(rust)s}
-.h1{font-family:'Cormorant Garamond';font-weight:500;font-size:112px;line-height:1.0;letter-spacing:-.01em}
-.h2{font-family:'Cormorant Garamond';font-weight:500;font-size:84px;line-height:1.06;letter-spacing:-.005em}
-.h3{font-family:'Cormorant Garamond';font-weight:500;font-size:64px;line-height:1.1}
-.big{font-family:'Cormorant Garamond';font-weight:500;font-size:76px;line-height:1.14}
-.body{font-size:38px;line-height:1.5;color:%(muted)s;font-weight:400}
+.label{font-size:32px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:%(rust)s}
+.h1{font-family:'Cormorant Garamond';font-weight:600;font-size:112px;line-height:1.0;letter-spacing:-.01em}
+.h2{font-family:'Cormorant Garamond';font-weight:600;font-size:84px;line-height:1.06;letter-spacing:-.005em}
+.h3{font-family:'Cormorant Garamond';font-weight:600;font-size:64px;line-height:1.1}
+.big{font-family:'Cormorant Garamond';font-weight:600;font-size:80px;line-height:1.12}
+.body{font-size:52px;line-height:1.4;color:%(forest)s;font-weight:500}
 .rule{width:120px;height:2px;background:%(gold)s}
 .foot{position:absolute;left:96px;right:96px;bottom:72px;display:flex;justify-content:space-between;align-items:center;
-  font-size:24px;letter-spacing:.06em;color:%(muted)s}
-.foot .n{color:%(gold)s;letter-spacing:.2em}
+  font-size:34px;font-weight:500;letter-spacing:.03em;color:%(forest)s}
+.foot .n{color:%(bronze)s;letter-spacing:.14em}
 .ring{position:relative;flex:none}
 .photo{border-radius:999px 999px 24px 24px;background-size:cover;background-position:50%% 30%%}
 .steps{list-style:none;margin-top:56px;border-top:1.5px solid %(line)s}
 .steps li{display:flex;gap:40px;align-items:baseline;padding:40px 0;border-bottom:1.5px solid %(line)s}
-.steps .k{font-family:'Cormorant Garamond';font-weight:500;font-size:88px;line-height:.8;color:%(gold)s;width:60px;flex:none}
-.steps .t{font-size:40px;line-height:1.4}
-.arrow{font-size:30px;color:%(rust)s;letter-spacing:.1em}
+.steps .k{font-family:'Cormorant Garamond';font-weight:600;font-size:88px;line-height:.8;color:%(gold)s;width:60px;flex:none}
+.steps .t{font-size:50px;line-height:1.36;font-weight:500}
+.arrow{font-size:36px;font-weight:500;color:%(rust)s;letter-spacing:.1em}
 """ % C
 
 
 def page(inner, cls="", n="", total="", handle="", arrow=""):
     foot = '<div class="foot"><span>%s</span><span class="n">%s</span></div>' % (handle, ("%s / %s" % (n, total)) if n else "")
-    return ('<!doctype html><html><head><meta charset="utf-8"><style>%s</style></head><body>'
-            '<div class="slide %s">%s%s</div></body></html>' % (CSS, cls, inner, foot))
+    return ('<!doctype html><html><head><meta charset="utf-8"><style>%s\n%s</style></head><body>'
+            '<div class="slide %s">%s%s</div></body></html>' % (FONTS, CSS, cls, inner, foot))
 
 
 async def render(post, langs):
@@ -108,6 +132,10 @@ async def render(post, langs):
                 await pg.evaluate("document.fonts.ready")
                 f = os.path.join(out, "%s-%02d.png" % (lang, i))
                 await pg.screenshot(path=f, type="png")
+                bad = await pg.evaluate("""() => {const o=[];for(const el of document.querySelectorAll('.slide *')){if(el.closest('.foot'))continue;
+                  const t=[...el.childNodes].filter(n=>n.nodeType==3&&n.textContent.trim()).map(n=>n.textContent.trim()).join(' ');if(!t)continue;
+                  const r=el.getBoundingClientRect();if(r.bottom>1255||r.right>1040||r.top<40)o.push(Math.round(r.bottom)+'/'+Math.round(r.right)+' '+t.slice(0,40))}return o}""")
+                if bad: print("WARNING text too low or wide:", post, os.path.basename(f), bad[:3])
                 files.append(f)
         await b.close()
     return files

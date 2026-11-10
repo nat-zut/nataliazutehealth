@@ -42,7 +42,7 @@ def intro(lang):
     s.append(page(
         '<div class="label" style="margin-top:40px">%s</div><div class="rule" style="margin-top:36px"></div>'
         '<div class="big" style="margin-top:48px">%s</div>'
-        '<div class="body" style="margin-top:34px;font-size:32px;color:#9C4F1E;letter-spacing:.02em">%s</div>'
+        '<div class="body" style="margin-top:34px;font-size:42px;color:#9C4F1E;letter-spacing:.02em">%s</div>'
         '<div style="position:absolute;left:96px;right:96px;bottom:150px;height:330px;border-radius:24px;'
         'background:url(%s) 50%% 50%%/cover"></div>'
         % (t["who_l"], t["who"], t["areas"], img("images/403e3cc372607c1c837dbea7b381d086.jpg")),
@@ -136,7 +136,7 @@ def tired(lang):
             '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
             '<div style="font-family:\'Cormorant Garamond\';font-weight:500;font-size:220px;line-height:.8;color:#B89A5E">%d</div>'
             '<div class="h2" style="margin-top:40px">%s</div><div class="rule" style="margin-top:44px"></div>'
-            '<div class="body" style="margin-top:44px;font-size:44px">%s</div></div>'
+            '<div class="body" style="margin-top:44px;font-size:52px">%s</div></div>'
             % (i, head, body),
             "white" if i % 2 else "", i + 1, N, h))
     # last: try this + GP
@@ -144,9 +144,9 @@ def tired(lang):
         '<div style="display:flex;gap:56px;align-items:center;margin-top:20px">%s'
         '<div><div class="label">%s</div></div></div>'
         '<div class="big" style="margin-top:48px;font-size:%dpx">%s</div>'
-        '<div class="body" style="margin-top:28px;font-size:36px;color:#9C4F1E">%s</div>'
+        '<div class="body" style="margin-top:28px;font-size:46px;color:#9C4F1E">%s</div>'
         '<div style="position:absolute;left:96px;right:96px;bottom:150px;background:#F4EEE3;border-left:6px solid #9C4F1E;border-radius:16px;padding:36px 40px">'
-        '<div class="body" style="font-size:32px;color:#23392C">%s</div></div>'
+        '<div class="body" style="font-size:42px;color:#23392C">%s</div></div>'
         % (ring_photo("images/cc4942476c283c1b1a3a7e8394274244.jpg", 230, "50% 30%"), t["try_l"], 58 if lang == "en" else 54, t["try_t"], t["diary"], t["gp"]),
         "sage", N, N, h))
     return s
@@ -195,7 +195,7 @@ def coaching(lang):
     s.append(page(
         '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
         '<div class="h2">%s</div><div class="rule" style="margin-top:48px"></div>'
-        '<div class="body" style="margin-top:48px;font-size:42px">%s</div></div>' % (t["s4_h"], t["s4"]),
+        '<div class="body" style="margin-top:48px;font-size:50px">%s</div></div>' % (t["s4_h"], t["s4"]),
         "white", 4, N, h))
     s.append(page(
         '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
@@ -222,13 +222,13 @@ def _list(items):
     return ('<ul style="list-style:none;margin-top:44px;border-top:1.5px solid #D8CFBF">%s</ul>' % "".join(
         '<li style="display:flex;gap:28px;align-items:center;padding:30px 0;border-bottom:1.5px solid #D8CFBF">'
         '<span style="width:14px;height:14px;border-radius:50%%;background:#B89A5E;flex:none"></span>'
-        '<span style="font-size:44px;line-height:1.3">%s</span></li>' % x for x in items))
+        '<span style="font-size:52px;line-height:1.3">%s</span></li>' % x for x in items))
 
 
 def _btn(text, top=48):
     """Rust call-to-action button, readable on a phone."""
-    return ('<div style="margin-top:%dpx;display:inline-block;background:#9C4F1E;color:#FBF8F2;font-size:38px;font-weight:500;'
-            'letter-spacing:.02em;padding:26px 52px;border-radius:999px">%s</div>' % (top, text))
+    return ('<div style="margin-top:%dpx;display:inline-block;background:#9C4F1E;color:#FBF8F2;font-size:48px;font-weight:500;'
+            'letter-spacing:.02em;line-height:1.25;padding:26px 52px;border-radius:999px">%s</div>' % (top, text))
 
 
 def _mock(lang, h=620, front=1, back=3):
@@ -248,12 +248,12 @@ def _steps(items):
         '<li><span class="k">%d</span><span class="t">%s</span></li>' % (i + 1, x) for i, x in enumerate(items))
 
 
-def _steps_ex(items):
-    """Numbered items, each with a short example line underneath."""
+def _steps_ex(items, start=0):
+    """Numbered items, each with a short example line underneath (2 per slide at v3 text size)."""
     return '<ol class="steps" style="margin-top:44px">%s</ol>' % "".join(
-        '<li style="padding:30px 0"><span class="k" style="font-size:76px">%d</span><span class="t">%s'
-        '<span style="display:block;margin-top:8px;font-size:31px;line-height:1.4;font-style:italic;color:#4A5A4E">%s</span></span></li>'
-        % (i + 1, a, b) for i, (a, b) in enumerate(items))
+        '<li style="padding:48px 0"><span class="k" style="font-size:96px">%d</span><span class="t" style="font-size:54px">%s'
+        '<span style="display:block;margin-top:16px;font-size:46px;line-height:1.4;font-style:italic;color:#23392C;font-weight:400">%s</span></span></li>'
+        % (start + i + 1, a, b) for i, (a, b) in enumerate(items))
 
 
 T["meet"] = {
@@ -308,11 +308,11 @@ def meet(lang):
         '<div class="label">%s</div>%s</div>' % (t["how_l"], _steps(t["steps"])),
         "", 4, N, h))
     s.append(page(
-        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:120px">%s'
-        '<div class="h2" style="margin-top:64px;font-size:%dpx">%s</div>'
+        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:60px">%s'
+        '<div class="h2" style="margin-top:52px;font-size:%dpx">%s</div>'
         '<div class="body" style="margin-top:36px;max-width:800px">%s</div>'
         '<div class="label" style="margin-top:48px;letter-spacing:.12em;text-transform:none">%s</div></div>'
-        % (ring_photo("images/cc4942476c283c1b1a3a7e8394274244.jpg", 380, "50% 30%"),
+        % (ring_photo("images/cc4942476c283c1b1a3a7e8394274244.jpg", 340, "50% 30%"),
            80 if lang == "en" else 70, t["end"], t["end_sub"], h),
         "sage", 5, N, ""))
     return s
@@ -390,19 +390,18 @@ def howiwork(lang):
         "", 5, N, h))
     s.append(page(
         '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
-        '<div class="label">%s</div><ol class="steps">%s</ol></div>'
+        '<div class="label">%s</div><ol class="steps" style="margin-top:40px">%s</ol></div>'
         % (t["start_l"], "".join(
-            '<li><span class="k">%d</span><span class="t"><b style="font-weight:500;color:#23392C">%s.</b> %s</span></li>'
+            '<li style="padding:30px 0"><span class="k">%d</span><span class="t" style="font-size:47px;line-height:1.32"><b style="font-weight:600;color:#23392C">%s.</b> %s</span></li>'
             % (i + 1, a, b) for i, (a, b) in enumerate(t["start"]))),
         "white", 6, N, h))
     s.append(page(
-        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:70px">%s'
-        '<div class="h2" style="margin-top:52px;font-size:%dpx">%s</div>'
-        '<div class="rule" style="margin-top:40px"></div>'
-        '<div class="body" style="margin-top:36px;max-width:840px;font-size:36px">%s</div>%s'
-        '<div class="label" style="margin-top:40px;letter-spacing:.12em;text-transform:none">%s</div></div>'
-        % (ring_photo("images/e65d692a766322ff9007f1e03d416859.jpg", 320, "50% 30%"),
-           72 if lang == "en" else 64, t["end"], t["where"], _btn(t["cta"], 44), h),
+        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:20px">%s'
+        '<div class="h2" style="margin-top:40px;font-size:%dpx">%s</div>'
+        '<div class="rule" style="margin-top:34px"></div>'
+        '<div class="body" style="margin-top:30px;max-width:900px;font-size:48px">%s</div>%s</div>'
+        % (ring_photo("images/e65d692a766322ff9007f1e03d416859.jpg", 260, "50% 30%"),
+           72 if lang == "en" else 64, t["end"], t["where"], _btn(t["cta"], 40)),
         "sage", 7, N, ""))
     return s
 
@@ -461,7 +460,7 @@ def _text(body, sub=None, cls="", n=0, N=0, h="", size=None):
         '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
         '<div class="rule"></div><div class="big" style="margin-top:56px%s">%s</div>%s</div>'
         % (";font-size:%dpx" % size if size else "", body,
-           '<div class="body" style="margin-top:44px;font-size:40px">%s</div>' % sub if sub else ""),
+           '<div class="body" style="margin-top:48px">%s</div>' % sub if sub else ""),
         cls, n, N, h)
 
 
@@ -492,7 +491,7 @@ def story(lang):
         '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
         '<div>%s</div>'
         '<div class="h2" style="margin-top:64px;font-size:%dpx">%s</div><div class="rule" style="margin-top:56px"></div>'
-        '<div class="body" style="margin-top:48px;font-size:40px">%s</div></div>'
+        '<div class="body" style="margin-top:48px;font-size:50px">%s</div></div>'
         % (EMBLEM.format(s=120), 76 if lang == "en" else 66, t["turn"], t["turn2"]),
         "sage", 5, N, h))
     s.append(page(
@@ -500,8 +499,8 @@ def story(lang):
         '<div class="label">%s</div><div class="h3" style="margin-top:24px;font-size:56px">Natalia Zute, %s</div>'
         '<ul style="list-style:none;margin-top:40px;border-top:1.5px solid #D8CFBF">%s</ul></div>'
         % (t["cred_l"], t["post"], "".join(
-            '<li style="padding:28px 0;border-bottom:1.5px solid #D8CFBF"><div style="font-size:%dpx;line-height:1.3;color:#23392C">%s</div>'
-            '<div style="margin-top:8px;font-size:28px;color:#4A5A4E">%s</div></li>' % (36 if lang == "en" else 33, a, b) for a, b in t["cred"])),
+            '<li style="padding:28px 0;border-bottom:1.5px solid #D8CFBF"><div style="font-size:%dpx;line-height:1.3;color:#23392C;font-weight:500">%s</div>'
+            '<div style="margin-top:8px;font-size:40px;color:#4A5A4E">%s</div></li>' % (44 if lang == "en" else 40, a, b) for a, b in t["cred"])),
         "white", 6, N, h))
     s.append(_text(t["path"], t["path2"], "", 7, N, h, 62 if lang == "en" else 56))
     s.append(page(
@@ -512,14 +511,13 @@ def story(lang):
         % (EMBLEM.format(s=120), 84 if lang == "en" else 76, t["imp"], 56 if lang == "en" else 52, t["imp2"]),
         "sage", 8, N, h))
     s.append(page(
-        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:60px">%s'
-        '<div class="h1" style="margin-top:44px;font-size:%dpx;font-style:italic">%s</div>'
-        '<div class="rule" style="margin-top:36px"></div>'
-        '<div class="body" style="margin-top:32px;max-width:860px;font-size:35px;color:#23392C">%s</div>'
-        '<div class="body" style="margin-top:20px;max-width:860px;font-size:35px">%s</div>%s'
-        '<div class="label" style="margin-top:36px;letter-spacing:.12em;text-transform:none">%s</div></div>'
-        % (ring_photo("images/cc4942476c283c1b1a3a7e8394274244.jpg", 290, "50% 30%"),
-           84 if lang == "en" else 70, t["end"], t["why"], t["end_sub"], _btn(t["cta"], 40), h),
+        '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:0">%s'
+        '<div class="h1" style="margin-top:28px;font-size:%dpx;font-style:italic">%s</div>'
+        '<div class="rule" style="margin-top:28px"></div>'
+        '<div class="body" style="margin-top:26px;max-width:900px;font-size:46px;line-height:1.36">%s</div>'
+        '<div class="body" style="margin-top:16px;max-width:900px;font-size:46px;line-height:1.36">%s</div>%s</div>'
+        % (ring_photo("images/cc4942476c283c1b1a3a7e8394274244.jpg", 210, "50% 30%"),
+           80 if lang == "en" else 66, t["end"], t["why"], t["end_sub"], _btn(t["cta"], 30)),
         "", 9, N, ""))
     return s
 
@@ -562,8 +560,8 @@ def _pairs(items, start, n, N, h, cls):
     """Two numbered items on one slide, always at the same height."""
     blocks = "".join(
         '<div style="padding:52px 0;border-bottom:1.5px solid #D8CFBF;display:flex;gap:40px">'
-        '<div style="font-family:\'Cormorant Garamond\';font-weight:500;font-size:130px;line-height:.8;color:#B89A5E;width:84px;flex:none">%d</div>'
-        '<div><div class="h3" style="font-size:64px">%s</div><div class="body" style="margin-top:18px;font-size:40px">%s</div></div></div>'
+        '<div style="font-family:\'Cormorant Garamond\';font-weight:600;font-size:130px;line-height:.8;color:#B89A5E;width:84px;flex:none">%d</div>'
+        '<div><div class="h3" style="font-size:66px">%s</div><div class="body" style="margin-top:20px">%s</div></div></div>'
         % (start + i, a, b) for i, (a, b) in enumerate(items))
     return page('<div style="padding-top:70px">'
                 '<div style="border-top:1.5px solid #D8CFBF">%s</div></div>' % blocks, cls, n, N, h)
@@ -572,7 +570,7 @@ def _pairs(items, start, n, N, h, cls):
 T["bloating"] = {
   "en": dict(
     kick="Digestion", title="Bloated by the afternoon?", sub="8 everyday things that may be behind it",
-    intro="Your jeans fit in the morning. By 4pm, they don&rsquo;t.",
+    intro="Your jeans fit in the morning.<br>By 4pm, they don&rsquo;t.",
     intro2="Bloating is often linked to gas building up in your gut. Food, drinks and the air you swallow add to it through the day, and stress and long hours at a desk can slow things down.",
     items=[("Eating quickly", "When you eat fast, you swallow more air. Sit down for lunch, even for 15 minutes."),
            ("Fizzy drinks", "The bubbles are gas. Swap one fizzy drink a day for still water or herbal tea."),
@@ -583,7 +581,7 @@ T["bloating"] = {
            ("Stress", "Your gut and brain are closely connected. Try a few slow breaths before you eat."),
            ("Your cycle", "Some women notice more bloating at certain times. Note your cycle day next to how you feel.")],
     one="Start with one change",
-    one2="Pick one thing from this list, try it for a week and notice what happens. My free 7-day diary makes it easier. The link is in my bio.",
+    one2="Pick one thing from this list, try it for a week and notice what happens. My free 7&#8209;day diary makes it easier. The link is in my bio.",
     gp="See your GP if you feel bloated most days for 3 weeks or more, if you&rsquo;re losing weight without trying, or if you see blood in your poo.",
     swipe="Swipe"),
   "ru": dict(
@@ -609,16 +607,16 @@ def bloating(lang):
     t, h, N = T["bloating"][lang], HANDLE[lang], 7
     s = [_cover_photo("images/d9e980fc6f2525e38a3eef2ba0d7c5f3.jpg", "50% 50%", t["kick"], t["title"], t["sub"], t["swipe"],
                       104 if lang == "en" else 100, 52 if lang == "en" else 46, N, h)]
-    s.append(_text(t["intro"], t["intro2"], "white", 2, N, h, 66 if lang == "en" else 60))
+    s.append(_text(t["intro"], t["intro2"], "white", 2, N, h, 76 if lang == "en" else 72))
     for k in range(4):
         s.append(_pairs(t["items"][2 * k:2 * k + 2], 2 * k + 1, k + 3, N, h, "" if k % 2 == 0 else "white"))
     s.append(page(
         '<div style="display:flex;gap:56px;align-items:center;margin-top:20px">%s</div>'
         '<div class="h2" style="margin-top:56px;font-size:%dpx">%s</div>'
-        '<div class="body" style="margin-top:30px;font-size:38px">%s</div>'
-        '<div style="position:absolute;left:96px;right:96px;bottom:150px;background:#F4EEE3;border-left:6px solid #9C4F1E;border-radius:16px;padding:36px 40px">'
-        '<div class="body" style="font-size:32px;color:#23392C">%s</div></div>'
-        % (ring_photo("images/e65d692a766322ff9007f1e03d416859.jpg", 230, "50% 30%"),
+        '<div class="body" style="margin-top:30px">%s</div>'
+        '<div style="position:absolute;left:96px;right:96px;bottom:150px;background:#F4EEE3;border-left:6px solid #9C4F1E;border-radius:16px;padding:34px 40px">'
+        '<div class="body" style="font-size:48px;line-height:1.36">%s</div></div>'
+        % (ring_photo("images/e65d692a766322ff9007f1e03d416859.jpg", 200, "50% 30%"),
            72 if lang == "en" else 64, t["one"], t["one2"], t["gp"]),
         "sage", N, N, h))
     return s
@@ -671,13 +669,13 @@ def diary(lang):
     s.append(page('<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
                   '<div class="label">%s</div>%s'
                   '<div style="margin-top:48px;background:#FBF8F2;border-left:6px solid #9C4F1E;border-radius:16px;padding:30px 36px">'
-                  '<div class="body" style="font-size:31px;color:#23392C">%s</div></div></div>' % (t["easy_l"], _steps(t["easy"]), t["care"]), "", 3, N, h))
+                  '<div class="body" style="font-size:42px;color:#23392C">%s</div></div></div>' % (t["easy_l"], _steps(t["easy"]), t["care"]), "", 3, N, h))
     s.append(page('<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
                   '<div class="label">%s</div>%s</div>' % (t["look_l"], _steps(t["look"])), "white", 4, N, h))
     s.append(page(
         '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:30px">%s'
         '<div class="h2" style="margin-top:36px;font-size:%dpx">%s</div>'
-        '<div class="body" style="margin-top:24px;max-width:860px;font-size:34px">%s</div>%s'
+        '<div class="body" style="margin-top:24px;max-width:860px;font-size:46px">%s</div>%s'
         '<div class="label" style="margin-top:32px;letter-spacing:.12em;text-transform:none">%s</div></div>'
         % (_mock(lang, 400, 1, 2), 68 if lang == "en" else 60, t["end"], t["end_sub"], _btn(t["cta"], 36), h),
         "sage", 5, N, ""))
@@ -729,7 +727,7 @@ T["allornothing"] = {
 
 def allornothing(lang):
     """Coaching (grid type A, her photo)."""
-    t, h, N = T["allornothing"][lang], HANDLE[lang], 6
+    t, h, N = T["allornothing"][lang], HANDLE[lang], 8
     s = [page(
         '<div style="display:flex;flex-direction:column;align-items:center;text-align:center;margin-top:60px">%s'
         '<div class="label" style="margin-top:56px">%s</div>'
@@ -740,16 +738,17 @@ def allornothing(lang):
            112 if lang == "en" else 104, t["title"], 50 if lang == "en" else 44, t["sub"], t["swipe"]),
         "", 1, N, h)]
     s.append(_text(t["s2"], t["s2b"], "white", 2, N, h, 66 if lang == "en" else 60))
-    s.append(page('<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
-                  '<div class="label">%s</div>%s</div>' % (t["traps_l"], _steps_ex(t["traps"])), "", 3, N, h))
-    s.append(page('<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
-                  '<div class="label">%s</div>%s</div>' % (t["help_l"], _steps_ex(t["help"])), "white", 4, N, h))
+    for k, (lab, key, cls) in enumerate([("traps_l", "traps", ""), ("help_l", "help", "white")]):
+        for j in range(2):
+            s.append(page('<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+                          '<div class="label">%s</div>%s</div>' % (t[lab], _steps_ex(t[key][2 * j:2 * j + 2], 2 * j)),
+                          cls, 3 + 2 * k + j, N, h))
     s.append(page(
         '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
         '<div>%s</div><div class="label" style="margin-top:60px">%s</div>'
         '<div class="h2" style="margin-top:36px;font-style:italic;font-size:%dpx">%s</div></div>'
         % (EMBLEM.format(s=120), t["q_l"], 84 if lang == "en" else 74, t["q"]),
-        "sage", 5, N, h))
+        "sage", 7, N, h))
     s.append(page(
         '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">'
         '<div class="h1" style="font-size:%dpx;font-style:italic">%s</div>'
@@ -757,7 +756,7 @@ def allornothing(lang):
         '<div class="body" style="margin-top:44px;max-width:820px">%s</div>%s'
         '<div class="label" style="margin-top:44px;letter-spacing:.12em;text-transform:none">%s</div></div>'
         % (96 if lang == "en" else 80, t["end"], t["end_sub"], _btn(t["cta"], 48), h),
-        "", 6, N, ""))
+        "", 8, N, ""))
     return s
 
 
@@ -772,8 +771,8 @@ def _photo_card(photo, pos, kick, body, n, N, h, sub=None, where="bottom:150px")
     return page(
         '<div style="position:absolute;inset:0;background:url(%s) %s/cover"></div>'
         '<div style="position:absolute;left:64px;right:64px;%s;background:rgba(251,248,242,.95);border-radius:24px;padding:44px 52px">'
-        '<div class="label">%s</div><div class="body" style="margin-top:18px;font-size:38px;color:#23392C">%s</div>%s</div>'
-        % (img(photo), pos, where, kick, body, '<div class="body" style="margin-top:14px;font-size:30px">%s</div>' % sub if sub else ""),
+        '<div class="label">%s</div><div class="body" style="margin-top:18px;font-size:48px;color:#23392C">%s</div>%s</div>'
+        % (img(photo), pos, where, kick, body, '<div class="body" style="margin-top:14px;font-size:40px">%s</div>' % sub if sub else ""),
         "", n, N, h)
 
 
@@ -807,7 +806,7 @@ def pancakes2(lang):
         s.append(page(
             '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
             '<div class="label">%s</div><div class="h2" style="margin-top:28px">%s</div><div class="rule" style="margin-top:44px"></div>'
-            '<div class="body" style="margin-top:40px;font-size:42px">%s</div>%s</div>'
+            '<div class="body" style="margin-top:40px;font-size:50px">%s</div>%s</div>'
             % (l, hh, b, '<div class="h3" style="margin-top:48px;font-style:italic;color:#4A5A4E;font-size:52px">%s</div>' % t["tag"] if i == 5 else ""),
             cls, i, N, h))
     return s
