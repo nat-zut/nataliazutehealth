@@ -813,3 +813,68 @@ def pancakes2(lang):
 
 
 POSTS["pancakes2"] = pancakes2
+
+
+# ---- Two breakfasts (rebuilt 10 Nov 2026 in text style v3; photos taken from the first version's slides,
+#      because the original photo files are not on this Mac) ----
+T["breakfasts"] = {
+  "en": dict(kick="Breakfast", title="Two breakfasts I keep coming back to", swipe="Swipe to see what&rsquo;s on the plate",
+             items=[("1 &middot; Savoury", "Omelette with chicken and tomatoes",
+                     "Chicken mince cooked with tomatoes and oregano, folded into an omelette. Red pepper and cucumber on the side.",
+                     "Protein and vegetables on one plate."),
+                    ("2 &middot; Fresh", "Coconut yoghurt bowl",
+                     "Coconut yoghurt with chia and sesame seeds, fresh fruit, kiwi and a few nuts.",
+                     "Five minutes, no cooking.")],
+             end_l="Your morning", end="Choose the one that suits your morning.",
+             end2="A slow morning? The omelette. In a rush? The yoghurt bowl. Both count.",
+             tag="Choose nourished, not perfect."),
+  "ru": dict(kick="Завтрак", title="Два завтрака, к&nbsp;которым я&nbsp;всё время возвращаюсь", swipe="Листайте, что на тарелке",
+             items=[("1 &middot; Сытный", "Омлет с курицей и&nbsp;помидорами",
+                     "Куриный фарш, потушенный с помидорами и орегано, в омлете. Рядом красный перец и огурец.",
+                     "Белок и овощи на одной тарелке."),
+                    ("2 &middot; Лёгкий", "Кокосовый йогурт",
+                     "Кокосовый йогурт с семенами чиа и кунжутом, свежими фруктами, киви и орешками.",
+                     "Пять минут, без готовки.")],
+             end_l="Ваше утро", end="Выберите тот, что подходит вашему утру.",
+             end2="Есть время? Омлет. Спешите? Йогурт. Оба варианта считаются.",
+             tag="Выбирайте заботу о себе, а не идеал."),
+}
+
+
+def breakfasts(lang):
+    t, h, N = T["breakfasts"][lang], HANDLE[lang], 4
+    ph = lambda i: img("_social/photos/breakfasts/%s-%02d.png" % (lang, i))
+    s = [page(
+        '<div style="position:absolute;inset:0;background:url(%s) 0 0/1080px 1350px"></div>'
+        '<div style="position:absolute;left:60px;right:60px;top:60px;min-height:%dpx;background:#FBF8F2;border-radius:28px;box-sizing:border-box;'
+        'padding:56px 60px 44px;box-shadow:0 10px 30px rgba(35,57,44,.10);display:flex;flex-direction:column">'
+        '<div class="label">%s</div>'
+        '<div class="h1" style="margin-top:22px;font-size:%dpx;line-height:1.04">%s</div>'
+        '<div class="arrow" style="margin-top:30px;font-size:40px;color:#23392C">%s &rarr;</div>'
+        '<div style="margin-top:auto;padding-top:30px;display:flex;justify-content:space-between;font-size:32px;font-weight:500">'
+        '<span>%s</span><span style="color:#7D5A28;letter-spacing:.14em">1 / %d</span></div></div>'
+        % (ph(1), 520 if lang == "en" else 610, t["kick"], 92 if lang == "en" else 84, t["title"], t["swipe"], h, N),
+        "", "", "", "")]
+    for i, (lab, title, body, note) in enumerate(t["items"]):
+        s.append(page(
+            '<div style="position:absolute;left:0;top:0;width:1080px;height:660px;background:url(%s) 0 0/1080px 1350px"></div>'
+            '<div style="position:absolute;left:96px;right:96px;top:670px">'
+            '<div class="label">%s</div>'
+            '<div class="h2" style="margin-top:18px;font-size:%dpx;line-height:1.05">%s</div>'
+            '<div class="body" style="margin-top:22px;font-size:48px;line-height:1.36">%s</div>'
+            '<div class="body" style="margin-top:20px;font-size:44px;color:#9C4F1E">%s</div></div>'
+            % (ph(i + 2), lab, 78 if lang == "en" else 74, title, body, note),
+            "" if i == 0 else "sage", i + 2, N, h))
+    s.append(page(
+        '<div style="height:1080px;display:flex;flex-direction:column;justify-content:center">'
+        '<div class="label">%s</div>'
+        '<div class="h1" style="margin-top:30px;font-size:%dpx;line-height:1.04">%s</div>'
+        '<div class="rule" style="margin-top:44px"></div>'
+        '<div class="body" style="margin-top:40px">%s</div>'
+        '<div class="h3" style="margin-top:36px;font-style:italic;font-size:60px">%s</div></div>'
+        % (t["end_l"], 110 if lang == "en" else 96, t["end"], t["end2"], t["tag"]),
+        "", 4, N, h))
+    return s
+
+
+POSTS["breakfasts"] = breakfasts
