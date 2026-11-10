@@ -7,7 +7,7 @@ Needs Python Playwright; on Natalia's Mac use ~/.local/share/nzh-venv/bin/python
 Text style v2 (7 Nov 2026): feedback that slide text was too small and thin on a phone. Body text is now
 bigger (46px), darker (Forest) and Jost Medium; headings Cormorant SemiBold; footer 30px with Bronze page numbers.
 Text style v3 (9 Nov 2026): more feedback that text was small (her reference: a Telegram post, big dark bold text).
-Minimums on the 1080px slide: body 52px, notes and small print 40px+, footer 34px. render() warns if text runs into the footer.
+Regular weight, not bold (10 Nov: bold looked out of place next to the logo). Minimums on the 1080px slide: body 56px, notes and small print 44px+, footer 36px. render() warns if text runs into the footer.
 """
 import asyncio, base64, os, sys, mimetypes
 from playwright.async_api import async_playwright
@@ -92,21 +92,21 @@ body{font-family:Jost;color:%(forest)s;-webkit-font-smoothing:antialiased;text-w
 .ln{font-family:'Cormorant Garamond';font-weight:500;font-size:24px;letter-spacing:.26em}
 .lr{width:1px;height:26px;background:%(gold)s}.ls{font-size:11px;font-weight:500;letter-spacing:.32em}
 .label{font-size:32px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:%(rust)s}
-.h1{font-family:'Cormorant Garamond';font-weight:600;font-size:112px;line-height:1.0;letter-spacing:-.01em}
-.h2{font-family:'Cormorant Garamond';font-weight:600;font-size:84px;line-height:1.06;letter-spacing:-.005em}
-.h3{font-family:'Cormorant Garamond';font-weight:600;font-size:64px;line-height:1.1}
-.big{font-family:'Cormorant Garamond';font-weight:600;font-size:80px;line-height:1.12}
-.body{font-size:52px;line-height:1.4;color:%(forest)s;font-weight:500}
+.h1{font-family:'Cormorant Garamond';font-weight:500;font-size:112px;line-height:1.0;letter-spacing:-.01em}
+.h2{font-family:'Cormorant Garamond';font-weight:500;font-size:84px;line-height:1.06;letter-spacing:-.005em}
+.h3{font-family:'Cormorant Garamond';font-weight:500;font-size:64px;line-height:1.1}
+.big{font-family:'Cormorant Garamond';font-weight:500;font-size:80px;line-height:1.12}
+.body{font-size:56px;line-height:1.42;color:%(forest)s;font-weight:400}
 .rule{width:120px;height:2px;background:%(gold)s}
 .foot{position:absolute;left:96px;right:96px;bottom:72px;display:flex;justify-content:space-between;align-items:center;
-  font-size:34px;font-weight:500;letter-spacing:.03em;color:%(forest)s}
+  font-size:36px;font-weight:400;letter-spacing:.03em;color:%(forest)s}
 .foot .n{color:%(bronze)s;letter-spacing:.14em}
 .ring{position:relative;flex:none}
 .photo{border-radius:999px 999px 24px 24px;background-size:cover;background-position:50%% 30%%}
 .steps{list-style:none;margin-top:56px;border-top:1.5px solid %(line)s}
 .steps li{display:flex;gap:40px;align-items:baseline;padding:40px 0;border-bottom:1.5px solid %(line)s}
-.steps .k{font-family:'Cormorant Garamond';font-weight:600;font-size:88px;line-height:.8;color:%(gold)s;width:60px;flex:none}
-.steps .t{font-size:50px;line-height:1.36;font-weight:500}
+.steps .k{font-family:'Cormorant Garamond';font-weight:500;font-size:88px;line-height:.8;color:%(gold)s;width:60px;flex:none}
+.steps .t{font-size:54px;line-height:1.38;font-weight:400}
 .arrow{font-size:36px;font-weight:500;color:%(rust)s;letter-spacing:.1em}
 """ % C
 
