@@ -44,13 +44,13 @@
     }
     var full = n === TOTAL;
     if (ru) {
-      if (full) setBar('Специальная цена для первых ' + TOTAL + ' клиенток.', 'Сессии начинаются 8 января.');
+      if (full) setBar('Специальная цена для первых ' + TOTAL + ' клиенток.', 'Сессии с 11 января.');
       else setBar('Специальная цена для первых клиенток: осталось всего ' + n + ' ' + mest(n) + '.');
       set('pill', full ? TOTAL + ' мест для первых клиенток' : 'Осталось всего ' + n + ' ' + mest(n) + ' для первых клиенток,');
       set('left', full ? 'Всего ' + TOTAL + ' мест' : 'Осталось ' + n + ' из ' + TOTAL + ' мест');
       return;
     }
-    if (full) setBar('My first ' + TOTAL + ' clients get a special price.', 'Sessions start on 8 January.');
+    if (full) setBar('My first ' + TOTAL + ' clients get a special price.', 'Sessions from 11 January.');
     else setBar('Special price for my first clients: only ' + n + ' ' + places(n) + ' left.');
     set('pill', full ? TOTAL + ' founding places' : 'Only ' + n + ' founding ' + places(n) + ' left,');
     set('left', full ? 'Only ' + TOTAL + ' places' : n + ' of ' + TOTAL + ' places left');
