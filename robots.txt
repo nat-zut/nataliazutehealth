@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /files/
+Disallow: /share/
 Sitemap: https://nataliazutehealth.com/sitemap.xml
