@@ -44,16 +44,16 @@
     }
     var full = n === TOTAL;
     if (ru) {
-      if (full) setBar('Специальная цена для первых ' + TOTAL + ' клиенток.', 'Сессии с 11 января.');
-      else setBar('Специальная цена для первых клиенток: осталось всего ' + n + ' ' + mest(n) + '.');
+      if (full) setBar('Скидка 49% для первых ' + TOTAL + ' клиенток.', 'Сессии с 11 января.');
+      else setBar('Скидка 49% для первых клиенток: осталось ' + n + ' ' + mest(n) + '.');
       set('pill', full ? TOTAL + ' мест для первых клиенток' : 'Осталось всего ' + n + ' ' + mest(n) + ' для первых клиенток,');
-      set('left', full ? 'Всего ' + TOTAL + ' мест' : 'Осталось ' + n + ' из ' + TOTAL + ' мест');
+      set('left', full ? 'Всего\u00a0' + TOTAL + '\u00a0мест' : 'Осталось ' + n + ' из ' + TOTAL + ' мест');
       return;
     }
-    if (full) setBar('My first ' + TOTAL + ' clients get a special price.', 'Sessions from 11 January.');
-    else setBar('Special price for my first clients: only ' + n + ' ' + places(n) + ' left.');
+    if (full) setBar('49% off for my first ' + TOTAL + ' clients.', 'Sessions from 11 January.');
+    else setBar('49% off for my first clients: only ' + n + ' ' + places(n) + ' left.');
     set('pill', full ? TOTAL + ' founding places' : 'Only ' + n + ' founding ' + places(n) + ' left,');
-    set('left', full ? 'Only ' + TOTAL + ' places' : n + ' of ' + TOTAL + ' places left');
+    set('left', full ? 'Only\u00a0' + TOTAL + '\u00a0places' : n + ' of ' + TOTAL + ' places left');
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
 })();
