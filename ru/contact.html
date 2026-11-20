@@ -165,7 +165,7 @@ img{max-width:100%}
     document.getElementById("plan-step").hidden = true;
     document.querySelectorAll(".pick-text, .pick-cal").forEach(function (el) { el.hidden = el.getAttribute("data-pick") !== which; });
     var s = services[which];
-    embed("ns-" + which, "#cal-" + which, s.link, s.plan ? function () { showPlanStep(which); } : null, s.notes);
+    embed("ns-" + which, "#cal-" + which, s.link, s.plan ? function () { showPlanStep(which); } : (FREE.indexOf(which) >= 0 ? function () { setTimeout(function () { location.href = "booked.html"; }, 1500); } : null), s.notes);
   }
   document.getElementById("bookpick").addEventListener("change", function () { pick(this.value); });
   document.querySelectorAll(".incpick").forEach(function (b) { b.addEventListener("click", function () { pick(b.getAttribute("data-pick")); }); });
