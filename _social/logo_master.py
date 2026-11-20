@@ -5,11 +5,13 @@ FOREST, CREAM, GOLD, BRONZE = '#23392C', '#F4EEE3', '#B89A5E', '#7D5A28'
 OUTER = 'M43.39 6.42A28 28 0 1 1 20.61 6.42'
 GOLD_A = 'M45.83 10.7A25.4 25.4 0 1 1 18.17 10.7'
 GOLD_B = 'M45.29 11.54A24.4 24.4 0 1 1 18.71 11.54'
+GOLD_XS = 'M44.75 12.38A23.4 23.4 0 1 1 19.25 12.38'
 SPROUT = 'M32 9.4V4.4M32 7.6C29.4 7.9 26.2 6.1 25.5 2.5C28.9 2.2 31.6 4.1 32 7.6ZM32 7.6C34.6 7.9 37.8 6.1 38.5 2.5C35.1 2.2 32.4 4.1 32 7.6Z'
-NZ_D = re.search(r'<path transform="translate\(18\.909 37\.938\) scale\(0\.19\)" d="([^"]+)"',
-                 open(os.path.join(HERE, '..', 'favicon.svg')).read()).group(1)
+NZ_D = open(os.path.join(HERE, 'nz_path.txt')).read().strip()
 # heaviest to lightest: outer ring, sprout, gold ring
-WEIGHTS = {'A': (1.6, 1.3, 1.1, GOLD_A), 'B': (2.0, 1.6, 1.6, GOLD_B), 'P': (2.6, 2.0, 2.0, GOLD_B)}
+WEIGHTS = {'A': (1.6, 1.3, 1.1, GOLD_A), 'B': (2.0, 1.6, 1.6, GOLD_B), 'XS': (2.2, 1.8, 1.4, GOLD_XS), 'P': (2.6, 2.0, 2.0, GOLD_B)}
+# NZ placement: normal, and larger for the profile version (designer review 20 Nov)
+NZ_POS = {'P': 'translate(16.85 38.9) scale(0.22)'}
 
 def emblem_inner(kind='A', dark=False, nz=True):
     o, s, g, gp = WEIGHTS[kind]
@@ -18,11 +20,12 @@ def emblem_inner(kind='A', dark=False, nz=True):
            f'<path d="{gp}" stroke="{GOLD}" stroke-width="{g}" stroke-linecap="round"/>'
            f'<path d="{SPROUT}" stroke="{GOLD}" stroke-width="{s}" stroke-linecap="round" stroke-linejoin="round"/>')
     if nz:
-        out += f'<path transform="translate(18.909 37.938) scale(0.19)" d="{NZ_D}" fill="{ink}" stroke="none"/>'
+        tr = NZ_POS.get(kind, 'translate(18.909 37.938) scale(0.19)')
+        out += f'<path transform="{tr}" d="{NZ_D}" fill="{ink}" stroke="none"/>'
     return out
 
 def emblem(size, kind=None, dark=False, attrs='aria-hidden="true"'):
-    kind = kind or ('A' if size >= 48 else 'B')
+    kind = kind or ('A' if size >= 48 else 'B' if size >= 32 else 'XS')
     return f'<svg width="{size}" height="{size}" viewBox="0 0 64 64" fill="none" {attrs}>{emblem_inner(kind, dark)}</svg>'
 
 def photo_ring_inner():
@@ -31,3 +34,11 @@ def photo_ring_inner():
     return (f'<path d="{OUTER}" stroke="{FOREST}" stroke-width="1.5" stroke-linecap="round" {ns}/>'
             f'<path d="{GOLD_A}" stroke="{GOLD}" stroke-width="1.25" stroke-linecap="round" {ns}/>'
             f'<path d="{SPROUT}" stroke="{GOLD}" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" {ns}/>')
+
+def favicon_svg():
+    """Simplified small icon (16-32px): no gold ring, heavier ring and sprout, larger NZ."""
+    return ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#23392C"/>'
+            '<g transform="translate(4.16 4.8) scale(.87)" fill="none">'
+            f'<path d="{OUTER}" stroke="{CREAM}" stroke-width="4" stroke-linecap="round"/>'
+            f'<path d="{SPROUT}" stroke="{GOLD}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'
+            f'<path transform="translate(14.1 40.18) scale(0.26)" d="{NZ_D}" fill="{CREAM}"/></g></svg>')
