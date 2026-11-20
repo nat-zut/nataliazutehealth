@@ -31,9 +31,9 @@ def emblem(size, kind=None, dark=False, attrs='aria-hidden="true"'):
 def photo_ring_inner():
     """Version C: fixed thin web lines over a photo clipped at r 21 (inset 17.1875%)."""
     ns = 'vector-effect="non-scaling-stroke"'
-    return (f'<path d="{OUTER}" stroke="{FOREST}" stroke-width="1.5" stroke-linecap="round" {ns}/>'
-            f'<path d="{GOLD_A}" stroke="{GOLD}" stroke-width="1.25" stroke-linecap="round" {ns}/>'
-            f'<path d="{SPROUT}" stroke="{GOLD}" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" {ns}/>')
+    return (f'<path d="{OUTER}" stroke="{FOREST}" stroke-width="1.9" stroke-linecap="round" {ns}/>'
+            f'<path d="{GOLD_A}" stroke="{GOLD}" stroke-width="1.5" stroke-linecap="round" {ns}/>'
+            f'<path d="{SPROUT}" stroke="{GOLD}" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" {ns}/>')
 
 def favicon_svg():
     """Simplified small icon (16-32px): no gold ring, heavier ring and sprout, larger NZ."""
