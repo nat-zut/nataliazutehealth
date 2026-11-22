@@ -44,16 +44,16 @@
     }
     var full = n === TOTAL;
     if (ru) {
-      if (full) setBar('Скидка 49% для первых ' + TOTAL + ' клиенток.', 'Сессии с 12 января.');
-      else setBar('Скидка 49% для первых клиенток: осталось ' + n + ' ' + mest(n) + '.');
-      set('pill', full ? TOTAL + ' мест для первых клиенток' : 'Осталось всего ' + n + ' ' + mest(n) + ' для первых клиенток,');
-      set('left', full ? 'Всего\u00a0' + TOTAL + '\u00a0мест' : 'Осталось ' + n + ' из ' + TOTAL + ' мест');
+      if (full) setBar('Стартовая цена программ на\u00a049%\u00a0ниже будущей: ' + TOTAL + '\u00a0мест.', 'Сессии с\u00a012\u00a0января.');
+      else setBar('Стартовая цена программ на\u00a049%\u00a0ниже будущей. Осталось ' + n + ' ' + mest(n) + '.');
+      set('pill', full ? TOTAL + ' мест для первых клиенток' : 'Осталось ' + n + ' ' + mest(n) + ' для первых клиенток,');
+      set('left', full ? TOTAL + '\u00a0мест' : 'Осталось ' + n + ' из ' + TOTAL + ' мест');
       return;
     }
-    if (full) setBar('49% off for my first ' + TOTAL + ' clients.', 'Sessions from 12 January.');
-    else setBar('49% off for my first clients: only ' + n + ' ' + places(n) + ' left.');
-    set('pill', full ? TOTAL + ' founding places' : 'Only ' + n + ' founding ' + places(n) + ' left,');
-    set('left', full ? 'Only\u00a0' + TOTAL + '\u00a0places' : n + ' of ' + TOTAL + ' places left');
+    if (full) setBar('Introductory offer: ' + TOTAL + ' programme places at 49%\u00a0below\u00a0future\u00a0prices.', 'Sessions from 12\u00a0January.');
+    else setBar('Introductory programme prices, 49% below future prices: ' + n + ' ' + places(n) + ' left.');
+    set('pill', full ? TOTAL + ' founding places' : n + ' founding ' + places(n) + ' left,');
+    set('left', full ? TOTAL + '\u00a0places' : n + ' of ' + TOTAL + ' places left');
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
 })();
